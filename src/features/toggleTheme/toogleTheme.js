@@ -11,12 +11,12 @@ export const toggleThemeSlice = createSlice({
     name: "toggleTheme",
     initialState,
     reducers: {
-        toggleMode: (state) => { state.isDarkMode = !state.isDarkMode }
+        toggleTheme: (state) => { state.isDarkMode = !state.isDarkMode }
     }
 })
 
 // Test --------------------- Exporting the actions ----------------------
-export const { toggleMode } = toggleThemeSlice.actions;
+export const { toggleTheme } = toggleThemeSlice.actions;
 
 // Test --------------------- Exporting the Reducers Functions -----------
 export default toggleThemeSlice.reducer;

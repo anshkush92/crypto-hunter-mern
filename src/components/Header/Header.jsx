@@ -15,11 +15,15 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 
 import { useSelector, useDispatch } from "react-redux";
+
 // Test -------------------------- Importing the styles / other components ----------------
+import { toggleTheme } from "../../features/toggleTheme/toogleTheme";
 
 // Test -------------------------- The current component ----------------------------------
 const Header = () => {
   const navbarOptions = ["Test 1", "Test 2", "Test 3"];
+  const isDarkMode = useSelector((state) => state.toggleTheme.isDarkMode);
+  const dispatch = useDispatch();
 
   return (
     <AppBar sx={{ backgroundColor: "#353434" }} position="static">
@@ -37,8 +41,8 @@ const Header = () => {
 
         <Box sx={{ display: "flex" }}>
           {navbarOptions.map((option) => (
-            <Link to={`/${option}`} style={{ textDecoration: "none" }}>
-              <Button key={option} variant="text" sx={{ color: "yellow" }}>
+            <Link key={option} to={`/${option}`} style={{ textDecoration: "none" }}>
+              <Button variant="text" sx={{ color: "yellow" }}>
                 {option}
               </Button>
             </Link>
@@ -58,9 +62,18 @@ const Header = () => {
           </Button>
         </Link>
 
-        <IconButton></IconButton>
-
-        <IconButton></IconButton>
+        <IconButton
+          onClick={() => {
+            dispatch(toggleTheme());
+          }}
+          sx={{color: "yellow"}}
+        >
+          {isDarkMode ? (
+            <DarkModeIcon></DarkModeIcon>
+          ) : (
+            <LightModeIcon></LightModeIcon>
+          )}
+        </IconButton>
       </Toolbar>
     </AppBar>
   );
