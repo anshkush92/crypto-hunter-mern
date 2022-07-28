@@ -1,17 +1,17 @@
 // Test -------------------------- Importing the Packages ---------------------------------
 import React from "react";
-import Background from "../../components/Background/Background";
-
-// Test -------------------------- Importing the styles / other components ----------------
+import { Box, styled } from "@mui/material";
 
 // Test -------------------------- The current component ----------------------------------
-const HomePage = () => {
-  return (
-    <Background>
-      <div>HomePage</div>
-    </Background>
-  );
+const BlackBackground = styled(Box)({
+  backgroundColor: "black",
+  color: "white",
+  height: "100vh",
+});
+
+const Background = (props) => {
+  return <BlackBackground>{props.children}</BlackBackground>;
 };
 
 // Test -------------------------- Exporting the current component ------------------------
-export default HomePage;
+export default Background;
