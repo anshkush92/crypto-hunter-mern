@@ -20,7 +20,16 @@ const Header = () => {
   return (
     <AppBar sx={{ backgroundColor: "#353434" }} position="static">
       <Toolbar>
-        <Typography variant="h5">Crypto Hunter</Typography>
+        <Link
+          to="/"
+          style={{
+            background: "inherit",
+            color: "inherit",
+            textDecoration: "none",
+          }}
+        >
+          <Typography variant="h5">Crypto Hunter</Typography>
+        </Link>
 
         <Box sx={{ display: "flex" }}>
           {navbarOptions.map((option) => (
@@ -32,16 +41,18 @@ const Header = () => {
           ))}
         </Box>
 
-        <Button
-          sx={{
-            color: "yellow",
-            borderColor: "yellow",
-            "&:hover": { borderColor: "yellow", backgroundColor: "#4e4e2e" },
-          }}
-          variant="outlined"
-        >
-          Login
-        </Button>
+        <Link to="/login" style={{ textDecoration: "none" }}>
+          <Button
+            sx={{
+              color: "yellow",
+              borderColor: "yellow",
+              "&:hover": { borderColor: "yellow", backgroundColor: "#4e4e2e" },
+            }}
+            variant="outlined"
+          >
+            Login
+          </Button>
+        </Link>
 
         <IconButton></IconButton>
       </Toolbar>
