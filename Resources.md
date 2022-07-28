@@ -3,5 +3,7 @@
 - [Material UI](https://mui.com/material-ui/react-autocomplete/)
     - [Box](https://mui.com/material-ui/react-box/)
     - [AppBar](https://mui.com/material-ui/react-app-bar/)
+    - [Menu](https://mui.com/material-ui/api/menu/)
 - [React Router DOM](httphttps://mui.com/material-ui/react-box/s://reactrouter.com/docs/en/v6/getting-started/overview)
+    - [Navigation](https://reactrouter.com/docs/en/v6/getting-started/overview#navigation)
 - [Chart JS](https://www.chartjs.org/docs/latest/)
