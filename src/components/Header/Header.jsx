@@ -5,12 +5,16 @@ import {
   Button,
   Toolbar,
   Typography,
-  List,
   Box,
   IconButton,
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
+
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
+
+import { useSelector, useDispatch } from "react-redux";
 // Test -------------------------- Importing the styles / other components ----------------
 
 // Test -------------------------- The current component ----------------------------------
@@ -53,6 +57,8 @@ const Header = () => {
             Login
           </Button>
         </Link>
+
+        <IconButton></IconButton>
 
         <IconButton></IconButton>
       </Toolbar>
