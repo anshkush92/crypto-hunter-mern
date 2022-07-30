@@ -9,6 +9,8 @@ import {
   IconButton,
   Select,
   MenuItem,
+  InputLabel,
+  FormControl
 } from "@mui/material";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -81,12 +83,17 @@ const Header = () => {
           </Link>
 
           <Box>
-            <Select label="Currency" sx={{ color: "yellow" }} autoWidth>
-              <MenuItem value="USD">USD</MenuItem>
-              <MenuItem value="INR">INR</MenuItem>
-              <MenuItem value="EUR">EUR</MenuItem>
-              <MenuItem value="RUS">RUS</MenuItem>
-            </Select>
+            <FormControl fullWidth>
+              <InputLabel id="currency">Curry</InputLabel>
+              <Select label="Currency" sx={{ color: "yellow" }} autoWidth>
+                <MenuItem value={"USD"}>USD</MenuItem>
+                <MenuItem value="INR" defaultValue>
+                  INR
+                </MenuItem>
+                <MenuItem value="EUR">EUR</MenuItem>
+                <MenuItem value="RUS">RUS</MenuItem>
+              </Select>
+            </FormControl>
           </Box>
 
           <Box>
