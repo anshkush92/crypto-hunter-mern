@@ -1,31 +1,21 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import {
-  AppBar,
-  Button,
-  Toolbar,
-  Typography,
-  Box,
-  IconButton,
-} from "@mui/material";
+import { AppBar, Button, Toolbar, Typography, Box } from "@mui/material";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import { Link } from "react-router-dom";
 
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import LightModeIcon from "@mui/icons-material/LightMode";
-
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 // Test -------------------------- Importing the styles / other components ----------------
-import { toggleTheme } from "../../features/toggleTheme/toogleTheme";
 import CurrencyChange from "./CurrencyChange";
+import ThemeChange from "./ThemeChange";
+import AuthButton from "./AuthButton";
 
 // Test -------------------------- The current component ----------------------------------
 const Header = () => {
   const navbarOptions = ["Test 1", "Test 2", "Test 3"];
   const isDarkMode = useSelector((state) => state.toggleTheme.isDarkMode);
-  const dispatch = useDispatch();
 
   const darkTheme = createTheme({
     palette: {
@@ -62,40 +52,19 @@ const Header = () => {
             ))}
           </Box>
 
-          <Link to="/login" style={{ textDecoration: "none" }}>
-            <Button
-              sx={{
-                color: "yellow",
-                borderColor: "yellow",
-                "&:hover": {
-                  borderColor: "yellow",
-                  backgroundColor: "#4e4e2e",
-                },
-              }}
-              variant="outlined"
-            >
-              Login
-            </Button>
-          </Link>
+          <Box>
+            <ThemeChange></ThemeChange>
+          </Box>
 
           <Box>
             <CurrencyChange></CurrencyChange>
           </Box>
 
-          <Box>
-            <IconButton
-              onClick={() => {
-                dispatch(toggleTheme());
-              }}
-              sx={{ color: "yellow" }}
-            >
-              {isDarkMode ? (
-                <DarkModeIcon></DarkModeIcon>
-              ) : (
-                <LightModeIcon></LightModeIcon>
-              )}
-            </IconButton>
+          <Box display="flex" gap={1}>
+            <AuthButton link="/signup">Sign Up</AuthButton>
+            <AuthButton link="/login">Login</AuthButton>
           </Box>
+           
         </Toolbar>
       </AppBar>
     </ThemeProvider>
