@@ -1,5 +1,5 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import React from "react";
+import { useState } from "react";
 import {
   AppBar,
   Button,
@@ -10,7 +10,7 @@ import {
   Select,
   MenuItem,
   InputLabel,
-  FormControl
+  FormControl,
 } from "@mui/material";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -27,6 +27,7 @@ import { toggleTheme } from "../../features/toggleTheme/toogleTheme";
 
 // Test -------------------------- The current component ----------------------------------
 const Header = () => {
+  const [currency, setCurrency] = useState("INR");
   const navbarOptions = ["Test 1", "Test 2", "Test 3"];
   const isDarkMode = useSelector((state) => state.toggleTheme.isDarkMode);
   const dispatch = useDispatch();
@@ -36,6 +37,10 @@ const Header = () => {
       mode: isDarkMode ? "dark" : "light",
     },
   });
+
+  const currencyHandler = (event) => {
+    setCurrency(event.target.value);
+  };
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -83,9 +88,14 @@ const Header = () => {
           </Link>
 
           <Box>
-            <FormControl fullWidth>
-              <InputLabel id="currency">Curry</InputLabel>
-              <Select label="Currency" sx={{ color: "yellow" }} autoWidth>
+            <FormControl sx={{}} fullWidth>
+              <InputLabel id="currency">Currency</InputLabel>
+              <Select
+                value={currency}
+                onChange={currencyHandler}
+                label="Currency"
+                sx={{ color: "yellow" }}
+              >
                 <MenuItem value={"USD"}>USD</MenuItem>
                 <MenuItem value="INR" defaultValue>
                   INR

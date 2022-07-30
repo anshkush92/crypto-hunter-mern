@@ -17,6 +17,7 @@
     - The components section of this is GEM [Theme Generator Very Useful](https://bareynol.github.io/mui-theme-creator/)
   - [Select Drop Down](https://mui.com/material-ui/react-select/)
     - Without the Input Label, it doesn't show label in the select items[StackBlitz Edit](https://mui.com/material-ui/react-select/#main-content)
+    - [Customizing Select MUI](https://mui-treasury.com/styles/select/)
 
 - [React Router DOM](httphttps://mui.com/material-ui/react-box/s://reactrouter.com/docs/en/v6/getting-started/overview)
   - [Navigation](https://reactrouter.com/docs/en/v6/getting-started/overview#navigation)
