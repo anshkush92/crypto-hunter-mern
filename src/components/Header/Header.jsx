@@ -24,6 +24,17 @@ import { useSelector, useDispatch } from "react-redux";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import { toggleTheme } from "../../features/toggleTheme/toogleTheme";
+import countriesData from "../../utilities/CountryAPI/countryAPI";
+
+// Running only first time because don't wawnt to re-render / run when state changes
+const countryPromise = Promise.resolve(countriesData());
+
+const getCountryData = async () => {
+  const countryData = await countryPromise;
+  console.log(countryData);
+};
+
+getCountryData();
 
 // Test -------------------------- The current component ----------------------------------
 const Header = () => {

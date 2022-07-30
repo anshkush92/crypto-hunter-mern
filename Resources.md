@@ -25,3 +25,4 @@
 - [Chart JS](https://www.chartjs.org/docs/latest/)
 - [Country API](https://restcountries.com/#api-endpoints-v3-all)
   - [Get keys of nested Objects](https://fedingo.com/how-to-get-nested-object-keys-in-javascript/#:~:text=You%20can%20access%20the%20nested,a%20list%20of%20its%20keys.)
+  - [Learnt how to access the value from the Async Function using Promise.resolve](https://bobbyhadz.com/blog/javascript-access-value-of-promise#:~:text=Use%20the%20Promise.,then(value%20%3D%3E%20console.)
