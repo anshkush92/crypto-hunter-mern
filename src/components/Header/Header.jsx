@@ -88,7 +88,7 @@ const Header = () => {
           </Link>
 
           <Box>
-            <FormControl sx={{}} fullWidth>
+            <FormControl sx={{ m: 1, minWidth: 80 }}>
               <InputLabel id="currency">Currency</InputLabel>
               <Select
                 value={currency}
@@ -96,10 +96,8 @@ const Header = () => {
                 label="Currency"
                 sx={{ color: "yellow" }}
               >
-                <MenuItem value={"USD"}>USD</MenuItem>
-                <MenuItem value="INR" defaultValue>
-                  INR
-                </MenuItem>
+                <MenuItem value="USD">USD</MenuItem>
+                <MenuItem value="INR">INR</MenuItem>
                 <MenuItem value="EUR">EUR</MenuItem>
                 <MenuItem value="RUS">RUS</MenuItem>
               </Select>
