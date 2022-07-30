@@ -19,6 +19,7 @@
     - Without the Input Label, it doesn't show label in the select items[StackBlitz Edit](https://mui.com/material-ui/react-select/#main-content)
     - [How to give Labels to Select in Material UI](https://mui.com/material-ui/react-select/#labels-and-helper-text)
     - [Customizing Select MUI](https://mui-treasury.com/styles/select/)
+  - [AutoComplete instead of select](https://mui.com/material-ui/react-autocomplete/#main-content)
 
 - [React Router DOM](httphttps://mui.com/material-ui/react-box/s://reactrouter.com/docs/en/v6/getting-started/overview)
   - [Navigation](https://reactrouter.com/docs/en/v6/getting-started/overview#navigation)

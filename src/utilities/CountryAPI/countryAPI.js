@@ -5,16 +5,17 @@ const countriesData = async () => {
     const data = await response.json();
     const countryData = [];
 
-    data.map((country) => countryData.push({ name: country.name.common, flag: country.flags.svg, currency: country.currencies }))
-
-    for (const country of countryData) {
-        for (const data in country) {
-            if (data === "currency" && country[data]) {
-                const key = Object.keys(country[data])[0];
-                country[data] = key;
-            }
+    for (let i = 0; i < data.length; i++) {
+        console.log(i, data[i].currencies);
+        if (data[i].currencies !== undefined) {
+            const label = Object.keys(data[i].currencies)[0];
+            console.log(label, Object.keys(data[i].currencies));
+            countryData.push({ name: data[i].name.common, flag: data[i].flags.svg, label })
         }
     }
+
+    console.log(countryData);
+
     return countryData;
 }
 

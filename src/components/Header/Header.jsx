@@ -11,6 +11,8 @@ import {
   MenuItem,
   InputLabel,
   FormControl,
+  Autocomplete,
+  TextField,
 } from "@mui/material";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -93,6 +95,16 @@ const Header = () => {
           </Link>
 
           <Box>
+            <Autocomplete
+              id="country-data"
+              options={countryData}
+              renderInput={(params) => (
+                <TextField {...params} label="Currency"></TextField>
+              )}
+            ></Autocomplete>
+          </Box>
+
+          <Box>
             <FormControl sx={{ m: 1, minWidth: 80 }}>
               <InputLabel id="currency">Currency</InputLabel>
               <Select
@@ -102,8 +114,8 @@ const Header = () => {
                 sx={{ color: "yellow" }}
               >
                 {countryData.map((country, index) => (
-                  <MenuItem key={index} value={country.currency}>
-                    {country.currency}
+                  <MenuItem key={index} value={country.label}>
+                    {country.label}
                   </MenuItem>
                 ))}
               </Select>
