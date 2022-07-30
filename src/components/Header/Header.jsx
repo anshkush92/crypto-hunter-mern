@@ -98,28 +98,27 @@ const Header = () => {
             <Autocomplete
               id="country-data"
               options={countryData}
+              sx={{ minWidth: 120 }}
+              renderOption={(props, option) => (
+                <Box
+                  component="li"
+                  sx={{ "& > img": { mr: 2, flexShrink: 0 } }}
+                  {...props}
+                  key={option.name}
+                >
+                  <img
+                    loading="lazy"
+                    width="20"
+                    src={option.flag}
+                    alt={option.name}
+                  />
+                  {option.label}
+                </Box>
+              )}
               renderInput={(params) => (
                 <TextField {...params} label="Currency"></TextField>
               )}
             ></Autocomplete>
-          </Box>
-
-          <Box>
-            <FormControl sx={{ m: 1, minWidth: 80 }}>
-              <InputLabel id="currency">Currency</InputLabel>
-              <Select
-                value={currency}
-                onChange={currencyHandler}
-                label="Currency"
-                sx={{ color: "yellow" }}
-              >
-                {countryData.map((country, index) => (
-                  <MenuItem key={index} value={country.label}>
-                    {country.label}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
           </Box>
 
           <Box>

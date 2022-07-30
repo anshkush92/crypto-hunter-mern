@@ -20,6 +20,8 @@
     - [How to give Labels to Select in Material UI](https://mui.com/material-ui/react-select/#labels-and-helper-text)
     - [Customizing Select MUI](https://mui-treasury.com/styles/select/)
   - [AutoComplete instead of select](https://mui.com/material-ui/react-autocomplete/#main-content)
+    - [Use this for adding the flag and country currency](https://mui.com/material-ui/react-autocomplete/#country-select)
+    - [Add Custom Keys to the AutoComplete](https://stackoverflow.com/questions/69395945/how-can-i-add-unique-keys-to-react-mui-autocomplete-component)
 
 - [React Router DOM](httphttps://mui.com/material-ui/react-box/s://reactrouter.com/docs/en/v6/getting-started/overview)
   - [Navigation](https://reactrouter.com/docs/en/v6/getting-started/overview#navigation)
