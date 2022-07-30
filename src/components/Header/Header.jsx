@@ -24,21 +24,15 @@ import { useSelector, useDispatch } from "react-redux";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import { toggleTheme } from "../../features/toggleTheme/toogleTheme";
-import countriesData from "../../utilities/CountryAPI/countryAPI";
+import useCountryData from "../../hooks/countryData/useCountryData";
 
-// Running only first time because don't wawnt to re-render / run when state changes
-const countryPromise = Promise.resolve(countriesData());
-
-const getCountryData = async () => {
-  const countryData = await countryPromise;
-  console.log(countryData);
-};
-
-getCountryData();
+// Test -------------------------- Getting Country data from API -------------------------
 
 // Test -------------------------- The current component ----------------------------------
 const Header = () => {
-  const [currency, setCurrency] = useState("INR");
+  const [currency, setCurrency] = useState("");
+  const { countryData } = useCountryData();
+
   const navbarOptions = ["Test 1", "Test 2", "Test 3"];
   const isDarkMode = useSelector((state) => state.toggleTheme.isDarkMode);
   const dispatch = useDispatch();
@@ -107,10 +101,11 @@ const Header = () => {
                 label="Currency"
                 sx={{ color: "yellow" }}
               >
-                <MenuItem value="USD">USD</MenuItem>
-                <MenuItem value="INR">INR</MenuItem>
-                <MenuItem value="EUR">EUR</MenuItem>
-                <MenuItem value="RUS">RUS</MenuItem>
+                {countryData.map((country, index) => (
+                  <MenuItem key={index} value={country.currency}>
+                    {country.currency}
+                  </MenuItem>
+                ))}
               </Select>
             </FormControl>
           </Box>
