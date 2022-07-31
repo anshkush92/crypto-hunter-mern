@@ -26,45 +26,44 @@ const Header = () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar sx={{ backgroundColor: "#353434" }} position="static">
-        <Toolbar>
-          <Link
-            to="/"
-            style={{
-              background: "inherit",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            <Typography variant="h5">Crypto Hunter</Typography>
-          </Link>
-
-          <Box sx={{ display: "flex" }}>
-            {navbarOptions.map((option) => (
-              <Link
-                key={option}
-                to={`/${option}`}
-                style={{ textDecoration: "none" }}
-              >
-                <Button variant="text" sx={{ color: "yellow" }}>
-                  {option}
-                </Button>
-              </Link>
-            ))}
-          </Box>
-
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <Box>
-            <ThemeChange></ThemeChange>
+            <Link
+              to="/"
+              style={{
+                background: "inherit",
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              <Typography variant="h5">Crypto Hunter</Typography>
+            </Link>
           </Box>
 
-          <Box>
-            <CurrencyChange></CurrencyChange>
-          </Box>
+          <Box display="flex" alignItems="center" justifyContent="space-between">
+            <Box display="flex" alignItems="center">
+              {navbarOptions.map((option) => (
+                <Link
+                  key={option}
+                  to={`/${option}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <Button variant="text" sx={{ color: "yellow" }}>
+                    {option}
+                  </Button>
+                </Link>
+              ))}
+              <CurrencyChange></CurrencyChange>
+            </Box>
 
-          <Box display="flex" gap={1}>
-            <AuthButton link="/signup">Sign Up</AuthButton>
-            <AuthButton link="/login">Login</AuthButton>
+            <Box display="flex" gap={1}>
+              <ThemeChange></ThemeChange>
+              <AuthButton link="/signup" buttonVariant="text">
+                Sign Up
+              </AuthButton>
+              <AuthButton link="/login">Login</AuthButton>
+            </Box>
           </Box>
-           
         </Toolbar>
       </AppBar>
     </ThemeProvider>

@@ -8,9 +8,11 @@ const countriesData = async () => {
     for (let i = 0; i < data.length; i++) {
         if (data[i].currencies !== undefined) {
             const label = Object.keys(data[i].currencies)[0];
-            countryData.push({ name: data[i].name.common, flag: data[i].flags.svg, label })
+            const symbol = data[i].currencies[label].symbol;
+            countryData.push({ name: data[i].name.common, flag: data[i].flags.svg, label, symbol })
         }
     }
+
     return countryData;
 }
 

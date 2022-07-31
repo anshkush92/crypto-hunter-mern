@@ -7,11 +7,12 @@ import { Link } from "react-router-dom";
 
 // Test -------------------------- The current component ----------------------------------
 const AuthButton = (props) => {
-  const { link, children } = props;
+  const { link, buttonVariant, children } = props;
 
   return (
     <Link to={link} style={{ textDecoration: "none" }}>
       <Button
+      variant={buttonVariant || "outlined"}
         sx={{
           color: "yellow",
           borderColor: "yellow",
@@ -20,7 +21,6 @@ const AuthButton = (props) => {
             backgroundColor: "#4e4e2e",
           },
         }}
-        variant="outlined"
       >
         {children}
       </Button>

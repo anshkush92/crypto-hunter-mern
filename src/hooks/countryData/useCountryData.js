@@ -13,7 +13,8 @@ const useCountryData = () => {
 
         const promiseResult = async () => {
             const data = await promise;
-            console.log(data);
+            // Only for checking whether getting correct data or not
+            // console.log(data);
             setCountryData(data);
         }
 
