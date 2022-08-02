@@ -7,7 +7,12 @@ import ErrorPage from "./pages/404Page/ErrorPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 
+import useCoinGeckoPing from "./hooks/coinGecko/useCoinGeckoPing";
+
 const App = () => {
+  // Giving the path ---> Testing
+  const hello = useCoinGeckoPing();
+
   return (
     <Routes>
       <Route path="/" element={<HomePage></HomePage>}></Route>
