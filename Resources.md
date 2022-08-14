@@ -48,3 +48,6 @@
   - [Learnt how to access the value from the Async Function using Promise.resolve](https://bobbyhadz.com/blog/javascript-access-value-of-promise)
 
 <hr>
+
+- Get started with the docs of the [React Caraousel](https://www.npmjs.com/package/react-responsive-carousel)
+  - Learn how to use this caraousel with these beautiful [Caraousel Examples](https://react-responsive-carousel.js.org/storybook/index.html?path=/story/01-basic--base)

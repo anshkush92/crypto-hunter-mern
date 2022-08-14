@@ -16,7 +16,7 @@ const HeroContent = () => {
       top="50%"
       left="50%"
       alignItems="center"
-      sx={{ transform: "translate(-50%, -50%)", gap: "30px", zIndex: "10001"}}
+      sx={{ transform: "translate(-50%, -50%)", gap: "30px"}}
     >
       <HeroText></HeroText>
       <HeroCaraousel></HeroCaraousel>
