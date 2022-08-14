@@ -11,10 +11,12 @@ import useCoinGeckoPing from "./hooks/coinGecko/useCoinGeckoPing";
 import useCoinGeckoTrending from "./hooks/coinGecko/useCoinGeckoTrending";
 
 const App = () => {
-  // Giving the path ---> Testing
-  const hello = useCoinGeckoPing();
+  // Giving the path ---> Testing working fine 
+  // const hello = useCoinGeckoPing();
+  
   // Testing out the Coin Gecko Trending Endpoint
   const trending = useCoinGeckoTrending();
+  console.log(trending);
 
   return (
     <Routes>
