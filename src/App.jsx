@@ -19,7 +19,7 @@ const App = () => {
   const trending = useCoinGeckoTrending();
   console.log(trending);
 
-  const search = useCurrencySearch("$ USD");
+  const search = useCurrencySearch({label: "USD", symbol: "$"});
   console.log(search);
 
   return (
