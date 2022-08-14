@@ -1,14 +1,17 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import { useState } from "react";
 import { Box, Autocomplete, TextField } from "@mui/material";
+import { useSelector, useDispatch } from "react-redux";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import useCountryData from "../../hooks/countryData/useCountryData";
+import { setCurrency } from "../../features/currencyChanger/currencyChanger";
 
 // Test -------------------------- The current component ----------------------------------
 const CurrencyChange = () => {
+  
   // For changing the state of app, when currency is changed
-  const [currency, setCurrency] = useState("$ (USD)");
+  const currency = useSelector((state) => state.currencyChanger.currency);
+  const dispatch = useDispatch();
 
   // Using the data from the country Rest APIs
   const { countryData } = useCountryData();
@@ -17,7 +20,7 @@ const CurrencyChange = () => {
   const currencyHandler = (event, newValue) => {
     // Used for enhancing to tell which currency is being used right now
     // console.log(newValue);
-    setCurrency(`${newValue.symbol} (${newValue.label})`);
+    dispatch(setCurrency({ label: newValue.label, symbol: newValue.symbol }));
   };
 
   return (

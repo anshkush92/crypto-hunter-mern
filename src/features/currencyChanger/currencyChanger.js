@@ -12,13 +12,13 @@ export const currencyChangerSlice = createSlice({
     initialState,
     reducers: {
         setCurrency: (state, action) => {
-            state.currency = `${action.symbol} (${action.label})`
+            state.currency = `${action.payload.symbol} (${action.payload.label})`
         }
     }
 })
 
 // Test --------------------- Exporting the actions ---------------------
-export const {setCurrency} = currencyChangerSlice.actions;
+export const { setCurrency } = currencyChangerSlice.actions;
 
 // Test --------------------- Exporting the Reducers Functions ------- 
 export default currencyChangerSlice.reducer;
