@@ -28,7 +28,7 @@ const CurrencyChange = () => {
       size="small"
       onChange={currencyHandler}
       isOptionEqualToValue={(option, value) => option.value === value.value}
-      defaultValue="INR"
+      defaultValue="USD"
       value={currency}
       id="country-data"
       options={countryData}
