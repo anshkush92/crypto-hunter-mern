@@ -1,20 +1,19 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import React from "react";
-import Background from "../../components/Background/Background";
-import Header from "../../components/Header/Header";
-import Hero from "../../components/Hero/Hero";
+import { Box } from "@mui/material";
+import HeroImage from "./HeroImage";
+import HeroText from "./HeroText";
 
 // Test -------------------------- Importing the styles / other components ----------------
 
 // Test -------------------------- The current component ----------------------------------
-const HomePage = () => {
+const Hero = () => {
   return (
-    <Background>
-      <Header></Header>
-      <Hero></Hero>
-    </Background>
+    <Box display="flex" flexDirection="column" position="relative">
+      <HeroImage></HeroImage>
+      <HeroText></HeroText>
+    </Box>
   );
 };
 
 // Test -------------------------- Exporting the current component ------------------------
-export default HomePage;
+export default Hero;

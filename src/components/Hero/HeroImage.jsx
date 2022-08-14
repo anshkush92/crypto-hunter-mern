@@ -1,20 +1,21 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import React from "react";
-import Background from "../../components/Background/Background";
-import Header from "../../components/Header/Header";
-import Hero from "../../components/Hero/Hero";
+import { Box } from "@mui/material";
 
 // Test -------------------------- Importing the styles / other components ----------------
+import Image from "../../assets/crypto.jpg";
 
 // Test -------------------------- The current component ----------------------------------
-const HomePage = () => {
+// Contains the image with the pre-defined height and the width
+const HeroImage = () => {
   return (
-    <Background>
-      <Header></Header>
-      <Hero></Hero>
-    </Background>
+    <Box
+      component="img"
+      alt="Crypto Image"
+      src={Image}
+      sx={{ height: "50vh", objectFit: "cover" }}
+    ></Box>
   );
 };
 
 // Test -------------------------- Exporting the current component ------------------------
-export default HomePage;
+export default HeroImage;
