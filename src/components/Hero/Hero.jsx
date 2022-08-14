@@ -1,7 +1,7 @@
 // Test -------------------------- Importing the Packages ---------------------------------
 import { Box } from "@mui/material";
 import HeroImage from "./HeroImage";
-import HeroText from "./HeroText";
+import HeroContent from "./HeroContent";
 
 // Test -------------------------- Importing the styles / other components ----------------
 
@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <Box display="flex" flexDirection="column" position="relative">
       <HeroImage></HeroImage>
-      <HeroText></HeroText>
+      <HeroContent></HeroContent>
     </Box>
   );
 };

@@ -4,24 +4,10 @@ import { Box, Typography } from "@mui/material";
 // Test -------------------------- Importing the styles / other components ----------------
 
 // Test -------------------------- The current component ----------------------------------
-// Contains the <div> as a wrapper which contains the <h4> and <p> tag with the logic for the text to be at the center of the hero image
-
-// <div>
-//      <h4> </h4>
-//      <p> </p>
-// </div> something like this
-
+// Contains the CENTERED hero text and with <div> </div> as the WRAPPER 
 const HeroText = () => {
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      position="absolute"
-      top="50%"
-      left="50%"
-      alignItems="center"
-      sx={{ transform: "translate(-50%, -50%)" }}
-    >
+    <Box display="flex" flexDirection="column" alignItems="center">
       <Typography variant="h4" sx={{ fontWeight: "bold", color: "white" }}>
         Crypto Hunter
       </Typography>

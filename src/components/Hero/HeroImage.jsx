@@ -5,15 +5,17 @@ import { Box } from "@mui/material";
 import Image from "../../assets/crypto.jpg";
 
 // Test -------------------------- The current component ----------------------------------
-// Contains the image with the pre-defined height and the width
+// Contains the image with the pre-defined HEIGHT and the WIDTH and <div> </div> as the WRAPPER
 const HeroImage = () => {
   return (
-    <Box
-      component="img"
-      alt="Crypto Image"
-      src={Image}
-      sx={{ height: "50vh", objectFit: "cover" }}
-    ></Box>
+    <Box height="50vh">
+      <Box
+        component="img"
+        alt="Crypto Image"
+        src={Image}
+        sx={{ height: "100%", width: "100%", objectFit: "cover" }}
+      ></Box>
+    </Box>
   );
 };
 
