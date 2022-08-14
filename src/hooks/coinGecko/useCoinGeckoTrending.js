@@ -18,7 +18,7 @@ const useCoinGeckoTrending = () => {
             // Getting the data from the API path which we requested
             const data = await promise;
             // Printing the data for now, then we will use state to set the state 
-            console.log(data);
+            // console.log(data);
             // Sets the trending data 
             setTrending(data.coins);
         }

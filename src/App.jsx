@@ -9,14 +9,18 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 
 import useCoinGeckoPing from "./hooks/coinGecko/useCoinGeckoPing";
 import useCoinGeckoTrending from "./hooks/coinGecko/useCoinGeckoTrending";
+import useCurrencySearch from "./hooks/coinGecko/useCurrencySearch";
 
 const App = () => {
   // Giving the path ---> Testing working fine 
   // const hello = useCoinGeckoPing();
-  
+
   // Testing out the Coin Gecko Trending Endpoint
   const trending = useCoinGeckoTrending();
   console.log(trending);
+
+  const search = useCurrencySearch("$ USD");
+  console.log(search);
 
   return (
     <Routes>

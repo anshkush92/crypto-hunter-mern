@@ -1,4 +1,3 @@
-// A function which checks whether the selected currency is in the permitted currency or not
 const currencies = [
     "btc",
     "eth",
@@ -63,6 +62,4 @@ const currencies = [
     "sats"
 ]
 
-const currencySearch = (currency) => {
-    
-}
+export default currencies;
