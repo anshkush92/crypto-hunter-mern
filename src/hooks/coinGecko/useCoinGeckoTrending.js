@@ -1,15 +1,15 @@
 // Test -------------------------- Importing the Packages ---------------------------------
 import { useEffect } from "react";
 
-// Test -------------------------- Importing the styles / other components ----------------
+// Test -------------------------- Importing the styles / other hooks ----------------
 import cryptoData from "../../utilities/CoinGeckoAPI/coinGeckoAPI";
 
 // Test -------------------------- The current hook ----------------------------------
-const useCoinGeckoPing = () => {
+const useCoinGeckoTrending = () => {
     // Checking whether the API is working correctly or not and it is working correctly
     useEffect(() => {
         // We can easily get the data from the API, by passing the path in the hook  
-        const promise = Promise.resolve(cryptoData("ping"));
+        const promise = Promise.resolve(cryptoData("search/trending"));
 
         // Getting the data from the promise, using await
         const promiseResult = async () => {
@@ -23,14 +23,14 @@ const useCoinGeckoPing = () => {
         promiseResult();
 
         return () => {
-            console.log("Cleanup function from useCoinGeckoPing.js");
+            console.log("Cleanup function from Coin Gecko Trending");
         };
     }, []);
 
 
-    return ("hello");
+    return ("hello from Coin Gecko Trending");
 }
 
 
 // Test -------------------------- Exporting the current hook ------------------------
-export default useCoinGeckoPing;
+export default useCoinGeckoTrending;

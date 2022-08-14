@@ -8,10 +8,13 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 
 import useCoinGeckoPing from "./hooks/coinGecko/useCoinGeckoPing";
+import useCoinGeckoTrending from "./hooks/coinGecko/useCoinGeckoTrending";
 
 const App = () => {
   // Giving the path ---> Testing
   const hello = useCoinGeckoPing();
+  // Testing out the Coin Gecko Trending Endpoint
+  const trending = useCoinGeckoTrending();
 
   return (
     <Routes>
