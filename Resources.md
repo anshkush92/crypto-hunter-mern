@@ -32,6 +32,8 @@
 
       - [Checking the values error in the Autocomplete in Material UI](https://stackoverflow.com/questions/61947941/material-ui-autocomplete-warning-the-value-provided-to-autocomplete-is-invalid)
 
+ - [Material UI Card](https://mui.com/material-ui/react-card/#main-content)
+    - Basic implmenentation of the Lizard Card
 <hr/>
 
 - [React Router DOM](httphttps://mui.com/material-ui/react-box/s://reactrouter.com/docs/en/v6/getting-started/overview)
@@ -51,3 +53,8 @@
 
 - Get started with the docs of the [React Caraousel](https://www.npmjs.com/package/react-responsive-carousel)
   - Learn how to use this caraousel with these beautiful [Caraousel Examples](https://react-responsive-carousel.js.org/storybook/index.html?path=/story/01-basic--base)
+
+<hr>
+
+- Get started with the [React Fast Marquee](https://www.react-fast-marquee.com/) for moving animation 
+  - Use this instead of the React Caraousel, and learn the basic difference between the carousel and marquee

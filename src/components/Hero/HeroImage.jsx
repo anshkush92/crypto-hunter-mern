@@ -6,9 +6,14 @@ import Image from "../../assets/crypto.jpg";
 
 // Test -------------------------- The current component ----------------------------------
 // Contains the image with the pre-defined HEIGHT and the WIDTH and <div> </div> as the WRAPPER
+
+// <div>
+//      <img> </img>
+// </div>
+
 const HeroImage = () => {
   return (
-    <Box height="50vh">
+    <Box height="100%">
       <Box
         component="img"
         alt="Crypto Image"

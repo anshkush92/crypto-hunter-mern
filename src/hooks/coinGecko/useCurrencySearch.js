@@ -15,7 +15,8 @@ const useCurrencySearch = (label) => {
     useEffect(() => {
         const currentCurrency = currencies.filter((current) => current === label)
 
-        console.log(currentCurrency);
+        // Checking whether the selected currency is present or not
+        // console.log(currentCurrency);
 
         // Logic for checking whether the currency is present or not
         setCurrencyIsFound(currentCurrency.length !== 0);

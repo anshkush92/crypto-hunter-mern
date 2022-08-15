@@ -18,7 +18,9 @@ const CurrencyChange = () => {
 
   // Now using the useCurrency Search to check whether the selected currency is in list or not
   const currencyIsFound = useCurrencySearch(label.toLowerCase());
-  console.log(currencyIsFound)
+  // Checking whether is selected currency is found or not
+  // If NOT FOUND, then changed to $ (INR) for NOW only
+  // console.log(currencyIsFound)
   
   // Using the data from the country Rest APIs
   const { countryData } = useCountryData();

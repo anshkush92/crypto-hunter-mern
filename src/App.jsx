@@ -7,20 +7,12 @@ import ErrorPage from "./pages/404Page/ErrorPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 
-import useCoinGeckoPing from "./hooks/coinGecko/useCoinGeckoPing";
-import useCoinGeckoTrending from "./hooks/coinGecko/useCoinGeckoTrending";
-import useCurrencySearch from "./hooks/coinGecko/useCurrencySearch";
+import useCoinGeckoExchangeRates from "./hooks/coinGecko/useCoinGeckoExchangeRates";
 
 const App = () => {
-  // Giving the path ---> Testing working fine 
-  // const hello = useCoinGeckoPing();
-
-  // Testing out the Coin Gecko Trending Endpoint
-  const trending = useCoinGeckoTrending();
-  console.log(trending);
-
-  const search = useCurrencySearch({label: "USD", symbol: "$"});
-  console.log(search);
+  // Testing out the Coin Gecko Exchange Rates Endpoint -----> Working fine 
+  const exchangeRates = useCoinGeckoExchangeRates();
+  console.log(exchangeRates);
 
   return (
     <Routes>
