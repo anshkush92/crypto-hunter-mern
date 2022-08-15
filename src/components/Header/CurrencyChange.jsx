@@ -17,7 +17,7 @@ const CurrencyChange = () => {
 
   // Using the data from the country Rest APIs
   const { countryData } = useCountryData();
-  console.log(countryData);
+  // console.log(countryData);
 
   // For changing the currency as well as the symbol
   const currencyHandler = (event, newValue) => {

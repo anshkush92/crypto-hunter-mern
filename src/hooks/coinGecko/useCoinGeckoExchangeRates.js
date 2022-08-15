@@ -16,7 +16,7 @@ const useCoinGeckoExchangeRates = () => {
             // Getting the data from the API path which we requested
             const data = await promise;
             // Printing the data for now, then we will use state to set the state 
-            console.log(data.rates);
+            // console.log(data.rates);
         }
 
         // Calling the promiseResult which returns / prints the data

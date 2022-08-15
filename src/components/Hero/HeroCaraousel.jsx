@@ -18,30 +18,32 @@ import { useSelector } from "react-redux";
 const HeroCaraousel = () => {
   // Getting the current currency from the state
   const currency = useSelector((state) => state.currencyChanger.label);
-  console.log(currency);
+  // console.log(currency);
 
-  // Using the /search/trending endpoint
+  // Using the /search/trending endpoint to get the trending currencies
   const trending = useCoinGeckoTrending();
-  console.log(trending);
+  // console.log(trending);
 
+  // Extracting the ids of the coins, to get the info of the coin from the /coins/markets ENDPOINT
   const trendingCoinsId = trending.map((coin) => coin.item.id);
-  console.log(trendingCoinsId);
+  // console.log(trendingCoinsId);
 
+  // Reducing the value, to send multiple currencies as single ID
   const initialValue = "";
   const reducedCoinsId = trendingCoinsId.reduce(
     (previousValue, currentValue) => `${previousValue}, ${currentValue}`,
     initialValue
   );
-  console.log(reducedCoinsId);
+  // console.log(reducedCoinsId);
 
   const trendingCoinsData = useCoinGeckoCurrencySingle(
     currency.toLowerCase(),
     reducedCoinsId
   );
-  console.log(trendingCoinsData);
+  // console.log(trendingCoinsData);
 
   let marquee;
-  
+
   if (trendingCoinsData) {
     marquee = trendingCoinsData.map((coin) => (
       <HeroCaraouselCard
