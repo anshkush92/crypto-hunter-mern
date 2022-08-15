@@ -7,13 +7,7 @@ import ErrorPage from "./pages/404Page/ErrorPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 
-import useCoinGeckoExchangeRates from "./hooks/coinGecko/useCoinGeckoExchangeRates";
-
 const App = () => {
-  // Testing out the Coin Gecko Exchange Rates Endpoint -----> Working fine 
-  const exchangeRates = useCoinGeckoExchangeRates();
-  console.log(exchangeRates);
-
   return (
     <Routes>
       <Route path="/" element={<HomePage></HomePage>}></Route>

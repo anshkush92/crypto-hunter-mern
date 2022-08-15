@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 
 // Test -------------------------- Importing the styles / other components ----------------
 import countriesData from '../../utilities/CountryAPI/countryAPI'
+import currencies from '../../data/currencies';
 
 // Test -------------------------- The current component ----------------------------------
 const useCountryData = () => {
@@ -13,9 +14,14 @@ const useCountryData = () => {
 
         const promiseResult = async () => {
             const data = await promise;
-            // Only for checking whether getting correct data or not
-            // console.log(data);
-            setCountryData(data);
+
+            // Logic for getting only the accepted currencies ----> Very Good
+            const newData = data.filter((country) => {
+                return currencies.find((currency) => currency === country.label.toLowerCase()) ? country : undefined;
+            })
+
+            // Setting the countries which only have the acceptable currency for the Coin Gecko API
+            setCountryData(newData);
         }
 
         promiseResult();

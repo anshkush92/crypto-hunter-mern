@@ -23,7 +23,8 @@ const useCurrencySearch = (label) => {
 
         // Logic for changing the currency to default when the currency not present in currencies
         if (!currencyIsFound) {
-            dispatch(setCurrency({label: "INR", symbol: "$"}));
+            dispatch(setCurrency({label: "USD", symbol: "$"}));
+            setCurrencyIsFound(true);
         }
 
         return () => {

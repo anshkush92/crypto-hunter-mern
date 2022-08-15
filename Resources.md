@@ -58,3 +58,10 @@
 
 - Get started with the [React Fast Marquee](https://www.react-fast-marquee.com/) for moving animation 
   - Use this instead of the React Caraousel, and learn the basic difference between the carousel and marquee
+
+<hr>
+
+  - Basic JavaScript Functions 
+    - Removing Undefined values with the help of [.filter](https://stackoverflow.com/questions/28607451/removing-undefined-values-from-array)
+    - To reduce the array [.reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+    - To find whether value present in array or not [.find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find) 
