@@ -12,7 +12,10 @@ import {
 // Test -------------------------- Importing the styles / other components ----------------
 
 // Test -------------------------- The current component ----------------------------------
-const HeroCaraouselCard = () => {
+// Using <Box> </Box> as the wrapper for providing styles to the whole HERO CARD CONTENT
+const HeroCaraouselCard = (props) => {
+  const { name, image, price, rank, symbol } = props;
+
   return (
     <Card
       sx={{
@@ -23,27 +26,29 @@ const HeroCaraouselCard = () => {
     >
       <CardMedia
         component="img"
-        alt="random"
+        alt={name}
         height="120px"
-        // width="50px"
-        image="https://assets.coingecko.com/coins/images/16801/large/ufo.png?1644048038"
+        image={image}
+        sx={{ objectFit: "contain" }}
       ></CardMedia>
 
-      <CardContent sx={{ pb: "8px" }}>
-        <Box display="flex" justifyContent="space-between">
-          <Typography variant="body1">BTC</Typography>
-          <Typography variant="body1">Rank - 230</Typography>
-        </Box>
+      <Box backgroundColor="#ebebeb">
+        <CardContent sx={{ pb: "8px" }}>
+          <Box display="flex" justifyContent="space-between">
+            <Typography variant="body1">{symbol}</Typography>
+            <Typography variant="body1">Rank - {rank}</Typography>
+          </Box>
 
-        <Box display="flex" flexDirection="column">
-          <Typography variant="body2">Bitcoin</Typography>
-          <Typography variant="body2">Price - $55</Typography>
-        </Box>
-      </CardContent>
+          <Box display="flex" flexDirection="column">
+            <Typography variant="body2">{name}</Typography>
+            <Typography variant="body2">Price - {price}</Typography>
+          </Box>
+        </CardContent>
 
-      <CardActions sx={{ pt: "0" }}>
-        <Button>Read More</Button>
-      </CardActions>
+        <CardActions sx={{ pt: "0" }}>
+          <Button>Read More</Button>
+        </CardActions>
+      </Box>
     </Card>
   );
 };
