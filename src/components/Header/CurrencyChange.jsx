@@ -5,25 +5,19 @@ import { useSelector, useDispatch } from "react-redux";
 // Test -------------------------- Importing the styles / other components ----------------
 import useCountryData from "../../hooks/countryData/useCountryData";
 import { setCurrency } from "../../features/currencyChanger/currencyChanger";
-import useCurrencySearch from "../../hooks/coinGecko/useCurrencySearch";
 
 // Test -------------------------- The current component ----------------------------------
 const CurrencyChange = () => {
   // For changing the state of app, when currency is changed
-  const { currency, label } = useSelector((state) => state.currencyChanger);
+  const { currency } = useSelector((state) => state.currencyChanger);
   const dispatch = useDispatch();
 
   // Checking the state of the currency is changing or not using the react redux ---> Working fine
   // console.log(currency, label, symbol);
 
-  // Now using the useCurrency Search to check whether the selected currency is in list or not
-  const currencyIsFound = useCurrencySearch(label.toLowerCase());
-  // Checking whether is selected currency is found or not
-  // If NOT FOUND, then changed to $ (INR) for NOW only
-  // console.log(currencyIsFound)
-  
   // Using the data from the country Rest APIs
   const { countryData } = useCountryData();
+  console.log(countryData);
 
   // For changing the currency as well as the symbol
   const currencyHandler = (event, newValue) => {
