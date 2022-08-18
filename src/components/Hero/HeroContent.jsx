@@ -17,14 +17,13 @@ import HeroText from "./HeroText";
 const HeroContent = () => {
   return (
     <Box
-    width="100%"
+      width="100%"
       display="flex"
       flexDirection="column"
-      position="absolute"
-      top="50%"
-      left="50%"
+      justifyContent="center"
       alignItems="center"
-      sx={{ transform: "translate(-50%, -50%)", gap: "30px"}}
+      padding="16px 0px"
+      sx={{gap: "30px", zIndex: "10"}}
     >
       <HeroText></HeroText>
       <HeroCaraousel></HeroCaraousel>

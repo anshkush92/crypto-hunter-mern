@@ -5,7 +5,25 @@ import { Box } from "@mui/material";
 
 // Test -------------------------- The current component ----------------------------------
 const HeroExchange = () => {
-  return <Box>HeroExchange</Box>;
+  return (
+    <Box>
+      <Box>Hero Exchange</Box>
+      <Box>Hero Exchange</Box>
+      <Box>Hero Exchange</Box>
+      <Box>Hero Exchange</Box>
+      <Box>Hero Exchange</Box>
+      <Box>Hero Exchange</Box>
+      <Box>Hero Exchange</Box>
+      <Box>Hero Exchange</Box>
+      <Box>Hero Exchange</Box>
+      <Box>Hero Exchange</Box>
+      <Box>Hero Exchange</Box>
+      <Box>Hero Exchange</Box>
+      <Box>Hero Exchange</Box>
+      <Box>Hero Exchange</Box>
+      <Box>Hero Exchange</Box>
+    </Box>
+  );
 };
 
 

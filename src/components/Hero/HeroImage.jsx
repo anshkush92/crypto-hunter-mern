@@ -18,7 +18,7 @@ const HeroImage = () => {
         component="img"
         alt="Crypto Image"
         src={Image}
-        sx={{ height: "100%", width: "100%", objectFit: "cover" }}
+        sx={{ height: "100%", width: "100%", objectFit: "cover", position: "absolute" }}
       ></Box>
     </Box>
   );
