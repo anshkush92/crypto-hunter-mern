@@ -1,11 +1,15 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import cryptoData from "../../utilities/CoinGeckoAPI/coinGeckoAPI";
 
 // Test -------------------------- The current component ----------------------------------
 const useCoinGeckoExchangeRates = (from, to, amount) => {
+    // If we won't be using the state then we have define the variable inside the useEffect() Hook which will reduce its
+    // scope to the useEffect() and we won't be able to return that value
+    const [convertedAmount, setConvertedAmount] = useState(0);
+
     // As all the labels for the currency are mentioned in LowerCase, so converting in lower case only
     const fromCurrency = from.toLowerCase();
     const toCurrency = to.toLowerCase();
@@ -52,8 +56,11 @@ const useCoinGeckoExchangeRates = (from, to, amount) => {
             console.log(toDataCurrency);
 
             // Currency Convertor Working Fine -----> Basic Unitary Method
-            const convertedAmount = (amount * toDataCurrency.value) / fromDataCurrency.value;
-            console.log(`${toDataCurrency.unit} ${convertedAmount}`);
+            const newAmount = (amount * toDataCurrency.value) / fromDataCurrency.value;
+            console.log(`${toDataCurrency.unit} ${newAmount}`);
+
+            // Setting the state with the converted amount
+            setConvertedAmount(newAmount);
         }
 
         // Calling the promiseResult which returns / prints the data
@@ -65,7 +72,7 @@ const useCoinGeckoExchangeRates = (from, to, amount) => {
     }, [fromCurrency, toCurrency, amount]);
 
 
-    return ("Exchange Rates");
+    return (convertedAmount);
 }
 
 

@@ -10,7 +10,7 @@ import useCoinGeckoExchangeRates from "./hooks/coinGecko/useCoinGeckoExchangeRat
 
 const App = () => {
 
-  const exchangeRates = useCoinGeckoExchangeRates("usd", "inr", 1);
+  const exchangeRates = useCoinGeckoExchangeRates("usd", "inr", 4);
   console.log(exchangeRates);
 
   return (
