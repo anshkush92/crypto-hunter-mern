@@ -16,6 +16,7 @@
   - [AppBar](https://mui.com/material-ui/react-app-bar/)
     - [AppBar with Options](https://mui.com/#responsive-app-bar-with-drawer)
   - [Menu](https://mui.com/material-ui/api/menu/)
+  - [Divider](https://mui.com/material-ui/react-divider/#main-content)
   - [Button](https://mui.com/material-ui/react-button/#main-content)
     - [IconButton](https://mui.com/material-ui/react-button/#icon-button)
   - [Dark Theme](https://mui.com/material-ui/customization/dark-mode/#main-content)
