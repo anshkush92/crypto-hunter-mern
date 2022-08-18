@@ -6,8 +6,13 @@ import { Routes, Route } from "react-router-dom";
 import ErrorPage from "./pages/404Page/ErrorPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
+import useCoinGeckoExchangeRates from "./hooks/coinGecko/useCoinGeckoExchangeRates";
 
 const App = () => {
+
+  const exchangeRates = useCoinGeckoExchangeRates("usd", "inr", 1);
+  console.log(exchangeRates);
+
   return (
     <Routes>
       <Route path="/" element={<HomePage></HomePage>}></Route>

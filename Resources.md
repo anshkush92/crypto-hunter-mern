@@ -64,4 +64,6 @@
   - Basic JavaScript Functions 
     - Removing Undefined values with the help of [.filter](https://stackoverflow.com/questions/28607451/removing-undefined-values-from-array)
     - To reduce the array [.reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
-    - To find whether value present in array or not [.find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find) 
+    - To find whether value present in array or not [.find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+    - Converting Arrays of object into the Arrays of Arrays [Object.entries()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
+      - [Create objects with variable keys and variable values](https://stackoverflow.com/questions/11508463/javascript-set-object-key-by-variable#:~:text=You%20need%20to%20make%20the,push(obj)%3B)

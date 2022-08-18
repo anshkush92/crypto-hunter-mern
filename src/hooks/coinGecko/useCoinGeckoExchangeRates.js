@@ -5,18 +5,55 @@ import { useEffect } from "react";
 import cryptoData from "../../utilities/CoinGeckoAPI/coinGeckoAPI";
 
 // Test -------------------------- The current component ----------------------------------
-const useCoinGeckoExchangeRates = () => {
-    // Checking whether the API is working correctly or not and it is working correctly
+const useCoinGeckoExchangeRates = (from, to, amount) => {
+    // As all the labels for the currency are mentioned in LowerCase, so converting in lower case only
+    const fromCurrency = from.toLowerCase();
+    const toCurrency = to.toLowerCase();
+
+    console.log(fromCurrency, toCurrency, amount);
     useEffect(() => {
         // We can easily get the data from the API, by passing the path in the hook  
         const promise = Promise.resolve(cryptoData("exchange_rates"));
+
 
         // Getting the data from the promise, using await
         const promiseResult = async () => {
             // Getting the data from the API path which we requested
             const data = await promise;
-            // Printing the data for now, then we will use state to set the state 
+
+            // Printing the data to see whether the data we are getting is correct or not ------> Correct data 
             // console.log(data.rates);
+
+            // Converting the objects into array of 
+            const obj = Object.entries(data.rates);
+            // console.log(obj);
+
+            let currencyData = [];
+
+            for (const currency of obj) {
+                let obj = {}
+                obj[currency[0]] = currency[1];
+                currencyData.push(obj);
+            }
+
+            // Only for checking whehther we are getting data in correct format or not ------> Correct Format
+            // console.log(currencyData);
+
+            // Was getting undefined when using .[dot] because, it uses that variable (instead of variable's value)
+            const fromData = currencyData.find((currency) => currency[fromCurrency] !== undefined)
+            // Stores the currency object with differnet properties
+            const fromDataCurrency = fromData[fromCurrency];
+            console.log(fromDataCurrency);
+
+            // When using the [] operation then we get the variable's value instead of the variable, so using [] instead of .[dot]
+            const toData = currencyData.find((currency) => currency[toCurrency] !== undefined)
+            // Stores the currency object with currency as key
+            const toDataCurrency = toData[toCurrency];
+            console.log(toDataCurrency);
+
+            // Currency Convertor Working Fine -----> Basic Unitary Method
+            const convertedAmount = (amount * toDataCurrency.value) / fromDataCurrency.value;
+            console.log(`${toDataCurrency.unit} ${convertedAmount}`);
         }
 
         // Calling the promiseResult which returns / prints the data
@@ -25,7 +62,7 @@ const useCoinGeckoExchangeRates = () => {
         return () => {
             console.log("Cleanup function from use Coin Gecko Exchange Rates");
         };
-    }, []);
+    }, [fromCurrency, toCurrency, amount]);
 
 
     return ("Exchange Rates");
