@@ -8,7 +8,7 @@ import cryptoData from "../../utilities/CoinGeckoAPI/coinGeckoAPI";
 const useCoinGeckoExchangeRates = (from, to, amount) => {
     // If we won't be using the state then we have define the variable inside the useEffect() Hook which will reduce its
     // scope to the useEffect() and we won't be able to return that value
-    const [convertedAmount, setConvertedAmount] = useState(0);
+    const [convertedAmount, setConvertedAmount] = useState("");
 
     // As all the labels for the currency are mentioned in LowerCase, so converting in lower case only
     const fromCurrency = from.toLowerCase();

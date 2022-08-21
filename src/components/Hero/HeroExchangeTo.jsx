@@ -1,5 +1,5 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Autocomplete,
@@ -10,12 +10,16 @@ import {
 } from "@mui/material";
 
 // Test -------------------------- Importing the styles / other components ----------------
-import currencies from "../.././data/currencies";
+import currencies from "../../data/currencies";
 
 // Test -------------------------- The current component ----------------------------------
-const HeroExchange = ({ label }) => {
-  const [currency, setCurrency] = useState(label === "TO" ? "INR" : "USD");
-  const [amount, setAmount] = useState()
+const HeroExchangeTo = (props) => {
+  // Props to pass the value from this component to the parent
+  const { getToCurrency, convertedAmount } = props;
+  console.log(convertedAmount);
+
+  const [currency, setCurrency] = useState("INR");
+  const [amount, setAmount] = useState("");
 
   // Need a label object in the [] for the AutoComplete
   const newCurrencies = currencies.map((currency) => {
@@ -23,20 +27,26 @@ const HeroExchange = ({ label }) => {
   });
 
   const currencyHandler = (event, newValue) => {
+    // For getting the newly selected currency ----> Working fine
     setCurrency(newValue.label);
+    getToCurrency(newValue.label);
   };
 
-  const amountHandler = (event) => {
-    setAmount(event.target.value);
-  }
+  // Fires up whenever there is a change in the currency or the for Amount
+  useEffect(() => {
+    setAmount(convertedAmount);
+    return () => {
+      console.log("Clean Up function from Hero Exchange To");
+    };
+  }, [convertedAmount, currency]);
 
   return (
     <Paper
-      sx={{ p: "2px 4px", display: "flex",alignItems: "center", width: 400 }}
+      sx={{ p: "2px 4px", display: "flex", alignItems: "center", width: 400 }}
     >
       <InputBase
         readOnly
-        value={label}
+        value="TO"
         sx={{ width: "80px", textAlign: "center" }}
       ></InputBase>
       <Divider sx={{ height: 28, m: "auto", mr: 1 }} orientation="vertical" />
@@ -44,8 +54,8 @@ const HeroExchange = ({ label }) => {
       <InputBase
         // sx={{ ml: 1, flex: 1 }}
         placeholder="Amount"
+        readOnly
         value={amount}
-        onChange={amountHandler}
         inputProps={{ "aria-label": "Amount" }}
       />
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
@@ -78,4 +88,4 @@ const HeroExchange = ({ label }) => {
 };
 
 // Test -------------------------- Exporting the current component ------------------------
-export default HeroExchange;
+export default HeroExchangeTo;
