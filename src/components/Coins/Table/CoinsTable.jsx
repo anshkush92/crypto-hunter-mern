@@ -1,4 +1,5 @@
 // Test -------------------------- Importing the Packages ---------------------------------
+import { useState } from "react";
 import {
   TableContainer,
   TableRow,
@@ -8,10 +9,14 @@ import {
   TableBody,
   Typography,
   Box,
+  Paper,
+  TableFooter,
+  TablePagination,
 } from "@mui/material";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import useCoinGeckoCoinsList from "../../../hooks/coinGecko/useCoinGeckoList";
+import TablePaginationActions from "./TabelPaginationActions";
 import { useSelector } from "react-redux";
 
 // Test -------------------------- The current component ----------------------------------
@@ -21,33 +26,57 @@ const CoinsTable = () => {
   const { label, symbol } = useSelector((state) => state.currencyChanger);
   console.log(label, symbol);
 
+  // Storing the heading of the table Rows
+  const tableRows = ["Coin", "Price", "24hr Change", "Market Cap"];
+
+  const tableRowsComponent = tableRows.map((cell) => (
+    <TableCell key={cell} sx={{ backgroundColor: "yellow", fontWeight: "700" }}>
+      {cell}
+    </TableCell>
+  ));
+
+  // Handling the change in the pages
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+
   // Getting the coins Data from the API and then listing in the form of the table
-  const coinsList = useCoinGeckoCoinsList(label.toLowerCase(), "100", "1");
+  const coinsList = useCoinGeckoCoinsList(
+    label.toLowerCase(),
+    rowsPerPage,
+    page + 1
+  );
   console.log(coinsList);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
 
   return (
     <TableContainer
-      sx={{ backgroundColor: "lavender", width: "90%", m: "auto" }}
+      component={Paper}
+      sx={{
+        width: "90%",
+        m: "30px auto",
+        overflowX: "initial",
+        borderRadius: "8px",
+      }}
     >
-      <Table>
-        <TableHead sx={{ backgroundColor: "yellow" }}>
+      <Table stickyHeader>
+        <TableHead style={{ backgroundColor: "yellow" }}>
           <TableRow>
-            <TableCell sx={{ fontWeight: "700" }}>Rank</TableCell>
-            <TableCell align="left" sx={{ fontWeight: "700" }}>
-              Coin
+            <TableCell sx={{ backgroundColor: "yellow", fontWeight: "700" }}>
+              Rank
             </TableCell>
-            <TableCell align="left" sx={{ fontWeight: "700" }}>
-              Price
-            </TableCell>
-            <TableCell align="left" sx={{ fontWeight: "700" }}>
-              24h Change
-            </TableCell>
-            <TableCell align="left" sx={{ fontWeight: "700" }}>
-              MarketCap
-            </TableCell>
+            {tableRowsComponent}
           </TableRow>
         </TableHead>
-        <TableBody sx={{ backgroundColor: "black", color: "white" }}>
+
+        <TableBody sx={{ backgroundColor: "#020a0a", color: "white" }}>
           {coinsList.map((row) => (
             <TableRow key={row.id}>
               <TableCell sx={{ color: "white" }}>
@@ -78,8 +107,13 @@ const CoinsTable = () => {
               <TableCell align="left" sx={{ color: "white" }}>
                 {symbol} {row.current_price}
               </TableCell>
-              <TableCell align="left" sx={{ color: "white" }}>
-                {row.price_change_percentage_24h}
+              <TableCell
+                align="left"
+                sx={{
+                  color: row.price_change_percentage_24h >= 0 ? "green" : "red",
+                }}
+              >
+                {row.price_change_percentage_24h} %
               </TableCell>
               <TableCell align="left" sx={{ color: "white" }}>
                 {symbol} {row.market_cap}
@@ -87,6 +121,27 @@ const CoinsTable = () => {
             </TableRow>
           ))}
         </TableBody>
+        <TableFooter>
+          <TableRow>
+            <TablePagination
+              rowsPerPageOptions={[
+                5,
+                10,
+                25,
+                50,
+                75,
+                { label: "All", value: -1 },
+              ]}
+              colSpan={3}
+              count={100 * 250}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+              ActionsComponent={TablePaginationActions}
+            ></TablePagination>
+          </TableRow>
+        </TableFooter>
       </Table>
     </TableContainer>
   );
