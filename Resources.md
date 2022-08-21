@@ -34,12 +34,11 @@
       - [Checking the values error in the Autocomplete in Material UI](https://stackoverflow.com/questions/61947941/material-ui-autocomplete-warning-the-value-provided-to-autocomplete-is-invalid)
 
   - [Material UI Card](https://mui.com/material-ui/react-card/#main-content)
+
     - Basic implmenentation of the Lizard Card
-  
-  - [Table](https://mui.com/material-ui/react-table/#main-content) 
-    - Table for better view of the data
-    - Give color to the sticky header in the table [Solution](https://codesandbox.io/s/material-demo-szz46?file=/demo.js)
-<hr/>
+
+  - [Table](https://mui.com/material-ui/react-table/#main-content) - Table for better view of the data - Give color to the sticky header in the table [Solution](https://codesandbox.io/s/material-demo-szz46?file=/demo.js)
+  <hr/>
 
 - [React Router DOM](httphttps://mui.com/material-ui/react-box/s://reactrouter.com/docs/en/v6/getting-started/overview)
   - [Navigation](https://reactrouter.com/docs/en/v6/getting-started/overview#navigation)
@@ -61,14 +60,15 @@
 
 <hr>
 
-- Get started with the [React Fast Marquee](https://www.react-fast-marquee.com/) for moving animation 
+- Get started with the [React Fast Marquee](https://www.react-fast-marquee.com/) for moving animation
   - Use this instead of the React Caraousel, and learn the basic difference between the carousel and marquee
 
 <hr>
 
-  - Basic JavaScript Functions 
-    - Removing Undefined values with the help of [.filter](https://stackoverflow.com/questions/28607451/removing-undefined-values-from-array)
-    - To reduce the array [.reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
-    - To find whether value present in array or not [.find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
-    - Converting Arrays of object into the Arrays of Arrays [Object.entries()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
-      - [Create objects with variable keys and variable values](https://stackoverflow.com/questions/11508463/javascript-set-object-key-by-variable#:~:text=You%20need%20to%20make%20the,push(obj)%3B)
+- Basic JavaScript Functions
+  - Removing Undefined values with the help of [.filter](https://stackoverflow.com/questions/28607451/removing-undefined-values-from-array)
+  - To reduce the array [.reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+  - To find whether value present in array or not [.find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+  - Converting Arrays of object into the Arrays of Arrays [Object.entries()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
+    - [Create objects with variable keys and variable values](<https://stackoverflow.com/questions/11508463/javascript-set-object-key-by-variable#:~:text=You%20need%20to%20make%20the,push(obj)%3B>)
+  - Sorting the array of object based on the property of the object using custom comparator [Link](https://www.javascripttutorial.net/array/javascript-sort-an-array-of-objects/)
