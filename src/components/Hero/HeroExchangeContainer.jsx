@@ -53,7 +53,7 @@ const HeroExchangeContainer = () => {
   const [state, dispatch] = useReducer(currencyConvertorReducer, initialState);
 
   // TO check the current state of the reducer store
-  console.log(state);
+  // console.log(state);
 
   // Custom Hook to convert the currency values ----> Currency convertor working successfully
   const convertedAmount = useCoinGeckoExchangeRates(

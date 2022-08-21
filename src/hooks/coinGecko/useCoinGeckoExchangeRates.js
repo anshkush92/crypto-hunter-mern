@@ -14,7 +14,9 @@ const useCoinGeckoExchangeRates = (from, to, amount) => {
     const fromCurrency = from.toLowerCase();
     const toCurrency = to.toLowerCase();
 
-    console.log(fromCurrency, toCurrency, amount);
+    // For checking whether we are getting the currencies and amount in correct format or not
+    // console.log(fromCurrency, toCurrency, amount);
+
     useEffect(() => {
         // We can easily get the data from the API, by passing the path in the hook  
         const promise = Promise.resolve(cryptoData("exchange_rates"));
@@ -47,17 +49,17 @@ const useCoinGeckoExchangeRates = (from, to, amount) => {
             const fromData = currencyData.find((currency) => currency[fromCurrency] !== undefined)
             // Stores the currency object with differnet properties
             const fromDataCurrency = fromData[fromCurrency];
-            console.log(fromDataCurrency);
+            // console.log(fromDataCurrency);
 
             // When using the [] operation then we get the variable's value instead of the variable, so using [] instead of .[dot]
             const toData = currencyData.find((currency) => currency[toCurrency] !== undefined)
             // Stores the currency object with currency as key
             const toDataCurrency = toData[toCurrency];
-            console.log(toDataCurrency);
+            // console.log(toDataCurrency);
 
             // Currency Convertor Working Fine -----> Basic Unitary Method
             const newAmount = (amount * toDataCurrency.value) / fromDataCurrency.value;
-            console.log(`${toDataCurrency.unit} ${newAmount}`);
+            // console.log(`${toDataCurrency.unit} ${newAmount}`);
 
             // Setting the state with the converted amount
             setConvertedAmount(newAmount);

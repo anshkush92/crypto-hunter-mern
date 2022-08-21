@@ -16,7 +16,7 @@ import currencies from "../../data/currencies";
 const HeroExchangeTo = (props) => {
   // Props to pass the value from this component to the parent
   const { getToCurrency, convertedAmount } = props;
-  console.log(convertedAmount);
+  //   console.log(convertedAmount);
 
   const [currency, setCurrency] = useState("INR");
   const [amount, setAmount] = useState("");
@@ -34,7 +34,7 @@ const HeroExchangeTo = (props) => {
 
   // Fires up whenever there is a change in the currency or the for Amount
   useEffect(() => {
-    setAmount(convertedAmount);
+    setAmount(convertedAmount === 0 ? "" : convertedAmount);
     return () => {
       console.log("Clean Up function from Hero Exchange To");
     };
