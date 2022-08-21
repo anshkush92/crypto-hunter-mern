@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import cryptoData from "../../utilities/CoinGeckoAPI/coinGeckoAPI";
 
 // Test -------------------------- The current component ----------------------------------
+// Used in Marquee to get the data of the single coin in the particular currency
 const useCoinGeckoCurrencySingle = (currency, id) => {
     const [coinData, setCoinData] = useState();
     // Checking whether the API is working correctly or not and it is working correctly

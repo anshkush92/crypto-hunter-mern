@@ -33,8 +33,11 @@
 
       - [Checking the values error in the Autocomplete in Material UI](https://stackoverflow.com/questions/61947941/material-ui-autocomplete-warning-the-value-provided-to-autocomplete-is-invalid)
 
- - [Material UI Card](https://mui.com/material-ui/react-card/#main-content)
+  - [Material UI Card](https://mui.com/material-ui/react-card/#main-content)
     - Basic implmenentation of the Lizard Card
+  
+  - [Table](https://mui.com/material-ui/react-table/#main-content) 
+    - Table for better view of the data
 <hr/>
 
 - [React Router DOM](httphttps://mui.com/material-ui/react-box/s://reactrouter.com/docs/en/v6/getting-started/overview)

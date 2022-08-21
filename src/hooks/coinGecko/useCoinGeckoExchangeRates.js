@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import cryptoData from "../../utilities/CoinGeckoAPI/coinGeckoAPI";
 
 // Test -------------------------- The current component ----------------------------------
+// This API is used to create the currency convertor that helps in currency conversion
 const useCoinGeckoExchangeRates = (from, to, amount) => {
     // If we won't be using the state then we have define the variable inside the useEffect() Hook which will reduce its
     // scope to the useEffect() and we won't be able to return that value

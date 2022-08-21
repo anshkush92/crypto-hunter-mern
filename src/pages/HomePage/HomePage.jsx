@@ -3,7 +3,7 @@ import React from "react";
 import Background from "../../components/Background/Background";
 import Header from "../../components/Header/Header";
 import Hero from "../../components/Hero/Hero";
-import {Box} from "@mui/material"
+import CoinsTable from "../../components/Coins/Table/CoinsTable";
 
 // Test -------------------------- Importing the styles / other components ----------------
 
@@ -14,21 +14,7 @@ const HomePage = () => {
     <Background>
       <Header></Header>
       <Hero></Hero>
-      <Box>Hello</Box>
-      <Box>Hello</Box>
-      <Box>Hello</Box>
-      <Box>Hello</Box>
-      <Box>Hello</Box>
-      <Box>Hello</Box>
-      <Box>Hello</Box>
-      <Box>Hello</Box>
-      <Box>Hello</Box>
-      <Box>Hello</Box>
-      <Box>Hello</Box>
-      <Box>Hello</Box>
-      <Box>Hello</Box>
-      <Box>Hello</Box>
-      <Box>Hello</Box>
+      <CoinsTable></CoinsTable>
     </Background>
   );
 };
