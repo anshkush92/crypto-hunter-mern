@@ -49,32 +49,28 @@ const CoinsTable = () => {
     page + 1
   );
 
-  if (rowsPerPage === newCoinsList.length) {
-    newArray = newCoinsList.filter((coin) =>
-      coin.name.toLowerCase().includes(searchValue)
-    );
-    console.log(newArray);
-  }
-
-  // Sorts the array and replaces the same array with respect to the given property
-  // [...newCoinsList].sort(compareRank);
+  [...newCoinsList].sort(compareRank);
   // console.log(newCoinsList);
   const length = coinsList.length;
 
   useEffect(() => {
     dispatch(
       setCoinsList({
-        coinsList:
-          newArray.length === newCoinsList.length ? newCoinsList : newArray,
+        coinsList: newCoinsList.filter(
+          (coin) =>
+            coin.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+            coin.symbol.toLowerCase().includes(searchValue.toLowerCase())
+        ),
       })
     );
     setIsLoading(length === 0);
-    console.log(coinsList);
+    // console.log(coinsList);
+    console.log(newCoinsList, newArray, searchValue);
 
     return () => {
       console.log("Cleanup function from CoinsTable.jsx");
     };
-  }, [length, dispatch, newCoinsList, coinsList]);
+  }, [length, dispatch, newCoinsList, searchValue]);
 
   // Storing the heading of the table Rows
   const tableRows = ["Rank", "Coin", "Price", "24hr Change", "Market Cap"];
