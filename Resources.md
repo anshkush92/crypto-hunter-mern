@@ -43,6 +43,8 @@
   - Change the color of the [TextField](https://mui.com/material-ui/react-text-field/#color) in Material UI
     - How to style the placeholder text in the TextField with the help of the [InputLabelProps](https://stackoverflow.com/questions/47804380/styling-the-placeholder-in-a-textfield)
     - Change the color of the text in the TextField using the [sx](https://stackoverflow.com/questions/50228108/change-textfield-font-color-in-mui) 
+  
+  - Give the loading spinner when the data is being fetched [Loader](https://mui.com/material-ui/react-progress/#main-content)
 
   <hr/>
 
