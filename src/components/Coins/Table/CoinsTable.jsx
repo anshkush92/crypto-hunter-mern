@@ -34,7 +34,7 @@ const CoinsTable = () => {
   const { coinsList, searchValue } = useSelector(
     (state) => state.coinsListHandler
   );
-  console.log(coinsList);
+  // console.log(coinsList);
 
   // Handling the state in the page, for setting the page, and the rows per page
   // const [coinsList, setCoinsList] = useState([]);
@@ -64,8 +64,14 @@ const CoinsTable = () => {
       })
     );
     setIsLoading(length === 0);
+
+    // Stops loading the data after 5 sec which means there is no data related to it 
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
+
     // console.log(coinsList);
-    console.log(newCoinsList, newArray, searchValue);
+    // console.log(newCoinsList, newArray, searchValue);
 
     return () => {
       console.log("Cleanup function from CoinsTable.jsx");
