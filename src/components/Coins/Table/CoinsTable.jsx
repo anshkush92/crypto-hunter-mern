@@ -1,5 +1,5 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   TableContainer,
   TableRow,
@@ -12,23 +12,13 @@ import {
   Paper,
   TableFooter,
   TablePagination,
-  IconButton,
 } from "@mui/material";
-
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import useCoinGeckoCoinsList from "../../../hooks/coinGecko/useCoinGeckoList";
 import TablePaginationActions from "./TabelPaginationActions";
 import { useSelector } from "react-redux";
-import {
-  compareRank,
-  compareCoin,
-  comparePrice,
-  compare24hrChange,
-  compareMarketCap,
-} from "../../../utilities/Sorting/sort";
+import { compareRank } from "../../../utilities/Sorting/sort";
 
 // Test -------------------------- The current component ----------------------------------
 // This component is used for creating the table from the coins data that we get from Cryto API
@@ -37,27 +27,16 @@ const CoinsTable = () => {
   const { label, symbol } = useSelector((state) => state.currencyChanger);
   // console.log(label, symbol);
 
-  // Handling the change in the pages
-  const [coinsList, setCoinsList] = useState([]);
+  // Handling the state in the page, for setting the page, and the rows per page
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
-
-  // Checking
-  console.log(coinsList);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
   // Getting the coins Data from the API and then listing in the form of the table
-  const getCoinsList = useCoinGeckoCoinsList(
+  const coinsList = useCoinGeckoCoinsList(
     label.toLowerCase(),
     rowsPerPage,
     page + 1
   );
-
-  useEffect(() => {
-    setCoinsList(getCoinsList);
-    return () => {
-      console.log("Cleanup from Coins Table.jsx");
-    };
-  }, [getCoinsList, coinsList]);
 
   // Sorts the array and replaces the same array with respect to the given property
   coinsList.sort(compareRank);
@@ -66,35 +45,12 @@ const CoinsTable = () => {
   // Storing the heading of the table Rows
   const tableRows = ["Rank", "Coin", "Price", "24hr Change", "Market Cap"];
 
-  // Storing the heading of the table Rows for the comparision function
-  // const tableRowsCompare = tableRows.map((head) => "compare" + splitJoin(head));
-  // console.log(tableRowsCompare);
-
-  // Storing the function in the Array according to the table head
-  const tableRowsCompare = [
-    compareRank,
-    compareCoin,
-    comparePrice,
-    compare24hrChange,
-    compareMarketCap,
-  ];
-
   const tableRowsComponent = tableRows.map((cell, index) => (
     <TableCell
       key={cell}
       sx={{ backgroundColor: "yellow", fontWeight: "700", textAlign: "left" }}
     >
       {cell}
-      <IconButton
-        onClick={() => {
-          const newList = coinsList.sort(tableRowsCompare[index]);
-          console.log(newList);
-          setCoinsList(newList);
-          console.log(coinsList);
-        }}
-      >
-        <ArrowUpwardIcon></ArrowUpwardIcon>
-      </IconButton>
     </TableCell>
   ));
 
@@ -106,8 +62,6 @@ const CoinsTable = () => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-
-  console.log(coinsList);
 
   return (
     <TableContainer
@@ -123,7 +77,6 @@ const CoinsTable = () => {
         <TableHead style={{ backgroundColor: "yellow" }}>
           <TableRow>{tableRowsComponent}</TableRow>
         </TableHead>
-        {console.log(coinsList)}
         <TableBody sx={{ backgroundColor: "#020a0a", color: "white" }}>
           {coinsList.map((row) => (
             <TableRow key={row.id}>

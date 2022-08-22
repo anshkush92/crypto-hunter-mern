@@ -38,6 +38,7 @@
     - Basic implmenentation of the Lizard Card
 
   - [Table](https://mui.com/material-ui/react-table/#main-content) - Table for better view of the data - Give color to the sticky header in the table [Solution](https://codesandbox.io/s/material-demo-szz46?file=/demo.js)
+   - Learn how to apply [Table Sorting Youtube](https://www.youtube.com/watch?v=sW6HEiNDJ_s) and understand it fully
   <hr/>
 
 - [React Router DOM](httphttps://mui.com/material-ui/react-box/s://reactrouter.com/docs/en/v6/getting-started/overview)
