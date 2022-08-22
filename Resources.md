@@ -38,11 +38,13 @@
     - Basic implmenentation of the Lizard Card
 
   - [Table](https://mui.com/material-ui/react-table/#main-content) - Table for better view of the data - Give color to the sticky header in the table [Solution](https://codesandbox.io/s/material-demo-szz46?file=/demo.js)
-   - Learn how to apply [Table Sorting Youtube](https://www.youtube.com/watch?v=sW6HEiNDJ_s) and understand it fully
-  <hr/>
+  - Learn how to apply [Table Sorting Youtube](https://www.youtube.com/watch?v=sW6HEiNDJ_s) and understand it fully
 
   - Change the color of the [TextField](https://mui.com/material-ui/react-text-field/#color) in Material UI
     - How to style the placeholder text in the TextField with the help of the [InputLabelProps](https://stackoverflow.com/questions/47804380/styling-the-placeholder-in-a-textfield)
+    - Change the color of the text in the TextField using the [sx](https://stackoverflow.com/questions/50228108/change-textfield-font-color-in-mui) 
+
+  <hr/>
 
 - [React Router DOM](httphttps://mui.com/material-ui/react-box/s://reactrouter.com/docs/en/v6/getting-started/overview)
   - [Navigation](https://reactrouter.com/docs/en/v6/getting-started/overview#navigation)

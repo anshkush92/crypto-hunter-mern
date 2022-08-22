@@ -20,7 +20,7 @@ const Search = () => {
         variant="outlined"
         fullWidth
         label="Search Cryptocurrency"
-        color="secondary"
+        sx={{ input: { color: "white" } }}
         InputLabelProps={{
           style: {
             color: "white",
