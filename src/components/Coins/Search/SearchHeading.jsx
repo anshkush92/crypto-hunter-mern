@@ -5,7 +5,7 @@ import {Typography}  from "@mui/material";
 
 // Test -------------------------- The current component ----------------------------------
 const SearchHeading = () => {
-  return <Typography variant="h4" textAlign="center">Get all crytpo related information</Typography>;
+  return <Typography variant="h4" textAlign="center">Search Crypto Currency</Typography>;
 };
 
 // Test -------------------------- Exporting the current component ------------------------
