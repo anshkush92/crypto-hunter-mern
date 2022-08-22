@@ -1,40 +1,22 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import { useState } from "react";
-import { Box, TextField, styled } from "@mui/material";
+import { Box, TextField } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import SearchHeading from "./SearchHeading";
+import { setSearchValue } from "../../../features/coinsList/coinsList";
 
 // Test -------------------------- The current component ----------------------------------
 const Search = () => {
-  const [searchValue, setSearchValue] = useState();
+  const { searchValue } = useSelector((state) => state.coinsListHandler);
+  const dispatch = useDispatch();
 
   const searchValueHandler = (event) => {
     console.log(event.target.value);
-    setSearchValue(event.target.value);
+    dispatch(setSearchValue({ searchValue: event.target.value }));
   };
 
-  // Test ----------------------- Custom Text Field made using Styled ---------------------
-  const SearchTextField = styled(TextField)({
-    "& label.Mui-focused": {
-      color: "white",
-    },
-    "& .MuiInput-underline:after": {
-      borderBottomColor: "green",
-    },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "yellow",
-      },
-      "&:hover fieldset": {
-        borderColor: "green",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "white",
-      },
-    },
-  });
-
+  // Test ----------------------- Custom Text Field made using Styled --------------------
   return (
     <Box
       width="90%"
@@ -52,7 +34,7 @@ const Search = () => {
         InputLabelProps={{
           style: {
             color: "white",
-            borderColor: "red"
+            borderColor: "red",
           },
         }}
         onChange={searchValueHandler}

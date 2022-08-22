@@ -14,22 +14,30 @@ import {
   TablePagination,
   LinearProgress,
 } from "@mui/material";
+import { useSelector, useDispatch } from "react-redux";
+import { setCoinsList } from "../../../features/coinsList/coinsList";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import useCoinGeckoCoinsList from "../../../hooks/coinGecko/useCoinGeckoList";
 import TablePaginationActions from "./TabelPaginationActions";
-import { useSelector } from "react-redux";
 import { compareRank } from "../../../utilities/Sorting/sort";
 
 // Test -------------------------- The current component ----------------------------------
+let newArray = [];
 // This component is used for creating the table from the coins data that we get from Cryto API
 const CoinsTable = () => {
   // Getting the state of currently selected currency
   const { label, symbol } = useSelector((state) => state.currencyChanger);
   // console.log(label, symbol);
 
+  const dispatch = useDispatch();
+  const { coinsList, searchValue } = useSelector(
+    (state) => state.coinsListHandler
+  );
+  console.log(coinsList);
+
   // Handling the state in the page, for setting the page, and the rows per page
-  const [coinsList, setCoinsList] = useState([]);
+  // const [coinsList, setCoinsList] = useState([]);
   const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -41,19 +49,32 @@ const CoinsTable = () => {
     page + 1
   );
 
+  if (rowsPerPage === newCoinsList.length) {
+    newArray = newCoinsList.filter((coin) =>
+      coin.name.toLowerCase().includes(searchValue)
+    );
+    console.log(newArray);
+  }
+
   // Sorts the array and replaces the same array with respect to the given property
-  coinsList.sort(compareRank);
-  // console.log(coinsList);
+  // [...newCoinsList].sort(compareRank);
+  // console.log(newCoinsList);
   const length = coinsList.length;
 
   useEffect(() => {
-    setCoinsList(newCoinsList);
+    dispatch(
+      setCoinsList({
+        coinsList:
+          newArray.length === newCoinsList.length ? newCoinsList : newArray,
+      })
+    );
     setIsLoading(length === 0);
+    console.log(coinsList);
 
     return () => {
       console.log("Cleanup function from CoinsTable.jsx");
     };
-  }, [length, newCoinsList]);
+  }, [length, dispatch, newCoinsList, coinsList]);
 
   // Storing the heading of the table Rows
   const tableRows = ["Rank", "Coin", "Price", "24hr Change", "Market Cap"];
@@ -153,7 +174,9 @@ const CoinsTable = () => {
                   25,
                   50,
                   75,
-                  { label: "All", value: -1 },
+                  100,
+                  125,
+                  { label: "All", value: 250 },
                 ]}
                 colSpan={3}
                 count={100 * 250}
