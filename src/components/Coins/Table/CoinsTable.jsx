@@ -23,7 +23,6 @@ import TablePaginationActions from "./TabelPaginationActions";
 import { compareRank } from "../../../utilities/Sorting/sort";
 
 // Test -------------------------- The current component ----------------------------------
-let newArray = [];
 // This component is used for creating the table from the coins data that we get from Cryto API
 const CoinsTable = () => {
   // Getting the state of currently selected currency
@@ -133,6 +132,7 @@ const CoinsTable = () => {
                         component="img"
                         src={row.image}
                         alt={row.name}
+                        loading="lazy"
                         height="50px"
                       ></Box>
                     </>

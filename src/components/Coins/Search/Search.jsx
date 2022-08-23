@@ -11,8 +11,9 @@ const Search = () => {
   const { searchValue } = useSelector((state) => state.coinsListHandler);
   const dispatch = useDispatch();
 
+  // For getting the value of the current word in the search bar
   const searchValueHandler = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     dispatch(setSearchValue({ searchValue: event.target.value }));
   };
 

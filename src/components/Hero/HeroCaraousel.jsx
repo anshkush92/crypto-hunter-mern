@@ -48,6 +48,7 @@ const HeroCaraousel = () => {
     marquee = trendingCoinsData.map((coin) => (
       <HeroCaraouselCard
         key={coin.id}
+        id={coin.id}
         name={coin.name}
         image={coin.image}
         price={coin.current_price}

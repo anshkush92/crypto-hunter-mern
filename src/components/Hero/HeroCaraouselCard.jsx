@@ -10,13 +10,19 @@ import {
 } from "@mui/material";
 
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 // Test -------------------------- Importing the styles / other components ----------------
 
 // Test -------------------------- The current component ----------------------------------
 // Using <Box> </Box> as the wrapper for providing styles to the whole HERO CARD CONTENT
 const HeroCaraouselCard = (props) => {
-  const { name, image, price, rank, symbol } = props;
+  const { name, image, price, rank, symbol, id } = props;
   const priceSymbol = useSelector((state) => state.currencyChanger.symbol);
+  const navigate = useNavigate();
+
+  const coinPage = () => {
+    navigate(`/coins/${id}`)
+  }
 
   return (
     <Card
@@ -56,7 +62,7 @@ const HeroCaraouselCard = (props) => {
         </CardContent>
 
         <CardActions sx={{ pt: "0" }}>
-          <Button>Read More</Button>
+          <Button onClick={coinPage}>Read More</Button>
         </CardActions>
       </Box>
     </Card>
