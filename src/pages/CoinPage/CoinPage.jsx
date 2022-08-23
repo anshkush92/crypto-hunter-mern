@@ -18,7 +18,7 @@ const CoinPage = () => {
     <Background>
       <Header></Header>
       This is {coinId}
-      <SingleCoin></SingleCoin>
+      <SingleCoin coinId={coinId}></SingleCoin>
     </Background>
   );
 };
