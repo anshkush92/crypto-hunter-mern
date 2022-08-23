@@ -49,7 +49,8 @@
   <hr/>
 
 - [React Router DOM](httphttps://mui.com/material-ui/react-box/s://reactrouter.com/docs/en/v6/getting-started/overview)
-  - [Navigation](https://reactrouter.com/docs/en/v6/getting-started/overview#navigation)
+  - Learnt how to use the [Navigation](https://reactrouter.com/docs/en/v6/getting-started/overview#navigation)
+  - Learnt how to extract the [Dynamic Parameteres](https://reactrouter.com/docs/en/v6/getting-started/overview#reading-url-parameters) in the URL using [useParams](https://reactrouter.com/docs/en/v6/getting-started/overview#reading-url-parameters)
 
 <hr>
 

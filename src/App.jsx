@@ -11,7 +11,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<HomePage></HomePage>}></Route>
-      <Route path="/coins/:coinName" element={<CoinPage></CoinPage>}></Route>
+      <Route path="/coins/:coinId" element={<CoinPage></CoinPage>}></Route>
       <Route path="/login" element={<LoginPage></LoginPage>}></Route>
       <Route path="/signup" element={<SignupPage></SignupPage>}></Route>
       <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
