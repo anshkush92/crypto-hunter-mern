@@ -1,8 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Neucha&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Neucha&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
 }

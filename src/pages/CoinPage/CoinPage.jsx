@@ -17,7 +17,6 @@ const CoinPage = () => {
   return (
     <Background>
       <Header></Header>
-      This is {coinId}
       <SingleCoin coinId={coinId}></SingleCoin>
     </Background>
   );

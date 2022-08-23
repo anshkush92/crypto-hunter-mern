@@ -41,9 +41,10 @@
   - Learn how to apply [Table Sorting Youtube](https://www.youtube.com/watch?v=sW6HEiNDJ_s) and understand it fully
 
   - Change the color of the [TextField](https://mui.com/material-ui/react-text-field/#color) in Material UI
+
     - How to style the placeholder text in the TextField with the help of the [InputLabelProps](https://stackoverflow.com/questions/47804380/styling-the-placeholder-in-a-textfield)
-    - Change the color of the text in the TextField using the [sx](https://stackoverflow.com/questions/50228108/change-textfield-font-color-in-mui) 
-  
+    - Change the color of the text in the TextField using the [sx](https://stackoverflow.com/questions/50228108/change-textfield-font-color-in-mui)
+
   - Give the loading spinner when the data is being fetched [Loader](https://mui.com/material-ui/react-progress/#main-content)
 
   <hr/>
@@ -82,3 +83,7 @@
     - [Create objects with variable keys and variable values](<https://stackoverflow.com/questions/11508463/javascript-set-object-key-by-variable#:~:text=You%20need%20to%20make%20the,push(obj)%3B>)
   - Sorting the array of object based on the property of the object using custom comparator [Link](https://www.javascripttutorial.net/array/javascript-sort-an-array-of-objects/)
     - Error when sorting the array [Error](https://stackoverflow.com/questions/64957735/typeerror-cannot-assign-to-read-only-property-0-of-object-object-array-in)
+
+<hr>
+
+- Learn how to parse the HTML in the string to the text using the [HTML-React-Parser](https://www.npmjs.com/package/html-react-parser)
