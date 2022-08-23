@@ -1,5 +1,6 @@
 // Test -------------------------- Importing the Packages ---------------------------------
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   TableContainer,
   TableRow,
@@ -28,6 +29,9 @@ const CoinsTable = () => {
   // Getting the state of currently selected currency
   const { label, symbol } = useSelector((state) => state.currencyChanger);
   // console.log(label, symbol);
+
+  // For changing the page, when clicked on the table row
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const { coinsList, searchValue } = useSelector(
@@ -64,7 +68,7 @@ const CoinsTable = () => {
     );
     setIsLoading(length === 0);
 
-    // Stops loading the data after 5 sec which means there is no data related to it 
+    // Stops loading the data after 5 sec which means there is no data related to it
     setTimeout(() => {
       setIsLoading(false);
     }, 5000);
@@ -120,7 +124,10 @@ const CoinsTable = () => {
           </TableHead>
           <TableBody sx={{ backgroundColor: "#020a0a", color: "white" }}>
             {coinsList.map((row) => (
-              <TableRow key={row.id}>
+              <TableRow
+                onClick={() => navigate(`/coins/${row.id}`)}
+                sx={{ "&:hover": { cursor: "pointer" } }}
+              >
                 <TableCell sx={{ color: "white" }}>
                   {row.market_cap_rank}
                 </TableCell>
