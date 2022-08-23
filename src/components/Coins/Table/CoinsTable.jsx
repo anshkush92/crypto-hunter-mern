@@ -43,7 +43,7 @@ const CoinsTable = () => {
   // const [coinsList, setCoinsList] = useState([]);
   const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(25);
 
   // Getting the coins Data from the API and then listing in the form of the table
   const newCoinsList = useCoinGeckoCoinsList(
@@ -115,7 +115,7 @@ const CoinsTable = () => {
           width: "100%",
           m: "30px auto",
           overflowX: "initial",
-          borderRadius: "8px",
+          // borderRadius: "8px",
         }}
       >
         <Table stickyHeader>
