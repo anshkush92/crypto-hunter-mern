@@ -125,6 +125,7 @@ const CoinsTable = () => {
           <TableBody sx={{ backgroundColor: "#020a0a", color: "white" }}>
             {coinsList.map((row) => (
               <TableRow
+                key={row.id}
                 onClick={() => navigate(`/coins/${row.id}`)}
                 sx={{ "&:hover": { cursor: "pointer" } }}
               >

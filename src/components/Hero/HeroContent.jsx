@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import HeroCaraousel from "./HeroCaraousel";
-import HeroExchangeContainer from "./HeroExchangeContainer"
+import HeroExchangeContainer from "./HeroExchangeContainer";
 import HeroText from "./HeroText";
 
 // Test -------------------------- The current component ----------------------------------
