@@ -1,5 +1,5 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import { Box } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import CoinChart from "./CoinChart";
@@ -15,8 +15,15 @@ const SingleCoin = (props) => {
   // console.log(coinId, coinData);
 
   return (
-    <Box>
+    <Box
+      display="flex"
+      flexDirection="column"
+      width="95%"
+      gap="30px"
+      margin="30px auto"
+    >
       <CoinDescription coinData={coinData}></CoinDescription>
+      <Divider sx={{ backgroundColor: "white" }}></Divider>
       <CoinChart></CoinChart>
     </Box>
   );
