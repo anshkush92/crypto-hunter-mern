@@ -47,6 +47,8 @@
 
   - Give the loading spinner when the data is being fetched [Loader](https://mui.com/material-ui/react-progress/#main-content)
 
+  - Learn how to create the list with divider with the help of [List](https://mui.com/material-ui/react-list/#main-content) and [Divider](https://mui.com/material-ui/react-divider/)
+
   <hr/>
 
 - [React Router DOM](httphttps://mui.com/material-ui/react-box/s://reactrouter.com/docs/en/v6/getting-started/overview)
