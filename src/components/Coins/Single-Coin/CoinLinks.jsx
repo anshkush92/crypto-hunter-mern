@@ -16,7 +16,7 @@ const CoinLinks = (props) => {
   const key = Object.keys(text)[0];
   const value = text[key];
 
-//   console.log(key, value, text);
+  //   console.log(key, value, text);
 
   return (
     <>
@@ -27,9 +27,22 @@ const CoinLinks = (props) => {
             primary={key.charAt(0).toUpperCase() + key.slice(1)}
           ></ListItemText>
         </Box>
-        <ListItemButton component="a" href={value}>
-            <ListItemText primary={value} sx={{textAlign: "right"}}></ListItemText>
-        </ListItemButton>
+        {value && (
+          <ListItemButton component="a" href={value}>
+            <ListItemText
+              primary={value}
+              sx={{ textAlign: "right" }}
+            ></ListItemText>
+          </ListItemButton>
+        )}
+        {!value && (
+          <ListItemButton>
+            <ListItemText
+              primary="Not Found"
+              sx={{ textAlign: "right" }}
+            ></ListItemText>
+          </ListItemButton>
+        )}
       </ListItem>
       <Divider sx={{ backgroundColor: "white" }}></Divider>
     </>

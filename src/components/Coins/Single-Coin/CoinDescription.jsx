@@ -111,31 +111,30 @@ const CoinDescription = (props) => {
       homepage:
         coinData?.links?.homepage[0] !== (undefined || "" || null)
           ? coinData?.links?.homepage[0]
-          : "Not Found",
+          : false,
     },
     {
       reddit:
         coinData?.links?.subreddit_url !== (undefined || "" || null)
           ? coinData?.links?.subreddit_url
-          : "Not Found",
+          : false,
     },
     {
       telegram:
-        coinData?.links.telegram_channel_identifier !==
-        (undefined || "" || null)
-          ? `https://t.me/${coinData?.links.telegram_channel_identifier}`
-          : "Not Found",
+        coinData?.links.telegram_channel_identifier === ""
+          ? false
+          : coinData?.links.telegram_channel_identifier,
     },
     {
       github:
         coinData?.links?.repos_url.github[0] !== (undefined || "" || null)
           ? coinData?.links?.repos_url.github[0]
-          : "Not Found",
+          : false,
     },
   ];
 
   // console.log(otherStats);
-  // console.log(coinLinks);
+  console.log(coinLinks, coinData?.links.telegram_channel_identifier);
 
   useEffect(() => {
     // Should be true if coin name is not defined
