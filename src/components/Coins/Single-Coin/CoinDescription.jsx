@@ -123,7 +123,7 @@ const CoinDescription = (props) => {
       telegram:
         coinData?.links.telegram_channel_identifier === ""
           ? false
-          : coinData?.links.telegram_channel_identifier,
+          : `https://t.me/${coinData?.links.telegram_channel_identifier}`,
     },
     {
       github:
