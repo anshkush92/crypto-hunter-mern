@@ -53,11 +53,35 @@ const CoinDescription = (props) => {
   // Coins Value Stats
   const coinValueStats = [
     { rank: coinData?.market_cap_rank },
-    { price: coinData?.market_data?.current_price[label.toLowerCase()] },
-    { ath: coinData?.market_data?.ath[label.toLowerCase()] },
-    { atl: coinData?.market_data?.atl[label.toLowerCase()] },
-    { marketCap: coinData?.market_data?.market_cap[label.toLowerCase()] },
+    {
+      price: coinData?.market_data?.current_price[label.toLowerCase()],
+      symbol: true,
+    },
+    {
+      marketCap: coinData?.market_data?.market_cap[label.toLowerCase()],
+      symbol: true,
+    },
+    { ath: coinData?.market_data?.ath[label.toLowerCase()], symbol: true },
+    { atl: coinData?.market_data?.atl[label.toLowerCase()], symbol: true },
   ];
+
+  // Other Stats info
+  const otherStats = [
+    { liquidity: coinData?.liquidity_score },
+    { circulatingSupply: coinData?.market_data?.circulating_supply },
+    { totalSupply: coinData?.market_data?.total_supply },
+    {
+      marketCap24hrChange:
+        coinData?.market_data?.market_cap_change_percentage_24h,
+      color:
+        coinData?.market_data?.market_cap_change_percentage_24h >= 0
+          ? "green"
+          : "red",
+    },
+    { totalVolume: coinData?.market_data?.total_volume[label.toLowerCase()] },
+  ];
+
+  console.log(otherStats);
 
   useEffect(() => {
     // Should be true if coin name is not defined
@@ -152,6 +176,16 @@ const CoinDescription = (props) => {
             </Typography>
             , such as the number of exchanges, markets and total supply
           </Typography>
+
+          <List>
+            {otherStats.map((coin, index) => (
+              <CoinStats
+                key={index}
+                icon={coinValueStatsIcons[index]}
+                text={coin}
+              ></CoinStats>
+            ))}
+          </List>
         </Grid>
       </Grid>
 
