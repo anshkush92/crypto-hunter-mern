@@ -7,8 +7,6 @@ import {
   ListItemText,
   Divider,
 } from "@mui/material";
-import LinkIcon from "@mui/icons-material/Link";
-import { useNavigate } from "react-router-dom";
 
 // Test -------------------------- Importing the styles / other components ----------------
 
@@ -17,9 +15,8 @@ const CoinLinks = (props) => {
   const { icon, text } = props;
   const key = Object.keys(text)[0];
   const value = text[key];
-  const navigate = useNavigate();
 
-  console.log(key, value, text);
+//   console.log(key, value, text);
 
   return (
     <>
