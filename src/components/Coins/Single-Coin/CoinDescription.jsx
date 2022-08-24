@@ -16,8 +16,17 @@ import TagIcon from "@mui/icons-material/Tag";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import SouthIcon from "@mui/icons-material/South";
 
+import BlurCircularIcon from "@mui/icons-material/BlurCircular";
+import StackedLineChartIcon from "@mui/icons-material/StackedLineChart";
+import DataUsageIcon from "@mui/icons-material/DataUsage";
+
+import HomeIcon from "@mui/icons-material/Home";
+import RedditIcon from "@mui/icons-material/Reddit";
+import TelegramIcon from "@mui/icons-material/Telegram";
+import GitHubIcon from "@mui/icons-material/GitHub";
 // Test -------------------------- Importing the styles / other components ----------------
 import CoinStats from "./CoinStats";
+import CoinLinks from "./CoinLinks";
 
 // Test -------------------------- The current component ----------------------------------
 const CoinDescription = (props) => {
@@ -48,6 +57,15 @@ const CoinDescription = (props) => {
     <MonetizationOnIcon sx={{ color: "white" }}></MonetizationOnIcon>,
     <EmojiEventsIcon sx={{ color: "white" }}></EmojiEventsIcon>,
     <SouthIcon sx={{ color: "white" }}></SouthIcon>,
+  ];
+
+  // Icons for the other value stats
+  const otherStatsIcons = [
+    <TagIcon sx={{ color: "white" }}></TagIcon>,
+    <BlurCircularIcon sx={{ color: "white" }}></BlurCircularIcon>,
+    <DataUsageIcon sx={{ color: "white" }}></DataUsageIcon>,
+    <StackedLineChartIcon sx={{ color: "white" }}></StackedLineChartIcon>,
+    <DataUsageIcon sx={{ color: "white" }}></DataUsageIcon>,
   ];
 
   // Coins Value Stats
@@ -81,7 +99,43 @@ const CoinDescription = (props) => {
     { totalVolume: coinData?.market_data?.total_volume[label.toLowerCase()] },
   ];
 
-  console.log(otherStats);
+  const coinLinksIcons = [
+    <HomeIcon sx={{ color: "white" }}></HomeIcon>,
+    <RedditIcon sx={{ color: "white" }}></RedditIcon>,
+    <TelegramIcon sx={{ color: "white" }}></TelegramIcon>,
+    <GitHubIcon sx={{ color: "white" }}></GitHubIcon>,
+  ];
+
+  const coinLinks = [
+    {
+      homepage:
+        coinData?.links?.homepage[0] !== (undefined || "" || null)
+          ? coinData?.links?.homepage[0]
+          : "Not Found",
+    },
+    {
+      reddit:
+        coinData?.links?.subreddit_url !== (undefined || "" || null)
+          ? coinData?.links?.subreddit_url
+          : "Not Found",
+    },
+    {
+      telegram:
+        coinData?.links.telegram_channel_identifier !==
+        (undefined || "" || null)
+          ? `https://t.me/${coinData?.links.telegram_channel_identifier}`
+          : "Not Found",
+    },
+    {
+      github:
+        coinData?.links?.repos_url.github[0] !== (undefined || "" || null)
+          ? coinData?.links?.repos_url.github[0]
+          : "Not Found",
+    },
+  ];
+
+  // console.log(otherStats);
+  // console.log(coinLinks);
 
   useEffect(() => {
     // Should be true if coin name is not defined
@@ -138,7 +192,7 @@ const CoinDescription = (props) => {
 
       <Divider sx={{ backgroundColor: "white", m: "10px auto" }}></Divider>
 
-      <Grid container spacing={12}>
+      <Grid container spacing={6} mt="-36px" mb="36px">
         <Grid item xs={6}>
           <Typography variant="h5">{coin.name} Value Statistics</Typography>
           <Typography variant="body1" mb="10px">
@@ -181,7 +235,7 @@ const CoinDescription = (props) => {
             {otherStats.map((coin, index) => (
               <CoinStats
                 key={index}
-                icon={coinValueStatsIcons[index]}
+                icon={otherStatsIcons[index]}
                 text={coin}
               ></CoinStats>
             ))}
@@ -189,11 +243,37 @@ const CoinDescription = (props) => {
         </Grid>
       </Grid>
 
-      <Box display="flex" flexDirection="column" gap="2px" mb="8px">
-        <Typography variant="body1" sx={{ a: { color: "gold" } }}>
-          {coin.description}
-        </Typography>
-      </Box>
+      <Grid container spacing={6}>
+        <Grid item xs={6}>
+          <Box display="flex" flexDirection="column" gap="4px" mb="8px">
+            <Typography variant="h5">Description</Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                a: {
+                  color: "gold",
+                  "&:hover": { textDecoration: "underline" },
+                },
+              }}
+            >
+              {coin.description}
+            </Typography>
+          </Box>
+        </Grid>
+
+        <Grid item xs={6}>
+          <Box>
+            <Typography variant="h5">{coin.name} Links</Typography>
+            {coinLinks.map((link, index) => (
+              <CoinLinks
+                key={index}
+                icon={coinLinksIcons[index]}
+                text={link}
+              ></CoinLinks>
+            ))}
+          </Box>
+        </Grid>
+      </Grid>
 
       <Divider></Divider>
     </Box>

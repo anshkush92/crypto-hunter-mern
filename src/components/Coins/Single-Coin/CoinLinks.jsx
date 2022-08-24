@@ -1,23 +1,25 @@
 // Test -------------------------- Importing the Packages ---------------------------------
 import {
   Box,
-  Divider,
   ListItem,
+  ListItemButton,
   ListItemIcon,
   ListItemText,
+  Divider,
 } from "@mui/material";
+import LinkIcon from "@mui/icons-material/Link";
+import { useNavigate } from "react-router-dom";
+
 // Test -------------------------- Importing the styles / other components ----------------
-import { useSelector } from "react-redux";
 
 // Test -------------------------- The current component ----------------------------------
-const CoinStats = (props) => {
+const CoinLinks = (props) => {
   const { icon, text } = props;
   const key = Object.keys(text)[0];
-  const currencySymbol = text.symbol;
   const value = text[key];
-  const { symbol } = useSelector((state) => state.currencyChanger);
+  const navigate = useNavigate();
 
-  // console.log(currencySymbol);
+  console.log(key, value, text);
 
   return (
     <>
@@ -28,10 +30,9 @@ const CoinStats = (props) => {
             primary={key.charAt(0).toUpperCase() + key.slice(1)}
           ></ListItemText>
         </Box>
-        <ListItemText
-          primary={`${currencySymbol !== undefined ? symbol : ""} ${value} ${text.color !== undefined ? "%" : ""}`}
-          sx={{ textAlign: "right", color: `${text.color !== undefined ? text.color : "gold"}` }}
-        ></ListItemText>
+        <ListItemButton component="a" href={value}>
+            <ListItemText primary={value} sx={{textAlign: "right"}}></ListItemText>
+        </ListItemButton>
       </ListItem>
       <Divider sx={{ backgroundColor: "white" }}></Divider>
     </>
@@ -39,4 +40,4 @@ const CoinStats = (props) => {
 };
 
 // Test -------------------------- Exporting the current component ------------------------
-export default CoinStats;
+export default CoinLinks;
