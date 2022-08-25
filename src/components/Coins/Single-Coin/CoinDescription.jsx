@@ -192,7 +192,16 @@ const CoinDescription = (props) => {
 
       <Divider sx={{ backgroundColor: "white", m: "10px auto" }}></Divider>
 
-      <CoinChart id={coinData.id} currency={label.toLowerCase()} coin={coin} symbol={symbol}></CoinChart>
+      <CoinChart
+        id={coinData.id}
+        currency={label.toLowerCase()}
+        coin={coin}
+        symbol={symbol}
+      ></CoinChart>
+
+      <Divider
+        sx={{ backgroundColor: "white", m: "20px auto 10px auto" }}
+      ></Divider>
 
       <Grid container spacing={6} mt="-36px" mb="36px">
         <Grid item xs={6}>

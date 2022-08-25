@@ -58,6 +58,8 @@
 <hr>
 
 - [Chart JS](https://www.chartjs.org/docs/latest/)
+- Learn how to integrate the [Chart Js](https://react-chartjs-2.js.org/examples/line-chart) into the React
+- Set the height and width of the [Line Chart](https://stackoverflow.com/questions/59325426/how-to-resize-chart-js-element-in-react-js) using the Container
 
 <hr>
 
