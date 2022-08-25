@@ -1,8 +1,7 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import { Box, Divider } from "@mui/material";
+import { Box } from "@mui/material";
 
 // Test -------------------------- Importing the styles / other components ----------------
-import CoinChart from "./CoinChart";
 import CoinDescription from "./CoinDescription";
 import useCoinGeckoSingleCoin from "../../../hooks/coinGecko/useCoinGeckoSingleCoin";
 
@@ -19,12 +18,10 @@ const SingleCoin = (props) => {
       display="flex"
       flexDirection="column"
       width="95%"
-      gap="30px"
-      margin="30px auto"
+      margin="0px auto"
+      padding="30px 0px"
     >
       <CoinDescription coinData={coinData}></CoinDescription>
-      <Divider sx={{ backgroundColor: "white" }}></Divider>
-      <CoinChart></CoinChart>
     </Box>
   );
 };

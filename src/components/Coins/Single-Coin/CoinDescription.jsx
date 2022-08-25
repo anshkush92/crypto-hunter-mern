@@ -27,6 +27,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 // Test -------------------------- Importing the styles / other components ----------------
 import CoinStats from "./CoinStats";
 import CoinLinks from "./CoinLinks";
+import CoinChart from "./CoinChart";
 
 // Test -------------------------- The current component ----------------------------------
 const CoinDescription = (props) => {
@@ -134,7 +135,7 @@ const CoinDescription = (props) => {
   ];
 
   // console.log(otherStats);
-  console.log(coinLinks, coinData?.links.telegram_channel_identifier);
+  // console.log(coinLinks, coinData?.links.telegram_channel_identifier);
 
   useEffect(() => {
     // Should be true if coin name is not defined
@@ -191,6 +192,8 @@ const CoinDescription = (props) => {
 
       <Divider sx={{ backgroundColor: "white", m: "10px auto" }}></Divider>
 
+      <CoinChart id={coinData.id} currency={label.toLowerCase()} coin={coin} symbol={symbol}></CoinChart>
+
       <Grid container spacing={6} mt="-36px" mb="36px">
         <Grid item xs={6}>
           <Typography variant="h5">{coin.name} Value Statistics</Typography>
@@ -245,7 +248,9 @@ const CoinDescription = (props) => {
       <Grid container spacing={6}>
         <Grid item xs={6}>
           <Box display="flex" flexDirection="column" gap="4px" mb="8px">
-            <Typography variant="h5">Description</Typography>
+            <Typography variant="h5" mb="10px">
+              Description
+            </Typography>
             <Typography
               variant="body1"
               sx={{
@@ -262,7 +267,9 @@ const CoinDescription = (props) => {
 
         <Grid item xs={6}>
           <Box>
-            <Typography variant="h5">{coin.name} Links</Typography>
+            <Typography variant="h5" mb="5px">
+              {coin.name} Links
+            </Typography>
             {coinLinks.map((link, index) => (
               <CoinLinks
                 key={index}

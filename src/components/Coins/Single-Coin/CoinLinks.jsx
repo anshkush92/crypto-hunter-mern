@@ -20,30 +20,28 @@ const CoinLinks = (props) => {
 
   return (
     <>
-      <ListItem sx={{ "&:hover": { backgroundColor: "#202018e6" } }}>
-        <Box display="flex" alignItems="center">
-          <ListItemIcon sx={{ minWidth: "30px" }}>{icon}</ListItemIcon>
-          <ListItemText
-            primary={key.charAt(0).toUpperCase() + key.slice(1)}
-          ></ListItemText>
-        </Box>
-        {value && (
-          <ListItemButton component="a" href={value}>
+      <ListItemButton component="a" href={value} sx={{p: "0"}}>
+        <ListItem sx={{ "&:hover": { backgroundColor: "#202018e6" } }}>
+          <Box display="flex" alignItems="center">
+            <ListItemIcon sx={{ minWidth: "30px" }}>{icon}</ListItemIcon>
+            <ListItemText
+              primary={key.charAt(0).toUpperCase() + key.slice(1)}
+            ></ListItemText>
+          </Box>
+          {value && (
             <ListItemText
               primary={value}
-              sx={{ textAlign: "right" }}
+              sx={{ textAlign: "right", color: "gold" }}
             ></ListItemText>
-          </ListItemButton>
-        )}
-        {!value && (
-          <ListItemButton>
+          )}
+          {!value && (
             <ListItemText
               primary="Not Found"
               sx={{ textAlign: "right" }}
             ></ListItemText>
-          </ListItemButton>
-        )}
-      </ListItem>
+          )}
+        </ListItem>
+      </ListItemButton>
       <Divider sx={{ backgroundColor: "white" }}></Divider>
     </>
   );
