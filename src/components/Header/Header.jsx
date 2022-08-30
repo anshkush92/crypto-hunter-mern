@@ -24,9 +24,12 @@ const Header = () => {
   });
 
   return (
+    // Way to provide the dark mode to the app bar
     <ThemeProvider theme={darkTheme}>
+      {/* The Navigation Bar */}
       <AppBar sx={{ backgroundColor: "#353434" }} position="static">
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between", pt: "10px", pb: "10px" }}>
+          {/* Name of the APP */}
           <Box>
             <Link
               to="/"
@@ -40,11 +43,13 @@ const Header = () => {
             </Link>
           </Box>
 
+          {/* Navbar Options + Currency Changer */}
           <Box
             display="flex"
             alignItems="center"
             justifyContent="space-between"
           >
+            {/* Navbar Options */}
             <Box display="flex" alignItems="center">
               {navbarOptions.map((option) => (
                 <Link
@@ -65,11 +70,15 @@ const Header = () => {
                   </Button>
                 </Link>
               ))}
+              {/* Currency Changer */}
               <CurrencyChange></CurrencyChange>
             </Box>
 
-            <Box display="flex" gap={1}>
+            {/* Theme Changer + Auth Buttons */}
+            <Box display={{ xs: "none", sm: "flex" }} gap={1}>
+              {/* Theme Changer */}
               <ThemeChange></ThemeChange>
+              {/* Auth Button */}
               <AuthButton link="/signup" buttonVariant="text">
                 Sign Up
               </AuthButton>

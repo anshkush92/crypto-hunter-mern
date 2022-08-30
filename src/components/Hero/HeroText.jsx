@@ -7,7 +7,7 @@ import { Box, Typography } from "@mui/material";
 // Contains the CENTERED hero text and with <div> </div> as the WRAPPER 
 const HeroText = () => {
   return (
-    <Box display="flex" flexDirection="column" alignItems="center" width="100%">
+    <Box display="flex" flexDirection="column" alignItems="center" width="90%">
       <Typography variant="h4" sx={{ fontWeight: "bold", color: "white" }}>
         Crypto Hunter
       </Typography>
