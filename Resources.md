@@ -10,6 +10,10 @@
 
 - [Material UI](https://mui.com/material-ui/react-autocomplete/)
 
+  - One of the most import thing in the material UI [Grid](https://mui.com/material-ui/react-grid/#main-content)
+    - Learn how to manipulate grid according to the breakpoints using [xs, sm, md, lg, xl](https://mui.com/material-ui/react-grid/#grid-with-multiple-breakpoints)
+    - Learn how to give the responsive spacing in the Grid using spacing in Grid Container [xs, sm, md, lg, xl](https://mui.com/material-ui/react-grid/#responsive-values)
+
   - [Box](https://mui.com/material-ui/react-box/)
     - [Convert Box into the Image Component](https://mui.com/system/basics/)
     - [Center the text in the Image](https://www.w3schools.com/howto/howto_css_image_text.asp)
@@ -38,7 +42,10 @@
     - Basic implmenentation of the Lizard Card
 
   - [Table](https://mui.com/material-ui/react-table/#main-content) - Table for better view of the data - Give color to the sticky header in the table [Solution](https://codesandbox.io/s/material-demo-szz46?file=/demo.js)
-  - Learn how to apply [Table Sorting Youtube](https://www.youtube.com/watch?v=sW6HEiNDJ_s) and understand it fully
+
+    - Learn how to apply [Table Sorting Youtube](https://www.youtube.com/watch?v=sW6HEiNDJ_s) and understand it fully
+    - Give a [horizontal scroll bar](https://stackoverflow.com/questions/53962761/material-ui-table-horizontal-scroll) to the table using the overflow-X as auto
+    - Make the row as well as the column in the table as sticky [Sticky Column Table](https://stackoverflow.com/questions/51071144/how-to-customize-material-ui-table-row-and-columns-sticky)
 
   - Change the color of the [TextField](https://mui.com/material-ui/react-text-field/#color) in Material UI
 
@@ -48,6 +55,8 @@
   - Give the loading spinner when the data is being fetched [Loader](https://mui.com/material-ui/react-progress/#main-content)
 
   - Learn how to create the list with divider with the help of [List](https://mui.com/material-ui/react-list/#main-content) and [Divider](https://mui.com/material-ui/react-divider/)
+
+  - Learn how to use the [breakpoints - Codevloution](https://www.youtube.com/watch?v=ZowbtOWOElY) and [breakpoints - The Developer](https://www.youtube.com/watch?v=xRMCZfGhHyM) and [Breakpoints Docs](https://mui.com/material-ui/customization/breakpoints/#main-content) to made the site responsive
 
   <hr/>
 

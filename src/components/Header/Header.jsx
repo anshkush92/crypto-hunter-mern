@@ -14,7 +14,7 @@ import AuthButton from "./AuthButton";
 
 // Test -------------------------- The current component ----------------------------------
 const Header = () => {
-  const navbarOptions = ["Test 1", "Test 2", "Test 3"];
+  const navbarOptions = ["Coins", "Exchanges", "News"];
   const isDarkMode = useSelector((state) => state.toggleTheme.isDarkMode);
 
   const darkTheme = createTheme({
@@ -40,15 +40,27 @@ const Header = () => {
             </Link>
           </Box>
 
-          <Box display="flex" alignItems="center" justifyContent="space-between">
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+          >
             <Box display="flex" alignItems="center">
               {navbarOptions.map((option) => (
                 <Link
                   key={option}
-                  to={`/${option}`}
-                  style={{ textDecoration: "none" }}
+                  to={`/${option.toLowerCase()}`}
+                  style={{
+                    textDecoration: "none",
+                  }}
                 >
-                  <Button variant="text" sx={{ color: "yellow" }}>
+                  <Button
+                    variant="text"
+                    sx={{
+                      display: { xs: "none", md: "flex" },
+                      color: "yellow",
+                    }}
+                  >
                     {option}
                   </Button>
                 </Link>

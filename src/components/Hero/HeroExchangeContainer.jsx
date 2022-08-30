@@ -79,7 +79,14 @@ const HeroExchangeContainer = () => {
   };
 
   return (
-    <Box display="flex" alignItems="center" gap="30px">
+    <Box
+      display="flex"
+      width="90%"
+      flexDirection={{ xs: "column", sm: "row" }}
+      justifyContent="center"
+      alignItems="center"
+      gap={{xs: "15px", sm: "30px"}}
+    >
       <HeroExchangeFrom
         getFromAmount={getFromAmount}
         getFromCurrency={getFromCurrency}

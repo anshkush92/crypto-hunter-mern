@@ -1,6 +1,11 @@
 // Test -------------------------- Importing the Packages ---------------------------------
 import { useState, useEffect } from "react";
-import { Box, Typography, CircularProgress } from "@mui/material";
+import {
+  Box,
+  Typography,
+  CircularProgress,
+  TextField,
+} from "@mui/material";
 import { Line } from "react-chartjs-2";
 
 import {
@@ -32,10 +37,21 @@ const CoinChart = (props) => {
   const { currency, id, coin, symbol } = props;
   // Creating a loading state for the Chart
   const [isLoading, setIsLoading] = useState(true);
+  // Creating the state for days
+  const [inputValue, setInputValue] = useState(5);
 
-  // The hook which gives us the chart data for the particular coin
+  const inputValueHandler = (event) => {
+    console.log(event.target.value);
+    setInputValue(event.target.value);
+  };
+
   const days = 50;
-  const chartData = useCoinGeckoChartData(id, currency, days);
+  // The hook which gives us the chart data for the particular coin
+  const chartData = useCoinGeckoChartData(
+    id,
+    currency,
+    inputValue.length === ("" || null || undefined || 0) ? 0 : inputValue
+  );
   const chartDataLength = chartData.length;
   const { prices } = chartData;
 
@@ -52,7 +68,11 @@ const CoinChart = (props) => {
       },
       title: {
         display: true,
-        text: `${coin.name} Price Chart in ${currency.toUpperCase()}`,
+        text: `${
+          coin.name
+        } Price Chart in ${currency.toUpperCase()} for ${inputValue} ${
+          inputValue === "1" ? "day" : "days"
+        }`,
       },
     },
     elements: {
@@ -74,8 +94,9 @@ const CoinChart = (props) => {
 
   // For checking in which format we are getting the labels
   // console.log(labels);
-  console.log(symbol);
+  // console.log(symbol);
 
+  // The data that we are going to give to the Chart js
   const data = {
     labels,
     datasets: [
@@ -102,7 +123,7 @@ const CoinChart = (props) => {
   ) : (
     <Box>
       <Box display="flex" flexDirection="column">
-        <Typography variant="h5">{coin.name} Price Chart</Typography>
+        <Typography variant="h5" sx={{color: "gold"}}>{coin.name} Price Chart</Typography>
         <Typography variant="body1">
           Current Price:{" "}
           <Typography component="span" sx={{ color: "gold" }}>
@@ -118,6 +139,24 @@ const CoinChart = (props) => {
             {coin.change24hr} %
           </Typography>
         </Typography>
+      </Box>
+
+      <Box mt="10px">
+        <TextField
+          variant="outlined"
+          fullWidth
+          label="Number of days"
+          sx={{ input: { color: "white" } }}
+          InputLabelProps={{
+            style: {
+              color: "white",
+              borderColor: "red",
+            },
+          }}
+          onChange={inputValueHandler}
+          value={inputValue || ""}
+          focused
+        ></TextField>
       </Box>
       <Box sx={{ height: "500px", width: "100%", position: "relative" }}>
         <Line options={options} data={data}></Line>

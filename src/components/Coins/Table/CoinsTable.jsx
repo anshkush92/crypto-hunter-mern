@@ -188,7 +188,7 @@ const CoinsTable = () => {
                   125,
                   { label: "All", value: 250 },
                 ]}
-                colSpan={3}
+                colSpan={9999}
                 count={100 * 250}
                 rowsPerPage={rowsPerPage}
                 page={page}

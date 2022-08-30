@@ -20,7 +20,7 @@ const CoinLinks = (props) => {
 
   return (
     <>
-      <ListItemButton component="a" href={value} sx={{p: "0"}}>
+      <ListItemButton component="a" href={value ? value : undefined} sx={{p: "0"}}>
         <ListItem sx={{ "&:hover": { backgroundColor: "#202018e6" } }}>
           <Box display="flex" alignItems="center">
             <ListItemIcon sx={{ minWidth: "30px" }}>{icon}</ListItemIcon>

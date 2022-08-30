@@ -39,9 +39,7 @@ const HeroExchangeFrom = (props) => {
   };
 
   return (
-    <Paper
-      sx={{ p: "2px 4px", display: "flex", alignItems: "center", width: 400 }}
-    >
+    <Paper sx={{ p: "2px 4px", display: "flex", alignItems: "center" }}>
       <InputBase
         readOnly
         value="FROM"
@@ -66,7 +64,7 @@ const HeroExchangeFrom = (props) => {
         value={currency}
         id="country-data"
         options={newCurrencies}
-        sx={{ m: 1, minWidth: 140, backgroundColor: "white" }}
+        sx={{ m: 1, minWidth: 80, backgroundColor: "white" }}
         renderOption={(props, option) => (
           <Box
             component="li"

@@ -203,8 +203,8 @@ const CoinDescription = (props) => {
         sx={{ backgroundColor: "white", m: "20px auto 10px auto" }}
       ></Divider>
 
-      <Grid container spacing={6} mt="-36px" mb="36px">
-        <Grid item xs={6}>
+      <Grid container spacing={{ xs: 3, md: 6 }} mt="-36px" mb="36px">
+        <Grid item xs={12} md={6}>
           <Typography variant="h5">{coin.name} Value Statistics</Typography>
           <Typography variant="body1" mb="10px">
             An overview showing the statistics of{" "}
@@ -217,7 +217,7 @@ const CoinDescription = (props) => {
             </Typography>
             , such as the base and quote currency, the rank, and trading volume
           </Typography>
-          <List>
+          <List sx={{ p: "0" }}>
             {coinValueStats.map((coin, index) => (
               <CoinStats
                 key={index}
@@ -228,7 +228,7 @@ const CoinDescription = (props) => {
           </List>
         </Grid>
 
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}>
           <Typography variant="h5">Other Stats Info</Typography>
           <Typography variant="body1" mb="10px">
             An overview showing the statistics of{" "}
@@ -242,7 +242,7 @@ const CoinDescription = (props) => {
             , such as the number of exchanges, markets and total supply
           </Typography>
 
-          <List>
+          <List sx={{ p: "0" }}>
             {otherStats.map((coin, index) => (
               <CoinStats
                 key={index}
@@ -254,10 +254,10 @@ const CoinDescription = (props) => {
         </Grid>
       </Grid>
 
-      <Grid container spacing={6}>
-        <Grid item xs={6}>
-          <Box display="flex" flexDirection="column" gap="4px" mb="8px">
-            <Typography variant="h5" mb="10px">
+      <Grid container spacing={{ xs: 3, md: 6 }}>
+        <Grid item xs={12} md={6}>
+          <Box display="flex" flexDirection="column" gap="4px" mb={{md: "8px"}}>
+            <Typography variant="h5" mb={{ md: "10px" }}>
               Description
             </Typography>
             <Typography
@@ -274,18 +274,20 @@ const CoinDescription = (props) => {
           </Box>
         </Grid>
 
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}>
           <Box>
-            <Typography variant="h5" mb="5px">
+            <Typography variant="h5" mb={{md: "5px"}}>
               {coin.name} Links
             </Typography>
-            {coinLinks.map((link, index) => (
-              <CoinLinks
-                key={index}
-                icon={coinLinksIcons[index]}
-                text={link}
-              ></CoinLinks>
-            ))}
+            <List sx={{ p: "0" }}>
+              {coinLinks.map((link, index) => (
+                <CoinLinks
+                  key={index}
+                  icon={coinLinksIcons[index]}
+                  text={link}
+                ></CoinLinks>
+              ))}
+            </List>
           </Box>
         </Grid>
       </Grid>
