@@ -150,6 +150,7 @@ const CoinDescription = (props) => {
     <LinearProgress sx={{ backgroundColor: "gold" }}></LinearProgress>
   ) : (
     <Box>
+      {/* Image + Coin Name Section */}
       <Box
         display="flex"
         justifyContent="center"
@@ -175,6 +176,7 @@ const CoinDescription = (props) => {
         </Box>
       </Box>
 
+      {/* Coin Name + Coin Data Section */}
       <Box display="flex" justifyContent="center">
         <Typography variant="h5">
           {coin.name} live prices in{" "}
@@ -192,6 +194,7 @@ const CoinDescription = (props) => {
 
       <Divider sx={{ backgroundColor: "white", m: "10px auto" }}></Divider>
 
+      {/* Coin Chart Section */}
       <CoinChart
         id={coinData.id}
         currency={label.toLowerCase()}
@@ -203,7 +206,14 @@ const CoinDescription = (props) => {
         sx={{ backgroundColor: "white", m: "20px auto 10px auto" }}
       ></Divider>
 
-      <Grid container spacing={{ xs: 3, md: 6 }} mt="-36px" mb="36px">
+      {/* Grid Section cointaing COIN INFO (STATS) */}
+      <Grid
+        container
+        spacing={{ xs: 3, md: 6 }}
+        mt="-36px"
+        mb={{ sm: "24px", xs: "36px" }}
+      >
+        {/* Grid COIN STATS section */}
         <Grid item xs={12} md={6}>
           <Typography variant="h5">{coin.name} Value Statistics</Typography>
           <Typography variant="body1" mb="10px">
@@ -228,6 +238,7 @@ const CoinDescription = (props) => {
           </List>
         </Grid>
 
+        {/* Grid OTHER STATS section */}
         <Grid item xs={12} md={6}>
           <Typography variant="h5">Other Stats Info</Typography>
           <Typography variant="body1" mb="10px">
@@ -254,9 +265,16 @@ const CoinDescription = (props) => {
         </Grid>
       </Grid>
 
+      {/* Grid Section containing COIN DESCRIPTION and LINKS */}
       <Grid container spacing={{ xs: 3, md: 6 }}>
+        {/* Grid DESCRIPTION section */}
         <Grid item xs={12} md={6}>
-          <Box display="flex" flexDirection="column" gap="4px" mb={{md: "8px"}}>
+          <Box
+            display="flex"
+            flexDirection="column"
+            gap="4px"
+            mb={{ md: "8px" }}
+          >
             <Typography variant="h5" mb={{ md: "10px" }}>
               Description
             </Typography>
@@ -274,9 +292,10 @@ const CoinDescription = (props) => {
           </Box>
         </Grid>
 
+        {/* Grid LINKS section */}
         <Grid item xs={12} md={6}>
           <Box>
-            <Typography variant="h5" mb={{md: "5px"}}>
+            <Typography variant="h5" mb={{ md: "5px" }}>
               {coin.name} Links
             </Typography>
             <List sx={{ p: "0" }}>
