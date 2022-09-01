@@ -14,6 +14,7 @@ import {
   TableFooter,
   TablePagination,
   LinearProgress,
+  Grid,
 } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { setCoinsList } from "../../../features/coinsList/coinsList";
@@ -87,13 +88,10 @@ const CoinsTable = () => {
   const tableRowsComponent = tableRows.map((cell, index) => (
     <TableCell
       key={cell}
-      align="left"
+      align={index === 1 ? "center" : "left"}
       sx={{
         backgroundColor: "yellow",
         fontWeight: "700",
-        zIndex: index === 1 ? "900" : "2",
-        position: index === 1 && "sticky",
-        left: "0"
       }}
     >
       {cell}
@@ -116,105 +114,108 @@ const CoinsTable = () => {
           <LinearProgress sx={{ backgroundColor: "yellow" }}></LinearProgress>
         </Box>
       )}
-      <TableContainer
-        component={Paper}
-        sx={{
-          width: "100%",
-          m: "30px auto",
-          overflowX: "auto",
-          // borderRadius: "8px",
-        }}
-      >
-        <Table stickyHeader>
-          <TableHead style={{ backgroundColor: "yellow" }}>
-            <TableRow>{tableRowsComponent}</TableRow>
-          </TableHead>
-          <TableBody sx={{ backgroundColor: "#020a0a", color: "white" }}>
-            {coinsList.map((row) => (
-              <TableRow
-                key={row.id}
-                onClick={() => navigate(`/coins/${row.id}`)}
-                sx={{ "&:hover": { cursor: "pointer" } }}
-              >
-                <TableCell sx={{ color: "white" }}>
-                  {row.market_cap_rank}
-                </TableCell>
+      <Grid container>
+        <Grid item xs={12}>
+          <TableContainer
+            component={Paper}
+            sx={{
+              width: "100%",
+              m: "30px auto",
+            }}
+          >
+            <Table stickyHeader>
+              <TableHead style={{ backgroundColor: "yellow" }}>
+                <TableRow>{tableRowsComponent}</TableRow>
+              </TableHead>
+              <TableBody sx={{ backgroundColor: "#020a0a", color: "white" }}>
+                {coinsList.map((row) => (
+                  <TableRow
+                    key={row.id}
+                    onClick={() => navigate(`/coins/${row.id}`)}
+                    sx={{ "&:hover": { cursor: "pointer" } }}
+                  >
+                    <TableCell sx={{ color: "white" }}>
+                      {row.market_cap_rank}
+                    </TableCell>
 
-                <TableCell
-                  align="left"
-                  sx={{
-                    color: "white",
-                    zIndex: "800",
-                    position: "sticky",
-                    left: "0",
-                  }}
-                >
-                  <Box display="flex" alignItems="center" gap="15px">
-                    <>
-                      <Box
-                        component="img"
-                        src={row.image}
-                        alt={row.name}
-                        loading="lazy"
-                        height="50px"
-                      ></Box>
-                    </>
-                    <Box
-                      display="flex"
-                      flexDirection="column"
-                      justifyContent="center"
+                    <TableCell
+                      align="left"
+                      sx={{
+                        color: "white",
+                      }}
                     >
-                      <Typography variant="h6">
-                        {row.symbol.toUpperCase()}
-                      </Typography>
-                      <Typography variant="subtitle2">{row.name}</Typography>
-                    </Box>
-                  </Box>
-                </TableCell>
-                <TableCell align="left" sx={{ color: "white" }}>
-                  {symbol} {row.current_price}
-                </TableCell>
-                <TableCell
-                  align="left"
-                  sx={{
-                    color:
-                      row.price_change_percentage_24h >= 0 ? "green" : "red",
-                  }}
-                >
-                  {row.price_change_percentage_24h} %
-                </TableCell>
-                <TableCell align="left" sx={{ color: "white" }}>
-                  {symbol} {row.market_cap}
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
+                      <Box display="flex" alignItems="center" gap="15px">
+                        <>
+                          <Box
+                            component="img"
+                            src={row.image}
+                            alt={row.name}
+                            loading="lazy"
+                            height="50px"
+                          ></Box>
+                        </>
+                        <Box
+                          display="flex"
+                          flexDirection="column"
+                          justifyContent="center"
+                        >
+                          <Typography variant="h6">
+                            {row.symbol.toUpperCase()}
+                          </Typography>
+                          <Typography variant="subtitle2">
+                            {row.name}
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </TableCell>
+                    <TableCell align="left" sx={{ color: "white" }}>
+                      {symbol} {row.current_price}
+                    </TableCell>
+                    <TableCell
+                      align="left"
+                      sx={{
+                        color:
+                          row.price_change_percentage_24h >= 0
+                            ? "green"
+                            : "red",
+                      }}
+                    >
+                      {row.price_change_percentage_24h} %
+                    </TableCell>
+                    <TableCell align="left" sx={{ color: "white" }}>
+                      {symbol} {row.market_cap}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
 
-          <TableFooter>
-            <TableRow>
-              <TablePagination
-                rowsPerPageOptions={[
-                  5,
-                  10,
-                  25,
-                  50,
-                  75,
-                  100,
-                  125,
-                  { label: "All", value: 250 },
-                ]}
-                colSpan={9999}
-                count={100 * 250}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-                ActionsComponent={TablePaginationActions}
-              ></TablePagination>
-            </TableRow>
-          </TableFooter>
-        </Table>
-      </TableContainer>
+              <TableFooter>
+                <TableRow>
+                  <TablePagination
+                    rowsPerPageOptions={[
+                      5,
+                      10,
+                      25,
+                      50,
+                      75,
+                      100,
+                      125,
+                      { label: "All", value: 250 },
+                    ]}
+                    colSpan={9999}
+                    count={100 * 250}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                    ActionsComponent={TablePaginationActions}
+                  ></TablePagination>
+                </TableRow>
+              </TableFooter>
+            </Table>
+          </TableContainer>
+        </Grid>
+      </Grid>
     </Box>
   );
 };
