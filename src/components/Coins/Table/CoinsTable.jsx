@@ -87,7 +87,14 @@ const CoinsTable = () => {
   const tableRowsComponent = tableRows.map((cell, index) => (
     <TableCell
       key={cell}
-      sx={{ backgroundColor: "yellow", fontWeight: "700", textAlign: "left" }}
+      align="left"
+      sx={{
+        backgroundColor: "yellow",
+        fontWeight: "700",
+        zIndex: index === 1 ? "900" : "2",
+        position: index === 1 && "sticky",
+        left: "0"
+      }}
     >
       {cell}
     </TableCell>
@@ -133,7 +140,15 @@ const CoinsTable = () => {
                   {row.market_cap_rank}
                 </TableCell>
 
-                <TableCell align="left" sx={{ color: "white" }}>
+                <TableCell
+                  align="left"
+                  sx={{
+                    color: "white",
+                    zIndex: "800",
+                    position: "sticky",
+                    left: "0",
+                  }}
+                >
                   <Box display="flex" alignItems="center" gap="15px">
                     <>
                       <Box
