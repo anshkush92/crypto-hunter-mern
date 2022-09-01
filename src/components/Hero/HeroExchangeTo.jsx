@@ -66,7 +66,7 @@ const HeroExchangeTo = (props) => {
         value={currency}
         id="country-data"
         options={newCurrencies}
-        sx={{ m: 1, minWidth: 80, backgroundColor: "white" }}
+        sx={{ m: 1, minWidth: 80}}
         renderOption={(props, option) => (
           <Box
             component="li"
