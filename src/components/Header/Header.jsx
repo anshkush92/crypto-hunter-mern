@@ -1,11 +1,6 @@
 // Test -------------------------- Importing the Packages ---------------------------------
 import { AppBar, Button, Toolbar, Typography, Box } from "@mui/material";
-
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-
 import { Link } from "react-router-dom";
-
-import { useSelector } from "react-redux";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import CurrencyChange from "./CurrencyChange";
@@ -15,20 +10,19 @@ import AuthButton from "./AuthButton";
 // Test -------------------------- The current component ----------------------------------
 const Header = () => {
   const navbarOptions = ["Coins", "Exchanges", "News"];
-  const isDarkMode = useSelector((state) => state.toggleTheme.isDarkMode);
-
-  const darkTheme = createTheme({
-    palette: {
-      mode: isDarkMode ? "dark" : "light",
-    },
-  });
 
   return (
-    // Way to provide the dark mode to the app bar
-    <ThemeProvider theme={darkTheme}>
+    <>
       {/* The Navigation Bar */}
       <AppBar sx={{ backgroundColor: "#353434" }} position="static">
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between", pt: "10px", pb: "10px" }}>
+        <Toolbar
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            pt: "10px",
+            pb: "10px",
+          }}
+        >
           {/* Name of the APP */}
           <Box>
             <Link
@@ -39,7 +33,12 @@ const Header = () => {
                 textDecoration: "none",
               }}
             >
-              <Typography variant="h5" sx={{fontSize: {xs: "18px", sm: "24px"}}}>Crypto Hunter</Typography>
+              <Typography
+                variant="h5"
+                sx={{ fontSize: { xs: "18px", sm: "24px" } }}
+              >
+                Crypto Hunter
+              </Typography>
             </Link>
           </Box>
 
@@ -64,6 +63,11 @@ const Header = () => {
                     sx={{
                       display: { xs: "none", md: "flex" },
                       color: "yellow",
+                      borderColor: "yellow",
+                      "&:hover": {
+                        borderColor: "yellow",
+                        backgroundColor: "#4e4e2e",
+                      },
                     }}
                   >
                     {option}
@@ -87,7 +91,7 @@ const Header = () => {
           </Box>
         </Toolbar>
       </AppBar>
-    </ThemeProvider>
+    </>
   );
 };
 
