@@ -149,170 +149,175 @@ const CoinDescription = (props) => {
   return isLoading ? (
     <LinearProgress sx={{ backgroundColor: "gold" }}></LinearProgress>
   ) : (
-    <Box>
-      {/* Image + Coin Name Section */}
-      <Box
-        display="flex"
-        justifyContent="center"
-        mb="15px"
-        alignItems="center"
-        gap="15px"
-      >
-        <Box
-          component="img"
-          height="100px"
-          alt={coin.name}
-          src={coin.image}
-          loading="lazy"
-        ></Box>
-
+    <Grid container>
+      <Grid item xs={12}>
         <Box>
-          <Typography variant="h4" fontWeight="700">
-            {coin.symbol}
-          </Typography>
-          <Typography variant="h5" fontWeight="500">
-            {coin.name}
-          </Typography>
-        </Box>
-      </Box>
-
-      {/* Coin Name + Coin Data Section */}
-      <Box display="flex" justifyContent="center">
-        <Typography variant="h5">
-          {coin.name} live prices in{" "}
-          <Typography
-            variant="h5"
-            component="span"
-            fontWeight="900"
-            sx={{ color: "gold" }}
-          >
-            {label}{" "}
-          </Typography>
-          currency
-        </Typography>
-      </Box>
-
-      <Divider sx={{ backgroundColor: "white", m: "10px auto" }}></Divider>
-
-      {/* Coin Chart Section */}
-      <CoinChart
-        id={coinData.id}
-        currency={label.toLowerCase()}
-        coin={coin}
-        symbol={symbol}
-      ></CoinChart>
-
-      <Divider
-        sx={{ backgroundColor: "white", m: "20px auto 10px auto" }}
-      ></Divider>
-
-      {/* Grid Section cointaing COIN INFO (STATS) */}
-      <Grid
-        container
-        spacing={{ xs: 3, md: 6 }}
-        mt="-36px"
-        mb={{ sm: "24px", xs: "36px" }}
-      >
-        {/* Grid COIN STATS section */}
-        <Grid item xs={12} md={6}>
-          <Typography variant="h5">{coin.name} Value Statistics</Typography>
-          <Typography variant="body1" mb="10px">
-            An overview showing the statistics of{" "}
-            <Typography
-              component="span"
-              fontWeight="900"
-              sx={{ color: "gold" }}
-            >
-              {coin.name}
-            </Typography>
-            , such as the base and quote currency, the rank, and trading volume
-          </Typography>
-          <List sx={{ p: "0" }}>
-            {coinValueStats.map((coin, index) => (
-              <CoinStats
-                key={index}
-                icon={coinValueStatsIcons[index]}
-                text={coin}
-              ></CoinStats>
-            ))}
-          </List>
-        </Grid>
-
-        {/* Grid OTHER STATS section */}
-        <Grid item xs={12} md={6}>
-          <Typography variant="h5">Other Stats Info</Typography>
-          <Typography variant="body1" mb="10px">
-            An overview showing the statistics of{" "}
-            <Typography
-              component="span"
-              fontWeight="900"
-              sx={{ color: "gold" }}
-            >
-              {coin.name}
-            </Typography>
-            , such as the number of exchanges, markets and total supply
-          </Typography>
-
-          <List sx={{ p: "0" }}>
-            {otherStats.map((coin, index) => (
-              <CoinStats
-                key={index}
-                icon={otherStatsIcons[index]}
-                text={coin}
-              ></CoinStats>
-            ))}
-          </List>
-        </Grid>
-      </Grid>
-
-      {/* Grid Section containing COIN DESCRIPTION and LINKS */}
-      <Grid container spacing={{ xs: 3, md: 6 }}>
-        {/* Grid DESCRIPTION section */}
-        <Grid item xs={12} md={6}>
+          {/* Image + Coin Name Section */}
           <Box
             display="flex"
-            flexDirection="column"
-            gap="4px"
-            mb={{ md: "8px" }}
+            justifyContent="center"
+            mb="15px"
+            alignItems="center"
+            gap="15px"
           >
-            <Typography variant="h5" mb={{ md: "10px" }}>
-              Description
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                a: {
-                  color: "gold",
-                  "&:hover": { textDecoration: "underline" },
-                },
-              }}
-            >
-              {coin.description}
-            </Typography>
-          </Box>
-        </Grid>
+            <Box
+              component="img"
+              height="100px"
+              alt={coin.name}
+              src={coin.image}
+              loading="lazy"
+            ></Box>
 
-        {/* Grid LINKS section */}
-        <Grid item xs={12} md={6}>
-          <Box>
-            <Typography variant="h5" mb={{ md: "5px" }}>
-              {coin.name} Links
-            </Typography>
-            <List sx={{ p: "0" }}>
-              {coinLinks.map((link, index) => (
-                <CoinLinks
-                  key={index}
-                  icon={coinLinksIcons[index]}
-                  text={link}
-                ></CoinLinks>
-              ))}
-            </List>
+            <Box>
+              <Typography variant="h4" fontWeight="700">
+                {coin.symbol}
+              </Typography>
+              <Typography variant="h5" fontWeight="500">
+                {coin.name}
+              </Typography>
+            </Box>
           </Box>
-        </Grid>
+
+          {/* Coin Name + Coin Data Section */}
+          <Box display="flex" justifyContent="center">
+            <Typography variant="h5">
+              {coin.name} live prices in{" "}
+              <Typography
+                variant="h5"
+                component="span"
+                fontWeight="900"
+                sx={{ color: "gold" }}
+              >
+                {label}{" "}
+              </Typography>
+              currency
+            </Typography>
+          </Box>
+
+          <Divider sx={{ backgroundColor: "white", m: "10px auto" }}></Divider>
+
+          {/* Coin Chart Section */}
+          <CoinChart
+            id={coinData.id}
+            currency={label.toLowerCase()}
+            coin={coin}
+            symbol={symbol}
+          ></CoinChart>
+
+          <Divider
+            sx={{ backgroundColor: "white", m: "20px auto 10px auto" }}
+          ></Divider>
+
+          {/* Grid Section cointaing COIN INFO (STATS) */}
+          <Grid
+            container
+            spacing={{ xs: 3, md: 6 }}
+            mt="-36px"
+            mb={{ sm: "24px", xs: "36px" }}
+          >
+            {/* Grid COIN STATS section */}
+            <Grid item xs={12} md={6}>
+              <Typography variant="h5">{coin.name} Value Statistics</Typography>
+              <Typography variant="body1" mb="10px">
+                An overview showing the statistics of{" "}
+                <Typography
+                  component="span"
+                  fontWeight="900"
+                  sx={{ color: "gold" }}
+                >
+                  {coin.name}
+                </Typography>
+                , such as the base and quote currency, the rank, and trading
+                volume
+              </Typography>
+              <List sx={{ p: "0" }}>
+                {coinValueStats.map((coin, index) => (
+                  <CoinStats
+                    key={index}
+                    icon={coinValueStatsIcons[index]}
+                    text={coin}
+                  ></CoinStats>
+                ))}
+              </List>
+            </Grid>
+
+            {/* Grid OTHER STATS section */}
+            <Grid item xs={12} md={6}>
+              <Typography variant="h5">Other Stats Info</Typography>
+              <Typography variant="body1" mb="10px">
+                An overview showing the statistics of{" "}
+                <Typography
+                  component="span"
+                  fontWeight="900"
+                  sx={{ color: "gold" }}
+                >
+                  {coin.name}
+                </Typography>
+                , such as the number of exchanges, markets and total supply
+              </Typography>
+
+              <List sx={{ p: "0" }}>
+                {otherStats.map((coin, index) => (
+                  <CoinStats
+                    key={index}
+                    icon={otherStatsIcons[index]}
+                    text={coin}
+                  ></CoinStats>
+                ))}
+              </List>
+            </Grid>
+          </Grid>
+
+          {/* Grid Section containing COIN DESCRIPTION and LINKS */}
+          <Grid container spacing={{ xs: 3, md: 6 }}>
+            {/* Grid DESCRIPTION section */}
+            <Grid item xs={12} md={6}>
+              <Box
+                display="flex"
+                flexDirection="column"
+                gap="4px"
+                mb={{ md: "8px" }}
+              >
+                <Typography variant="h5" mb={{ md: "10px" }}>
+                  Description
+                </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    a: {
+                      color: "gold",
+                      "&:hover": { textDecoration: "underline" },
+                    },
+                  }}
+                >
+                  {coin.description}
+                </Typography>
+              </Box>
+            </Grid>
+
+            {/* Grid LINKS section */}
+            <Grid item xs={12} md={6}>
+              <Box>
+                <Typography variant="h5" mb={{ md: "5px" }}>
+                  {coin.name} Links
+                </Typography>
+                <List sx={{ p: "0" }}>
+                  {coinLinks.map((link, index) => (
+                    <CoinLinks
+                      key={index}
+                      icon={coinLinksIcons[index]}
+                      text={link}
+                    ></CoinLinks>
+                  ))}
+                </List>
+              </Box>
+            </Grid>
+          </Grid>
+
+          <Divider></Divider>
+        </Box>
       </Grid>
-
-      <Divider></Divider>
-    </Box>
+    </Grid>
   );
 };
 
