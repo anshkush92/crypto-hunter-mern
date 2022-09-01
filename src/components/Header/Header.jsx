@@ -39,7 +39,7 @@ const Header = () => {
                 textDecoration: "none",
               }}
             >
-              <Typography variant="h5">Crypto Hunter</Typography>
+              <Typography variant="h5" sx={{fontSize: {xs: "18px", sm: "24px"}}}>Crypto Hunter</Typography>
             </Link>
           </Box>
 
