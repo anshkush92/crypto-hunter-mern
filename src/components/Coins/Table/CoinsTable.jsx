@@ -114,7 +114,7 @@ const CoinsTable = () => {
         sx={{
           width: "100%",
           m: "30px auto",
-          overflowX: "initial",
+          overflowX: "auto",
           // borderRadius: "8px",
         }}
       >
