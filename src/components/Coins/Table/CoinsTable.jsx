@@ -1,6 +1,6 @@
 // Test -------------------------- Importing the Packages ---------------------------------
 import { useState, useEffect } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   TableContainer,
   TableRow,
@@ -27,7 +27,7 @@ import { compareRank } from "../../../utilities/Sorting/sort";
 // Test -------------------------- The current component ----------------------------------
 // This component is used for creating the table from the coins data that we get from Cryto API
 const CoinsTable = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  // const [searchParams, setSearchParams] = useSearchParams();
 
   // Getting the state of currently selected currency
   const { label, symbol } = useSelector((state) => state.currencyChanger);
@@ -109,13 +109,13 @@ const CoinsTable = () => {
     setPage(0);
   };
 
-  useEffect(() => {
-    setSearchParams({
-      currency: label.toLowerCase(),
-      page: page + 1,
-      rows: rowsPerPage,
-    });
-  }, [label, page, rowsPerPage, setSearchParams]);
+  // useEffect(() => {
+  //   setSearchParams({
+  //     currency: label.toLowerCase(),
+  //     page: page + 1,
+  //     rows: rowsPerPage,
+  //   });
+  // }, [label, page, rowsPerPage, setSearchParams]);
 
   return (
     <Box width="90%" m="auto">
@@ -214,8 +214,8 @@ const CoinsTable = () => {
                     ]}
                     colSpan={9999}
                     count={100 * 250}
-                    rowsPerPage={searchParams.get("rows") || rowsPerPage}
-                    page={searchParams.get("page") || page}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
                     onPageChange={handleChangePage}
                     onRowsPerPageChange={handleChangeRowsPerPage}
                     ActionsComponent={TablePaginationActions}

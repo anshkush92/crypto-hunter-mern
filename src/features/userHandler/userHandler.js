@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 // The intial state of the userHandler slice
 const initialState = {
   user: null,
-  isLogin: false,
+  isLogin: true,
 };
 
 // The userHandler slice

@@ -1,15 +1,16 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import { AppBar, Button, Toolbar, Typography, Box } from "@mui/material";
+import { AppBar, Toolbar, Typography, Box } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 // Test -------------------------- Importing the styles / other components ----------------
+import AvatarMenu from "../AvatarMenu/AvatarMenu";
 import CurrencyChange from "./CurrencyChange";
-import ThemeChange from "./ThemeChange";
 import AuthButton from "./AuthButton";
 
 // Test -------------------------- The current component ----------------------------------
 const Header = () => {
-  const navbarOptions = ["Coins", "Exchanges", "News"];
+  const { isLogin } = useSelector((state) => state.userHandler);
 
   return (
     <>
@@ -42,52 +43,24 @@ const Header = () => {
             </Link>
           </Box>
 
-          {/* Navbar Options + Currency Changer */}
-          <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-          >
-            {/* Navbar Options */}
-            <Box display="flex" alignItems="center">
-              {navbarOptions.map((option) => (
-                <Link
-                  key={option}
-                  to={`/${option.toLowerCase()}`}
-                  style={{
-                    textDecoration: "none",
-                  }}
-                >
-                  <Button
-                    variant="text"
-                    sx={{
-                      display: { xs: "none", md: "flex" },
-                      color: "yellow",
-                      borderColor: "yellow",
-                      "&:hover": {
-                        borderColor: "yellow",
-                        backgroundColor: "#4e4e2e",
-                      },
-                    }}
-                  >
-                    {option}
-                  </Button>
-                </Link>
-              ))}
-              {/* Currency Changer */}
-              <CurrencyChange></CurrencyChange>
-            </Box>
+          {/* Theme Changer + Auth Buttons */}
+          <Box sx={{ display: "flex", alignItems: "center" }} gap={1}>
+            {isLogin && (
+              <>
+                <CurrencyChange></CurrencyChange>
+                <AvatarMenu></AvatarMenu>
+              </>
+            )}
 
-            {/* Theme Changer + Auth Buttons */}
-            <Box display={{ xs: "none", sm: "flex" }} gap={1}>
-              {/* Theme Changer */}
-              <ThemeChange></ThemeChange>
-              {/* Auth Button */}
-              <AuthButton link="/signup" buttonVariant="text">
-                Sign Up
-              </AuthButton>
-              <AuthButton link="/login">Login</AuthButton>
-            </Box>
+            {/* Auth Button */}
+            {!isLogin && (
+              <>
+                <AuthButton link="/signup" buttonVariant="text">
+                  Sign Up
+                </AuthButton>
+                <AuthButton link="/login">Login</AuthButton>
+              </>
+            )}
           </Box>
         </Toolbar>
       </AppBar>
