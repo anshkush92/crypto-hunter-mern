@@ -5,8 +5,8 @@ const SocialButton = ({ children, src }) => {
     <Button
       sx={{
         width: "100%",
-        height: "3rem",
         color: "black",
+        py: "0.75rem",
         borderRadius: "0.5rem",
         bgcolor: "#e4e2e2",
         display: "flex",
