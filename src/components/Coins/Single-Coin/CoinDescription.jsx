@@ -188,7 +188,7 @@ const CoinDescription = (props) => {
                 fontWeight="900"
                 sx={{ color: "gold" }}
               >
-                {label}{" "}
+                {label}
               </Typography>
               currency
             </Typography>

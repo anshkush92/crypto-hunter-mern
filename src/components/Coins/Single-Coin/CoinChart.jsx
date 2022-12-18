@@ -5,6 +5,7 @@ import {
   Typography,
   CircularProgress,
   TextField,
+  Button,
 } from "@mui/material";
 import { Line } from "react-chartjs-2";
 
@@ -123,7 +124,9 @@ const CoinChart = (props) => {
   ) : (
     <Box>
       <Box display="flex" flexDirection="column">
-        <Typography variant="h5" sx={{color: "gold"}}>{coin.name} Price Chart</Typography>
+        <Typography variant="h5" sx={{ color: "gold" }}>
+          {coin.name} Price Chart
+        </Typography>
         <Typography variant="body1">
           Current Price:{" "}
           <Typography component="span" sx={{ color: "gold" }}>
@@ -141,12 +144,19 @@ const CoinChart = (props) => {
         </Typography>
       </Box>
 
-      <Box mt="10px">
+      <Box
+        mt="10px"
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
+          alignItems: "center",
+          gap: "1rem",
+        }}
+      >
         <TextField
           variant="outlined"
-          fullWidth
           label="Number of days"
-          sx={{ input: { color: "white" } }}
+          sx={{ input: { color: "white" }, flexGrow: "1", width: "100%" }}
           InputLabelProps={{
             style: {
               color: "white",
@@ -157,6 +167,17 @@ const CoinChart = (props) => {
           value={inputValue || ""}
           focused
         ></TextField>
+        <Button
+          size="large"
+          sx={{
+            flexGrow: "1",
+            backgroundColor: "white",
+            height: "3.4375rem",
+            width: "100%",
+          }}
+        >
+          Add to Favorites
+        </Button>
       </Box>
       <Box sx={{ height: "500px", width: "100%", position: "relative" }}>
         <Line options={options} data={data}></Line>
