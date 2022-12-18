@@ -1,10 +1,13 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import { Button } from "@mui/material";
 import React from "react";
 
+import { Box, Button } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { loginUser, logoutUser } from "../../features/userHandler/userHandler";
+import { Link } from "react-router-dom";
+
 // Test -------------------------- Importing the styles / other components ----------------
+import SocialButton from "../../components/Buttons/SocialButton";
+import { loginUser, logoutUser } from "../../features/userHandler/userHandler";
 
 // Test -------------------------- The current component ----------------------------------
 const LoginPage = () => {
@@ -13,21 +16,25 @@ const LoginPage = () => {
 
   console.log(`State of the user`, { isLogin, user });
   return (
-    <div>
-      LoginPage
-      {!isLogin && (
-        <Button
-          onClick={() => {
-            dispatch(loginUser({ name: "Ansh" }));
-          }}
-        >
-          Login
-        </Button>
-      )}
-      {isLogin && (
-        <Button onClick={() => dispatch(logoutUser())}>Logout</Button>
-      )}
-    </div>
+    <Box>
+      <Box component="section">
+        <Box component="header" sx={{ bgcolor: "black", p: 2 }}>
+          <Link to="/">
+            <Box component="span" sx={{ color: "white", fontSize: "1.5rem" }}>
+              Crypto Hunter
+            </Box>
+          </Link>
+        </Box>
+
+        <Box component="main" sx={{ bgcolor: "white", p: 2 }}>
+          <Box>
+            <SocialButton src="https://res.cloudinary.com/dicbnntfh/image/upload/v1671358098/Crypto-Hunter-Mern/Google__G__Logo.svg_xunok2.webp">
+              Login With Google
+            </SocialButton>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 
