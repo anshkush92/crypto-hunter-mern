@@ -3,11 +3,13 @@ import { Box, TextField } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 
 // Test -------------------------- Importing the styles / other components ----------------
+import { useSearchParams } from "react-router-dom";
 import SearchHeading from "./SearchHeading";
 import { setSearchValue } from "../../../features/coinsList/coinsList";
 
 // Test -------------------------- The current component ----------------------------------
 const Search = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const { searchValue } = useSelector((state) => state.coinsListHandler);
   const dispatch = useDispatch();
 
@@ -15,6 +17,12 @@ const Search = () => {
   const searchValueHandler = (event) => {
     // console.log(event.target.value);
     dispatch(setSearchValue({ searchValue: event.target.value }));
+    // Setting the query parameters for the search values
+    if (event.target.value === "") {
+      setSearchParams({});
+    } else {
+      setSearchParams({ search: event.target.value });
+    }
   };
 
   // Test ----------------------- Custom Text Field made using Styled --------------------
@@ -39,7 +47,7 @@ const Search = () => {
           },
         }}
         onChange={searchValueHandler}
-        value={searchValue}
+        value={searchParams.get("search") || searchValue}
         focused
       ></TextField>
     </Box>
