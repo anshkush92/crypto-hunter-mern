@@ -15,13 +15,13 @@ const Header = () => {
   return (
     <>
       {/* The Navigation Bar */}
-      <AppBar sx={{ backgroundColor: "#353434" }} position="static">
+      <AppBar sx={{ backgroundColor: "#151515" }} position="static">
         <Toolbar
           sx={{
             display: "flex",
             justifyContent: "space-between",
-            pt: "10px",
-            pb: "10px",
+            px: { xs: 1, sm: 2 },
+            py: 1,
           }}
         >
           {/* Name of the APP */}
@@ -44,7 +44,13 @@ const Header = () => {
           </Box>
 
           {/* Theme Changer + Auth Buttons */}
-          <Box sx={{ display: "flex", alignItems: "center" }} gap={1}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: { xs: 0.5, sm: 1 },
+            }}
+          >
             {isLogin && (
               <>
                 <CurrencyChange></CurrencyChange>

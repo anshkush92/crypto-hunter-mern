@@ -109,14 +109,6 @@ const CoinsTable = () => {
     setPage(0);
   };
 
-  // useEffect(() => {
-  //   setSearchParams({
-  //     currency: label.toLowerCase(),
-  //     page: page + 1,
-  //     rows: rowsPerPage,
-  //   });
-  // }, [label, page, rowsPerPage, setSearchParams]);
-
   return (
     <Box width="90%" m="auto">
       {isLoading && (
@@ -142,7 +134,7 @@ const CoinsTable = () => {
                   <TableRow
                     key={row.id}
                     onClick={() => navigate(`/coins/${row.id}`)}
-                    sx={{ "&:hover": { cursor: "pointer" } }}
+                    sx={{ "&:hover": { backgroundColor: "#1b1b1b" } }}
                   >
                     <TableCell sx={{ color: "white" }}>
                       {row.market_cap_rank}

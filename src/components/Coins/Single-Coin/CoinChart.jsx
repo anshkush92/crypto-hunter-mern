@@ -171,9 +171,13 @@ const CoinChart = (props) => {
           size="large"
           sx={{
             flexGrow: "1",
+            color: "black",
             backgroundColor: "white",
             height: "3.4375rem",
             width: "100%",
+            "&:hover": {
+              backgroundColor: "#f0f0f0",
+            },
           }}
         >
           Add to Favorites

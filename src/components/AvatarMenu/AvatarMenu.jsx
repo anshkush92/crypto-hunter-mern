@@ -1,4 +1,8 @@
 import { useState } from "react";
+
+import { logoutUser } from "../../features/userHandler/userHandler";
+import { useDispatch } from "react-redux";
+
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
@@ -10,6 +14,7 @@ import Logout from "@mui/icons-material/Logout";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
 export default function AccountMenu() {
+  const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -68,7 +73,7 @@ export default function AccountMenu() {
           </ListItemIcon>
           Favorites
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={() => dispatch(logoutUser())}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
