@@ -15,7 +15,7 @@ const coinsListSlice = createSlice({
   reducers: {
     setFavoriteCoinsList: (state, action) => {
       console.log(action.payload);
-      state.favoriteCoinsList = action.payload.favoriteCoinsList;
+      state.favoriteCoinsList = action.payload;
     },
     setCoinsList: (state, action) => {
       state.coinsList = action.payload.coinsList;

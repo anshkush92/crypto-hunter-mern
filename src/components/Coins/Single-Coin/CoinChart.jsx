@@ -40,7 +40,8 @@ const CoinChart = (props) => {
   const dispatch = useDispatch();
 
   // Getting the props, which are being passed into the hook for getting the chart Data
-  const { currency, id, coin, symbol, addToFavorite } = props;
+  const { currency, id, coin, symbol, addToFavorite, removeFromFavorite } =
+    props;
   // Creating a loading state for the Chart
   const [isLoading, setIsLoading] = useState(true);
   // Creating the state for days
@@ -124,7 +125,11 @@ const CoinChart = (props) => {
 
   const handleFavoriteCoinsList = () => {
     console.log("Add TO Favorite Clicked");
-    addToFavorite(id);
+    if (inFavoriteCoinsList) {
+      removeFromFavorite(id);
+    } else {
+      addToFavorite(id);
+    }
     dispatch(setFavoriteCoinsList(id));
   };
 
