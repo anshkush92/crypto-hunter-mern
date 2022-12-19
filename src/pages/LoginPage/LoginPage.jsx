@@ -13,10 +13,10 @@ import InputTf from "../../components/Form/InputTf";
 
 // Test -------------------------- The current component ----------------------------------
 const LoginPage = () => {
-  const { isLogin, user } = useSelector((state) => state.userHandler);
+  const state = useSelector((state) => state.userHandler);
   const dispatch = useDispatch();
 
-  console.log(`State of the user`, { isLogin, user });
+  console.log(`State of the user`, state);
   return (
     <Box>
       <Box component="section">

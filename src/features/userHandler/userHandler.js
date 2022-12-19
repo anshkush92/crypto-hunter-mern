@@ -2,7 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // The intial state of the userHandler slice
 const initialState = {
-  user: null,
+  email: "",
+  password: "",
+  confirmPassword: "",
+  user: "",
   isLogin: true,
 };
 
@@ -11,6 +14,27 @@ export const userHandlerSlice = createSlice({
   name: "userHandler",
   initialState,
   reducers: {
+    // The function for handling the enterend email, and setting the state
+    enteredEmail: (state, action) => {
+      // Payload ---> Object which the user sends in the function
+      // console.log(action.payload);
+      state.email = action.payload;
+    },
+
+    // The function for handling the enterend password, and setting the state
+    enteredPassword: (state, action) => {
+      // Payload ---> Object which the user sends in the function
+      // console.log(action.payload);
+      state.password = action.payload;
+    },
+
+    // The function for handling the enterend confirm password, and setting the state
+    enteredConfirmPassword: (state, action) => {
+      // Payload ---> Object which the user sends in the function
+      // console.log(action.payload);
+      state.confirmPassword = action.payload;
+    },
+
     //   The function for handling the login, and setting the state
     loginUser: (state, action) => {
       // Payload ---> Object which the user sends in the function
@@ -24,11 +48,24 @@ export const userHandlerSlice = createSlice({
       state.user = null;
       state.isLogin = false;
     },
+
+    changePage: (state) => {
+      state.email = "";
+      state.password = "";
+      state.confirmPassword = "";
+    },
   },
 });
 
 // Exporting the actions (type of actions)
-export const { loginUser, logoutUser } = userHandlerSlice.actions;
+export const {
+  enteredEmail,
+  enteredPassword,
+  enteredConfirmPassword,
+  loginUser,
+  logoutUser,
+  changePage,
+} = userHandlerSlice.actions;
 
 // Exporting the Reducers Functions
 export default userHandlerSlice.reducer;

@@ -7,16 +7,25 @@ import { Link } from "react-router-dom";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import SocialButton from "../../components/Buttons/SocialButton";
-import { loginUser, logoutUser } from "../../features/userHandler/userHandler";
+import {
+  loginUser,
+  logoutUser,
+  enteredEmail,
+  enteredPassword,
+  enteredConfirmPassword,
+  changePage,
+} from "../../features/userHandler/userHandler";
 import FormActionButton from "../../components/Buttons/FormActionButton";
 import InputTf from "../../components/Form/InputTf";
 
 // Test -------------------------- The current component ----------------------------------
 const SignUpPage = () => {
-  const { isLogin, user } = useSelector((state) => state.userHandler);
+  const state = useSelector((state) => state.userHandler);
   const dispatch = useDispatch();
 
-  console.log(`State of the user`, { isLogin, user });
+  const { email, password, confirmPassword } = state;
+
+  console.log(`State of the user`, state);
   return (
     <Box>
       <Box component="section">
@@ -66,16 +75,33 @@ const SignUpPage = () => {
           <Box
             sx={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}
           >
-            <InputTf>Email</InputTf>
-            <InputTf type="password">Password</InputTf>
-            <InputTf type="password">Confirm Password</InputTf>
+            <InputTf
+              value={email}
+              onChange={(e) => dispatch(enteredEmail(e.target.value))}
+            >
+              Email
+            </InputTf>
+            <InputTf
+              type="password"
+              value={password}
+              onChange={(e) => dispatch(enteredPassword(e.target.value))}
+            >
+              Password
+            </InputTf>
+            <InputTf
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => dispatch(enteredConfirmPassword(e.target.value))}
+            >
+              Confirm Password
+            </InputTf>
           </Box>
 
           <FormActionButton>Signup</FormActionButton>
 
           <Box sx={{ fontSize: "0.9rem", width: "100%", textAlign: "center" }}>
             Already have an Account ?{" "}
-            <Link to="/login">
+            <Link to="/login" onClick={() => dispatch(changePage())}>
               <Box
                 component="span"
                 sx={{
