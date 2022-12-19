@@ -6,7 +6,7 @@ const initialState = {
   password: "",
   confirmPassword: "",
   user: "",
-  isLogin: true,
+  isLogin: false,
   error: {
     open: false,
     message: "",
@@ -50,19 +50,19 @@ export const userHandlerSlice = createSlice({
 
     // The function for handling the logout, and setting the state
     logoutUser: (state) => {
-      state.user = null;
+      console.log(state);
+      state.user = "";
+      state.email = "";
+      state.password = "";
       state.isLogin = false;
     },
 
     changePage: (state) => {
-      state.email = "";
-      state.password = "";
-      state.confirmPassword = "";
-      state.error = "";
+      console.log(state);
+      state = { ...initialState, isLogin: state.isLogin };
     },
 
     setError: (state, action) => {
-      console.log(action.payload);
       state.error = action.payload;
     },
 

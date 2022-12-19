@@ -1,9 +1,8 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import React from "react";
-
 import { Box, Divider } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import SocialButton from "../../components/Buttons/SocialButton";
@@ -12,21 +11,24 @@ import {
   enteredPassword,
   changePage,
   setError,
+  loginUser,
+  removeError,
 } from "../../features/userHandler/userHandler";
 import FormActionButton from "../../components/Buttons/FormActionButton";
 import InputTf from "../../components/Form/InputTf";
 import AlertToast from "../../components/Alert/Alert";
+import { auth } from "../../firebase";
 
 // Test -------------------------- The current component ----------------------------------
 const LoginPage = () => {
   const state = useSelector((state) => state.userHandler);
-
+  const navigate = useNavigate();
   const { email, password } = state;
   const dispatch = useDispatch();
 
   console.log(`State of the user`, state);
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     let open, type, message;
     open = true;
     type = "error";
@@ -36,7 +38,26 @@ const LoginPage = () => {
       dispatch(setError({ open, type, message }));
       return;
     }
-    console.log(`Login done`);
+
+    try {
+      const response = await signInWithEmailAndPassword(auth, email, password);
+      console.log(response);
+      dispatch(changePage());
+
+      console.log(`Login done`);
+      type = "success";
+      message = "Login Successful";
+      dispatch(loginUser(response.user));
+      dispatch(setError({ open, type, message }));
+      navigate("/");
+      dispatch(removeError());
+      return;
+    } catch (err) {
+      message = err.message;
+      dispatch(setError({ open, type, message }));
+      console.log(err);
+      return;
+    }
   };
 
   return (

@@ -1,4 +1,5 @@
 import "./App.css";
+
 import HomePage from "./pages/HomePage/HomePage";
 import CoinPage from "./pages/CoinPage/CoinPage";
 

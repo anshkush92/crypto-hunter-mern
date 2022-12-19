@@ -26,6 +26,12 @@ export default function AccountMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    navigate("/login");
+  };
+
   return (
     <>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
@@ -76,7 +82,7 @@ export default function AccountMenu() {
           </ListItemIcon>
           Favorites
         </MenuItem>
-        <MenuItem onClick={() => dispatch(logoutUser())}>
+        <MenuItem onClick={handleLogout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
