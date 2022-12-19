@@ -43,12 +43,12 @@ const HeroCaraousel = () => {
     currency.toLowerCase(),
     reducedCoinsId
   );
-  // console.log(trendingCoinsData);
+  console.log(trendingCoinsData);
 
   const trendingCoinsDataLength = trendingCoinsData?.length;
 
   useEffect(() => {
-    setIsLoading(trendingCoinsDataLength !== 7);
+    setIsLoading(trendingCoinsDataLength === 0);
     return () => {
       console.log("Cleanup from Hero Caraousel");
     };
