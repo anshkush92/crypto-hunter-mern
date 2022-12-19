@@ -7,13 +7,22 @@ import { Link } from "react-router-dom";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import SocialButton from "../../components/Buttons/SocialButton";
-import { loginUser, logoutUser } from "../../features/userHandler/userHandler";
+import {
+  loginUser,
+  logoutUser,
+  enteredEmail,
+  enteredPassword,
+  enteredConfirmPassword,
+  changePage,
+} from "../../features/userHandler/userHandler";
 import FormActionButton from "../../components/Buttons/FormActionButton";
 import InputTf from "../../components/Form/InputTf";
 
 // Test -------------------------- The current component ----------------------------------
 const LoginPage = () => {
   const state = useSelector((state) => state.userHandler);
+
+  const { email, password } = state;
   const dispatch = useDispatch();
 
   console.log(`State of the user`, state);
@@ -66,8 +75,19 @@ const LoginPage = () => {
           <Box
             sx={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}
           >
-            <InputTf>Email</InputTf>
-            <InputTf type="password">Password</InputTf>
+            <InputTf
+              value={email}
+              onChange={(e) => dispatch(enteredEmail(e.target.value))}
+            >
+              Email
+            </InputTf>
+            <InputTf
+              type="password"
+              value={password}
+              onChange={(e) => dispatch(enteredPassword(e.target.value))}
+            >
+              Password
+            </InputTf>
             <Box
               component="span"
               sx={{
@@ -84,7 +104,7 @@ const LoginPage = () => {
 
           <Box sx={{ fontSize: "0.9rem", width: "100%", textAlign: "center" }}>
             Don't have an Account ?{" "}
-            <Link to="/signup">
+            <Link to="/signup" onClick={() => dispatch(changePage())}>
               <Box
                 component="span"
                 sx={{
