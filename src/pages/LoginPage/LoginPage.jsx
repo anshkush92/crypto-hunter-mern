@@ -8,11 +8,8 @@ import { Link } from "react-router-dom";
 // Test -------------------------- Importing the styles / other components ----------------
 import SocialButton from "../../components/Buttons/SocialButton";
 import {
-  loginUser,
-  logoutUser,
   enteredEmail,
   enteredPassword,
-  enteredConfirmPassword,
   changePage,
 } from "../../features/userHandler/userHandler";
 import FormActionButton from "../../components/Buttons/FormActionButton";

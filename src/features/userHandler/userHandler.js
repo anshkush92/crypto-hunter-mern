@@ -7,6 +7,7 @@ const initialState = {
   confirmPassword: "",
   user: "",
   isLogin: true,
+  error: "",
 };
 
 // The userHandler slice
@@ -53,6 +54,16 @@ export const userHandlerSlice = createSlice({
       state.email = "";
       state.password = "";
       state.confirmPassword = "";
+      state.error = "";
+    },
+
+    setError: (state, action) => {
+      console.log(action.payload);
+      state.error = action.payload;
+    },
+
+    removeError: (state) => {
+      state.error = "";
     },
   },
 });
@@ -65,6 +76,8 @@ export const {
   loginUser,
   logoutUser,
   changePage,
+  setError,
+  removeError,
 } = userHandlerSlice.actions;
 
 // Exporting the Reducers Functions

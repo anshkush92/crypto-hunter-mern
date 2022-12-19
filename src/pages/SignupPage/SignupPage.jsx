@@ -8,15 +8,15 @@ import { Link } from "react-router-dom";
 // Test -------------------------- Importing the styles / other components ----------------
 import SocialButton from "../../components/Buttons/SocialButton";
 import {
-  loginUser,
-  logoutUser,
   enteredEmail,
   enteredPassword,
   enteredConfirmPassword,
   changePage,
+  setError,
 } from "../../features/userHandler/userHandler";
 import FormActionButton from "../../components/Buttons/FormActionButton";
 import InputTf from "../../components/Form/InputTf";
+import AlertToast from "../../components/Alert/Alert";
 
 // Test -------------------------- The current component ----------------------------------
 const SignUpPage = () => {
@@ -26,8 +26,25 @@ const SignUpPage = () => {
   const { email, password, confirmPassword } = state;
 
   console.log(`State of the user`, state);
+
+  const handleSignUp = () => {
+    if (
+      email.trim().length === 0 ||
+      password.trim().length === 0 ||
+      confirmPassword.trim().length === 0
+    ) {
+      dispatch(setError("Please Fill all the fields"));
+      return;
+    } else if (password !== confirmPassword) {
+      dispatch(setError("Password and Confirm Password must match"));
+      return;
+    }
+    console.log(`Signup done`);
+  };
+
   return (
     <Box>
+      <AlertToast></AlertToast>
       <Box component="section">
         <Box component="header" sx={{ bgcolor: "#393e46", p: 2 }}>
           <Link to="/">
@@ -97,7 +114,7 @@ const SignUpPage = () => {
             </InputTf>
           </Box>
 
-          <FormActionButton>Signup</FormActionButton>
+          <FormActionButton onClick={handleSignUp}>Signup</FormActionButton>
 
           <Box sx={{ fontSize: "0.9rem", width: "100%", textAlign: "center" }}>
             Already have an Account ?{" "}
