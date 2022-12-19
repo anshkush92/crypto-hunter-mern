@@ -1,7 +1,6 @@
 // Test -------------------------- Importing the Packages ---------------------------------
 import {
   Card,
-  CardActions,
   CardContent,
   CardMedia,
   Typography,

@@ -51,6 +51,7 @@ const HeroExchangeFrom = (props) => {
         // sx={{ ml: 1, flex: 1 }}
         placeholder="Amount"
         value={amount}
+        type="number"
         onChange={amountHandler}
         inputProps={{ "aria-label": "Amount" }}
       />

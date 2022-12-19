@@ -16,10 +16,11 @@ const SingleCoin = (props) => {
   return (
     <Box
       display="flex"
+      sx={{ backgroundColor: "black" }}
       flexDirection="column"
-      width="95%"
-      margin="0px auto"
-      padding="30px 0px"
+      width="100%"
+      px="2.5%"
+      py="30px"
     >
       <CoinDescription coinData={coinData}></CoinDescription>
     </Box>
