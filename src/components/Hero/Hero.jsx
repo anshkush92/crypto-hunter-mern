@@ -7,7 +7,12 @@ import HeroContent from "./HeroContent";
 // Test -------------------------- The current component ----------------------------------
 const Hero = () => {
   return (
-    <Box display="flex" flexDirection="column" position="relative">
+    <Box
+      display="flex"
+      backgroundColor="black"
+      flexDirection="column"
+      position="relative"
+    >
       {/* <HeroImage></HeroImage> */}
       <HeroContent></HeroContent>
     </Box>

@@ -36,7 +36,7 @@ const CoinStats = (props) => {
             textAlign: "right",
             color: `${
               text.color !== undefined
-                ? `${text.color > 0 ? "#f05454" : "#50d890"}`
+                ? `${text.marketCap24hrChange < 0 ? "#f05454" : "#50d890"}`
                 : "gold"
             }`,
           }}

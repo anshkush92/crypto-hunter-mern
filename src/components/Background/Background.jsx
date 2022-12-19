@@ -6,6 +6,7 @@ import { Box, styled } from "@mui/material";
 const BlackBackground = styled(Box)({
   backgroundColor: "black",
   color: "white",
+  height: "100vh",
 });
 
 const Background = (props) => {

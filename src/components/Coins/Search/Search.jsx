@@ -28,8 +28,10 @@ const Search = () => {
   // Test ----------------------- Custom Text Field made using Styled --------------------
   return (
     <Box
-      width="90%"
-      margin="30px auto"
+      backgroundColor="black"
+      width="100%"
+      px="5%"
+      pt="30px"
       display="flex"
       flexDirection="column"
       gap="15px"

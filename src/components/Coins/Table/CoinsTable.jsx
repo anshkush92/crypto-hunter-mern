@@ -112,118 +112,123 @@ const CoinsTable = () => {
   };
 
   return (
-    <Box width="90%" m="auto">
+    <Box width="100%" px="5%" backgroundColor="black">
       {isLoading && (
         <Box width="100%" mb="10px">
           <Loader></Loader>
         </Box>
       )}
-      <Grid container>
-        <Grid item xs={12}>
-          <TableContainer
-            component={Paper}
-            sx={{
-              width: "100%",
-              m: "30px auto",
-            }}
-          >
-            <Table stickyHeader>
-              <TableHead style={{ backgroundColor: "#F7F7F7" }}>
-                <TableRow>{tableRowsComponent}</TableRow>
-              </TableHead>
-              <TableBody sx={{ backgroundColor: "#020a0a", color: "#F7F7F7" }}>
-                {coinsList.map((row) => (
-                  <TableRow
-                    key={row.id}
-                    onClick={() => navigate(`/coins/${row.id}`)}
-                    sx={{
-                      "&:hover": {
-                        backgroundColor: "#1a1a1a",
-                      },
-                    }}
-                  >
-                    <TableCell sx={{ color: "#F7F7F7" }}>
-                      {row.market_cap_rank}
-                    </TableCell>
-
-                    <TableCell
-                      align="left"
+      {coinsList.length === 0 && !isLoading && <Box>No Coins Found</Box>}
+      {coinsList.length > 0 && (
+        <Grid container>
+          <Grid item xs={12}>
+            <TableContainer
+              component={Paper}
+              sx={{
+                width: "100%",
+                m: "30px auto",
+              }}
+            >
+              <Table stickyHeader>
+                <TableHead style={{ backgroundColor: "#F7F7F7" }}>
+                  <TableRow>{tableRowsComponent}</TableRow>
+                </TableHead>
+                <TableBody
+                  sx={{ backgroundColor: "#020a0a", color: "#F7F7F7" }}
+                >
+                  {coinsList.map((row) => (
+                    <TableRow
+                      key={row.id}
+                      onClick={() => navigate(`/coins/${row.id}`)}
                       sx={{
-                        color: "#F7F7F7",
+                        "&:hover": {
+                          backgroundColor: "#1a1a1a",
+                        },
                       }}
                     >
-                      <Box display="flex" alignItems="center" gap="15px">
-                        <>
+                      <TableCell sx={{ color: "#F7F7F7" }}>
+                        {row.market_cap_rank}
+                      </TableCell>
+
+                      <TableCell
+                        align="left"
+                        sx={{
+                          color: "#F7F7F7",
+                        }}
+                      >
+                        <Box display="flex" alignItems="center" gap="15px">
+                          <>
+                            <Box
+                              component="img"
+                              src={row.image}
+                              alt={row.name}
+                              loading="lazy"
+                              height="50px"
+                            ></Box>
+                          </>
                           <Box
-                            component="img"
-                            src={row.image}
-                            alt={row.name}
-                            loading="lazy"
-                            height="50px"
-                          ></Box>
-                        </>
-                        <Box
-                          display="flex"
-                          flexDirection="column"
-                          justifyContent="center"
-                        >
-                          <Typography variant="h6">
-                            {row.symbol.toUpperCase()}
-                          </Typography>
-                          <Typography variant="subtitle2">
-                            {row.name}
-                          </Typography>
+                            display="flex"
+                            flexDirection="column"
+                            justifyContent="center"
+                          >
+                            <Typography variant="h6">
+                              {row.symbol.toUpperCase()}
+                            </Typography>
+                            <Typography variant="subtitle2">
+                              {row.name}
+                            </Typography>
+                          </Box>
                         </Box>
-                      </Box>
-                    </TableCell>
-                    <TableCell align="left" sx={{ color: "#F7F7F7" }}>
-                      {symbol} {row.current_price}
-                    </TableCell>
-                    <TableCell
-                      align="left"
-                      sx={{
-                        color:
-                          row.price_change_percentage_24h >= 0
-                            ? "#50D890"
-                            : "#f05454",
-                      }}
-                    >
-                      {row.price_change_percentage_24h} %
-                    </TableCell>
-                    <TableCell align="left" sx={{ color: "#F7F7F7" }}>
-                      {symbol} {row.market_cap}
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
+                      </TableCell>
+                      <TableCell align="left" sx={{ color: "#F7F7F7" }}>
+                        {symbol} {row.current_price}
+                      </TableCell>
+                      <TableCell
+                        align="left"
+                        sx={{
+                          color:
+                            row.price_change_percentage_24h >= 0
+                              ? "#50D890"
+                              : "#f05454",
+                        }}
+                      >
+                        {row.price_change_percentage_24h} %
+                      </TableCell>
+                      <TableCell align="left" sx={{ color: "#F7F7F7" }}>
+                        {symbol} {row.market_cap}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
 
-              <TableFooter sx={{ backgroundColor: "#f7f7f7" }}>
-                <TableRow sx={{ border: "0px" }}>
-                  <TablePagination
-                    rowsPerPageOptions={[
-                      5,
-                      10,
-                      25,
-                      50,
-                      75,
-                      100,
-                      125,
-                      { label: "All", value: 250 },
-                    ]}
-                    colSpan={9999}
-                    count={100 * 250}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    onPageChange={handleChangePage}
-                    onRowsPerPageChange={handleChangeRowsPerPage}
-                    ActionsComponent={TablePaginationActions}
-                  ></TablePagination>
-                </TableRow>
-              </TableFooter>
-            </Table>
-          </TableContainer>
+                <TableFooter sx={{ backgroundColor: "#f7f7f7" }}>
+                  <TableRow sx={{ border: "0px" }}>
+                    <TablePagination
+                      rowsPerPageOptions={[
+                        5,
+                        10,
+                        25,
+                        50,
+                        75,
+                        100,
+                        125,
+                        { label: "All", value: 250 },
+                      ]}
+                      colSpan={9999}
+                      count={100 * 250}
+                      rowsPerPage={rowsPerPage}
+                      page={page}
+                      onPageChange={handleChangePage}
+                      onRowsPerPageChange={handleChangeRowsPerPage}
+                      ActionsComponent={TablePaginationActions}
+                    ></TablePagination>
+                  </TableRow>
+                </TableFooter>
+              </Table>
+            </TableContainer>
+          </Grid>
         </Grid>
-      </Grid>
+      )}
     </Box>
   );
 };

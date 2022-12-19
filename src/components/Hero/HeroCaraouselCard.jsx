@@ -21,15 +21,17 @@ const HeroCaraouselCard = (props) => {
   const navigate = useNavigate();
 
   const coinPage = () => {
-    navigate(`/coins/${id}`)
-  }
+    navigate(`/coins/${id}`);
+  };
 
   return (
     <Card
       sx={{
         width: "200px",
+        height: "275px",
         maxWidth: "300px",
-        maxHeight: "300px",
+        // maxHeight: "250px",
+        backgroundColor: "#393e46",
       }}
     >
       <CardMedia
@@ -37,25 +39,25 @@ const HeroCaraouselCard = (props) => {
         alt={name}
         height="120px"
         image={image}
-        sx={{ objectFit: "contain" }}
+        sx={{ objectFit: "contain", my: 1 }}
       ></CardMedia>
 
-      <Box backgroundColor="#ebebeb">
+      <Box backgroundColor="#f7f7f7" height="100%">
         <CardContent sx={{ pb: "8px" }}>
           <Box display="flex" justifyContent="space-between">
-            <Typography variant="body1" sx={{ color: "black" }}>
+            <Typography noWrap variant="body1" sx={{ color: "black" }}>
               {symbol.toUpperCase()}
             </Typography>
-            <Typography variant="body1" sx={{ color: "#2a3d85" }}>
+            <Typography noWrap variant="body1" sx={{ color: "#2a3d85" }}>
               Rank - {rank}
             </Typography>
           </Box>
 
           <Box display="flex" flexDirection="column">
-            <Typography variant="body1" sx={{ color: "#136563" }}>
+            <Typography noWrap variant="body1" sx={{ color: "#136563" }}>
               {name}
             </Typography>
-            <Typography variant="body2" sx={{ color: "#cf2626" }}>
+            <Typography noWrap variant="body2" sx={{ color: "#cf2626" }}>
               Price - {priceSymbol} {price}
             </Typography>
           </Box>
