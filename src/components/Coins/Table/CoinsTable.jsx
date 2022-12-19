@@ -205,7 +205,10 @@ const CoinsTable = () => {
                               : "#f05454",
                         }}
                       >
-                        {row.price_change_percentage_24h} %
+                        {row.price_change_percentage_24h !== null
+                          ? row.price_change_percentage_24h
+                          : "0"}{" "}
+                        %
                       </TableCell>
                       <TableCell align="left" sx={{ color: "#F7F7F7" }}>
                         {symbol} {row.market_cap}
