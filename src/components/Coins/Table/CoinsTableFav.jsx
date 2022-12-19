@@ -30,6 +30,7 @@ const CoinsTableFav = ({ newCoinsList, count }) => {
 
   // Getting the state of currently selected currency
   const { label, symbol } = useSelector((state) => state.currencyChanger);
+  const lowerLabel = label.toLowerCase();
   // console.log(label, symbol);
 
   // For changing the page, when clicked on the table row
@@ -49,8 +50,9 @@ const CoinsTableFav = ({ newCoinsList, count }) => {
 
   // Getting the coins Data from the API and then listing in the form of the table
 
-  [...newCoinsList].sort(compareRank);
-  // console.log(newCoinsList);
+  // [...newCoinsList].sort(compareRank);
+  const newCoinList = newCoinsList.slice(0, count);
+  console.log(newCoinList, newCoinsList, count);
   const length = coinsList.length;
 
   useEffect(() => {
@@ -155,7 +157,7 @@ const CoinsTableFav = ({ newCoinsList, count }) => {
                 <TableBody
                   sx={{ backgroundColor: "#020a0a", color: "#F7F7F7" }}
                 >
-                  {coinsList.map((row) => (
+                  {newCoinList.map((row) => (
                     <TableRow
                       key={row.id}
                       onClick={() => navigate(`/coins/${row.id}`)}
@@ -179,7 +181,7 @@ const CoinsTableFav = ({ newCoinsList, count }) => {
                           <>
                             <Box
                               component="img"
-                              src={row.image}
+                              src={row.image.large}
                               alt={row.name}
                               loading="lazy"
                               height="50px"
@@ -200,24 +202,26 @@ const CoinsTableFav = ({ newCoinsList, count }) => {
                         </Box>
                       </TableCell>
                       <TableCell align="left" sx={{ color: "#F7F7F7" }}>
-                        {symbol} {row.current_price}
+                        {symbol} {row.market_data.current_price[lowerLabel]}
                       </TableCell>
                       <TableCell
                         align="left"
                         sx={{
                           color:
-                            row.price_change_percentage_24h >= 0
+                            row.market_data.market_cap_change_percentage_24h >=
+                            0
                               ? "#50D890"
                               : "#f05454",
                         }}
                       >
-                        {row.price_change_percentage_24h
-                          ? row.price_change_percentage_24h
+                        {row.market_data.market_cap_change_percentage_24h !==
+                        null
+                          ? row.market_data.market_cap_change_percentage_24h
                           : "0"}{" "}
                         %
                       </TableCell>
                       <TableCell align="left" sx={{ color: "#F7F7F7" }}>
-                        {symbol} {row.market_cap}
+                        {symbol} {row.market_data.market_cap[lowerLabel]}
                       </TableCell>
                     </TableRow>
                   ))}

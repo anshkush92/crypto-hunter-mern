@@ -77,7 +77,7 @@ const SingleCoin = (props) => {
         setError({
           open: true,
           type: "warning",
-          message: `${coinData?.name} removed favorite`,
+          message: `${coinData?.name} removed from favorite`,
         })
       );
 
