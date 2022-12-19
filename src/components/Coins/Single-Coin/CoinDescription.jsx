@@ -1,13 +1,6 @@
 // Test -------------------------- Importing the Packages ---------------------------------
 import { useState, useEffect } from "react";
-import {
-  Box,
-  LinearProgress,
-  Typography,
-  Grid,
-  Divider,
-  List,
-} from "@mui/material";
+import { Box, Typography, Grid, Divider, List } from "@mui/material";
 import { useSelector } from "react-redux";
 import parse from "html-react-parser";
 
@@ -28,6 +21,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import CoinStats from "./CoinStats";
 import CoinLinks from "./CoinLinks";
 import CoinChart from "./CoinChart";
+import Loader from "../../Loader/Loader";
 
 // Test -------------------------- The current component ----------------------------------
 const CoinDescription = (props) => {
@@ -147,7 +141,7 @@ const CoinDescription = (props) => {
   }, [coin.name]);
 
   return isLoading ? (
-    <LinearProgress sx={{ backgroundColor: "gold" }}></LinearProgress>
+    <Loader></Loader>
   ) : (
     <Grid container>
       <Grid item xs={12}>
@@ -179,7 +173,7 @@ const CoinDescription = (props) => {
           </Box>
 
           {/* Coin Name + Coin Data Section */}
-          <Box display="flex" justifyContent="center">
+          <Box display="flex" justifyContent="center" textAlign="center">
             <Typography variant="h5">
               {coin.name} live prices in{" "}
               <Typography
@@ -188,7 +182,7 @@ const CoinDescription = (props) => {
                 fontWeight="900"
                 sx={{ color: "#FFD523" }}
               >
-                {label}
+                {label}{" "}
               </Typography>
               currency
             </Typography>

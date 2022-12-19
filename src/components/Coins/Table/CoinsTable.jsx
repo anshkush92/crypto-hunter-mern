@@ -13,7 +13,6 @@ import {
   Paper,
   TableFooter,
   TablePagination,
-  LinearProgress,
   Grid,
 } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
@@ -23,6 +22,7 @@ import { setCoinsList } from "../../../features/coinsList/coinsList";
 import useCoinGeckoCoinsList from "../../../hooks/coinGecko/useCoinGeckoList";
 import TablePaginationActions from "./TabelPaginationActions";
 import { compareRank } from "../../../utilities/Sorting/sort";
+import Loader from "../../../components/Loader/Loader";
 
 // Test -------------------------- The current component ----------------------------------
 // This component is used for creating the table from the coins data that we get from Cryto API
@@ -115,7 +115,7 @@ const CoinsTable = () => {
     <Box width="90%" m="auto">
       {isLoading && (
         <Box width="100%" mb="10px">
-          <LinearProgress sx={{ backgroundColor: "yellow" }}></LinearProgress>
+          <Loader></Loader>
         </Box>
       )}
       <Grid container>

@@ -32,7 +32,7 @@ const CoinLinks = (props) => {
             <ListItemIcon sx={{ minWidth: "30px" }}>{icon}</ListItemIcon>
             <ListItemText
               primary={key.charAt(0).toUpperCase() + key.slice(1)}
-              sx={{ color: "#f7f7f7" }}
+              sx={{ color: { xs: value ? "#ffd523" : "#f05454", sm: "white" } }}
             ></ListItemText>
           </Box>
           {value && (
