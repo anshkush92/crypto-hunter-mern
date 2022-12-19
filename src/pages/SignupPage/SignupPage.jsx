@@ -93,6 +93,7 @@ const SignUpPage = () => {
       message = "Login Successful";
       dispatch(
         loginUser({
+          uid: response.user.uid,
           photoURL: response.user.photoURL,
           email: response.user.email,
           displayName: response.user.displayName,

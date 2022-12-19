@@ -23,6 +23,7 @@ export default function AccountMenu() {
   const navigate = useNavigate();
 
   const user = useSelector((state) => state.userHandler.user);
+
   const { photoURL, email, displayName } = user;
 
   console.log(photoURL, email, displayName);

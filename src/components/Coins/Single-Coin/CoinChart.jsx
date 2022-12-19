@@ -182,11 +182,11 @@ const CoinChart = (props) => {
             sx={{
               flexGrow: "1",
               color: "black",
-              backgroundColor: "white",
+              backgroundColor: "#50d890",
               height: "3.4375rem",
               width: "100%",
               "&:hover": {
-                backgroundColor: "#f0f0f0",
+                backgroundColor: "#59dc97",
               },
             }}
           >

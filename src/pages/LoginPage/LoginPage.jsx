@@ -43,7 +43,7 @@ const LoginPage = () => {
 
     try {
       const response = await signInWithEmailAndPassword(auth, email, password);
-      console.log(response);
+      console.log(response.user.uid);
       dispatch(changePage());
 
       console.log(`Login done`);
@@ -51,6 +51,7 @@ const LoginPage = () => {
       message = "Login Successful";
       dispatch(
         loginUser({
+          uid: response.user.uid,
           photoURL: response.user.photoURL,
           email: response.user.email,
           displayName: response.user.displayName,
@@ -82,6 +83,7 @@ const LoginPage = () => {
       message = "Login Successful";
       dispatch(
         loginUser({
+          uid: response.user.uid,
           photoURL: response.user.photoURL,
           email: response.user.email,
           displayName: response.user.displayName,

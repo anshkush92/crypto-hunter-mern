@@ -44,9 +44,11 @@ export const userHandlerSlice = createSlice({
     loginUser: (state, action) => {
       // Payload ---> Object which the user sends in the function
       // console.log(action.payload);
+      console.log(action.payload);
       state.user = action.payload;
       state.isLogin = true;
       localStorage.setItem("user", JSON.stringify(action.payload));
+      console.log(state);
     },
 
     // The function for handling the logout, and setting the state
