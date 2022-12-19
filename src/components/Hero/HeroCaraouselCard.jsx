@@ -48,24 +48,37 @@ const HeroCaraouselCard = (props) => {
             <Typography noWrap variant="body1" sx={{ color: "black" }}>
               {symbol.toUpperCase()}
             </Typography>
-            <Typography noWrap variant="body1" sx={{ color: "#2a3d85" }}>
+            <Typography noWrap variant="body1" sx={{ color: "#393e46" }}>
               Rank - {rank}
             </Typography>
           </Box>
 
           <Box display="flex" flexDirection="column">
-            <Typography noWrap variant="body1" sx={{ color: "#136563" }}>
+            <Typography noWrap variant="body1" sx={{ color: "#ff5c8d" }}>
               {name}
             </Typography>
-            <Typography noWrap variant="body2" sx={{ color: "#cf2626" }}>
+            <Typography noWrap variant="body2" sx={{ color: "#f05454" }}>
               Price - {priceSymbol} {price}
             </Typography>
           </Box>
-        </CardContent>
 
-        <CardActions sx={{ pt: "0" }}>
-          <Button onClick={coinPage}>Read More</Button>
-        </CardActions>
+          <Box mt={1}>
+            <Button
+              sx={{
+                width: "100%",
+                color: "black",
+                "&:hover": {
+                  // color: "white",
+                  border: "1px solid",
+                  backgroundColor: "transparent",
+                },
+              }}
+              onClick={coinPage}
+            >
+              Read More
+            </Button>
+          </Box>
+        </CardContent>
       </Box>
     </Card>
   );
