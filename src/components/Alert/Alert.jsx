@@ -16,6 +16,7 @@ const AlertToast = () => {
   const state = useSelector((state) => state.userHandler);
   const dispatch = useDispatch();
   const { error } = state;
+  const { open, message, type } = error;
 
   const action = (
     <>
@@ -32,18 +33,18 @@ const AlertToast = () => {
 
   return (
     <Snackbar
-      open={error.length !== 0 ? true : false}
+      open={open}
       anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      autoHideDuration={6000}
+      autoHideDuration={2000}
       onClose={() => dispatch(removeError())}
       action={action}
     >
       <Alert
         onClose={() => dispatch(removeError())}
-        severity="error"
+        severity={type}
         sx={{ width: "100%" }}
       >
-        {error}
+        {message}
       </Alert>
     </Snackbar>
   );

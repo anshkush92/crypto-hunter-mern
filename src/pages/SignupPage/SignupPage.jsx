@@ -5,6 +5,11 @@ import { Box, Divider } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
+// import {
+//   auth,
+//   createUserWithEmailAndPassword,
+// } from "../../config/firebaseConfig";
+
 // Test -------------------------- Importing the styles / other components ----------------
 import SocialButton from "../../components/Buttons/SocialButton";
 import {
@@ -27,19 +32,37 @@ const SignUpPage = () => {
 
   console.log(`State of the user`, state);
 
-  const handleSignUp = () => {
+  const handleSignUp = async () => {
+    let open, type, message;
+    open = true;
+    type = "error";
+    message = "";
+
     if (
       email.trim().length === 0 ||
       password.trim().length === 0 ||
       confirmPassword.trim().length === 0
     ) {
-      dispatch(setError("Please Fill all the fields"));
+      message = "Please Fill all the fields";
+      dispatch(setError({ open, type, message }));
       return;
     } else if (password !== confirmPassword) {
-      dispatch(setError("Password and Confirm Password must match"));
+      message = "Password and Confirm Password must match";
+      dispatch(setError({ open, type, message }));
       return;
     }
-    console.log(`Signup done`);
+
+    // try {
+    //   const response = await createUserWithEmailAndPassword(
+    //     auth,
+    //     email,
+    //     password
+    //   );
+    // } catch (error) {}
+
+    type = "success";
+    message = "Account Created Successfully";
+    dispatch(setError({ open, type, message }));
   };
 
   return (

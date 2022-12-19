@@ -27,8 +27,13 @@ const LoginPage = () => {
   console.log(`State of the user`, state);
 
   const handleLogin = () => {
+    let open, type, message;
+    open = true;
+    type = "error";
+
     if (email.trim().length === 0 || password.trim().length === 0) {
-      dispatch(setError("Please Fill all the fields"));
+      message = "Please Fill all the fields";
+      dispatch(setError({ open, type, message }));
       return;
     }
     console.log(`Login done`);

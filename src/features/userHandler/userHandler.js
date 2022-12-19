@@ -7,7 +7,11 @@ const initialState = {
   confirmPassword: "",
   user: "",
   isLogin: true,
-  error: "",
+  error: {
+    open: false,
+    message: "",
+    type: "",
+  },
 };
 
 // The userHandler slice
@@ -60,10 +64,11 @@ export const userHandlerSlice = createSlice({
     setError: (state, action) => {
       console.log(action.payload);
       state.error = action.payload;
+      state.error.open = true;
     },
 
     removeError: (state) => {
-      state.error = "";
+      state.error = { ...state.error, open: false };
     },
   },
 });
