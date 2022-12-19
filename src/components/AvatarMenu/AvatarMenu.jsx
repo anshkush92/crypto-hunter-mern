@@ -14,8 +14,15 @@ import Logout from "@mui/icons-material/Logout";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useNavigate } from "react-router-dom";
 
+import { useSelector } from "react-redux";
+
 export default function AccountMenu() {
   const navigate = useNavigate();
+
+  const user = useSelector((state) => state.userHandler.user);
+  const { photoURL, email, displayName } = user;
+
+  console.log(photoURL, email, displayName);
 
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -37,7 +44,9 @@ export default function AccountMenu() {
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
         <Tooltip title="Account settings">
           <IconButton onClick={handleClick} size="small">
-            <Avatar sx={{ width: 32, height: 32 }}></Avatar>
+            <Avatar sx={{ width: 32, height: 32 }} src={photoURL} alt={email}>
+              {displayName}
+            </Avatar>
           </IconButton>
         </Tooltip>
       </Box>

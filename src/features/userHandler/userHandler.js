@@ -46,6 +46,7 @@ export const userHandlerSlice = createSlice({
       // console.log(action.payload);
       state.user = action.payload;
       state.isLogin = true;
+      localStorage.setItem("user", JSON.stringify(action.payload));
     },
 
     // The function for handling the logout, and setting the state
@@ -55,10 +56,10 @@ export const userHandlerSlice = createSlice({
       state.email = "";
       state.password = "";
       state.isLogin = false;
+      localStorage.removeItem("user");
     },
 
     changePage: (state) => {
-      console.log(state);
       state.email = "";
       state.password = "";
       state.confirmPassword = "";

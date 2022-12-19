@@ -1,4 +1,8 @@
 import "./App.css";
+import { useEffect } from "react";
+
+import { useDispatch } from "react-redux";
+import { loginUser } from "./features/userHandler/userHandler";
 
 import HomePage from "./pages/HomePage/HomePage";
 import CoinPage from "./pages/CoinPage/CoinPage";
@@ -10,6 +14,17 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import FavoritePage from "./pages/FavoritePage/FavoritePage";
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  // Getting the user from the local storage
+  useEffect(() => {
+    const input = JSON.parse(localStorage.getItem("user"));
+    console.log(`Input`, input);
+    if (input) {
+      dispatch(loginUser(input));
+    }
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route path="/" element={<HomePage></HomePage>}></Route>

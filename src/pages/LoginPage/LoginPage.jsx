@@ -47,7 +47,13 @@ const LoginPage = () => {
       console.log(`Login done`);
       type = "success";
       message = "Login Successful";
-      dispatch(loginUser(response.user));
+      dispatch(
+        loginUser({
+          photoURL: response.user.photoURL,
+          email: response.user.email,
+          displayName: response.user.displayName,
+        })
+      );
       dispatch(setError({ open, type, message }));
       navigate("/");
       dispatch(removeError());
