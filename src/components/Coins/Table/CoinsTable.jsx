@@ -114,11 +114,24 @@ const CoinsTable = () => {
   return (
     <Box width="100%" px="5%" backgroundColor="black">
       {isLoading && (
-        <Box width="100%" mb="10px">
+        <Box width="100%" my="10px">
           <Loader></Loader>
         </Box>
       )}
-      {coinsList.length === 0 && !isLoading && <Box>No Coins Found</Box>}
+      {coinsList.length === 0 && !isLoading && (
+        <Box
+          sx={{
+            my: "20px",
+            display: "flex",
+            width: "100%",
+            color: "#f05454",
+            fontSize: "2rem",
+            justifyContent: "center",
+          }}
+        >
+          No Cryptocurrency Found
+        </Box>
+      )}
       {coinsList.length > 0 && (
         <Grid container>
           <Grid item xs={12}>
