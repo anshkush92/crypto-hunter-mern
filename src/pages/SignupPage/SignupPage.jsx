@@ -5,10 +5,7 @@ import { Box, Divider } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-// import {
-//   auth,
-//   createUserWithEmailAndPassword,
-// } from "../../config/firebaseConfig";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import SocialButton from "../../components/Buttons/SocialButton";
@@ -22,6 +19,7 @@ import {
 import FormActionButton from "../../components/Buttons/FormActionButton";
 import InputTf from "../../components/Form/InputTf";
 import AlertToast from "../../components/Alert/Alert";
+import { auth } from "../../firebase";
 
 // Test -------------------------- The current component ----------------------------------
 const SignUpPage = () => {
@@ -52,17 +50,27 @@ const SignUpPage = () => {
       return;
     }
 
-    // try {
-    //   const response = await createUserWithEmailAndPassword(
-    //     auth,
-    //     email,
-    //     password
-    //   );
-    // } catch (error) {}
+    try {
+      // This is what is used to create a new user
+      const response = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
 
+      console.log(`Response`, response);
+    } catch (err) {
+      message = err.message;
+      dispatch(setError({ open, type: "error", message }));
+      console.log(err);
+      return;
+    }
+
+    dispatch(changePage());
     type = "success";
-    message = "Account Created Successfully";
+    message = `Account created successfully. Please login to continue`;
     dispatch(setError({ open, type, message }));
+    return;
   };
 
   return (

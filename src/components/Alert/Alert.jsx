@@ -35,7 +35,7 @@ const AlertToast = () => {
     <Snackbar
       open={open}
       anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      autoHideDuration={2000}
+      autoHideDuration={4000}
       onClose={() => dispatch(removeError())}
       action={action}
     >
