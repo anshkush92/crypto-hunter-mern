@@ -11,9 +11,11 @@ import {
   enteredEmail,
   enteredPassword,
   changePage,
+  setError,
 } from "../../features/userHandler/userHandler";
 import FormActionButton from "../../components/Buttons/FormActionButton";
 import InputTf from "../../components/Form/InputTf";
+import AlertToast from "../../components/Alert/Alert";
 
 // Test -------------------------- The current component ----------------------------------
 const LoginPage = () => {
@@ -23,8 +25,18 @@ const LoginPage = () => {
   const dispatch = useDispatch();
 
   console.log(`State of the user`, state);
+
+  const handleLogin = () => {
+    if (email.trim().length === 0 || password.trim().length === 0) {
+      dispatch(setError("Please Fill all the fields"));
+      return;
+    }
+    console.log(`Login done`);
+  };
+
   return (
     <Box>
+      <AlertToast></AlertToast>
       <Box component="section">
         <Box component="header" sx={{ bgcolor: "#393e46", p: 2 }}>
           <Link to="/">
@@ -97,7 +109,7 @@ const LoginPage = () => {
             </Box>
           </Box>
 
-          <FormActionButton>Login</FormActionButton>
+          <FormActionButton onClick={handleLogin}>Login</FormActionButton>
 
           <Box sx={{ fontSize: "0.9rem", width: "100%", textAlign: "center" }}>
             Don't have an Account ?{" "}

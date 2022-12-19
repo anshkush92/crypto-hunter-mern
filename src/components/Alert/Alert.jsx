@@ -43,7 +43,7 @@ const AlertToast = () => {
         severity="error"
         sx={{ width: "100%" }}
       >
-        {error || "Test"}
+        {error}
       </Alert>
     </Snackbar>
   );
