@@ -20,9 +20,9 @@ const LoginPage = () => {
   return (
     <Box>
       <Box component="section">
-        <Box component="header" sx={{ bgcolor: "black", p: 2 }}>
+        <Box component="header" sx={{ bgcolor: "#393e46", p: 2 }}>
           <Link to="/">
-            <Box component="span" sx={{ color: "white", fontSize: "1.5rem" }}>
+            <Box component="span" sx={{ color: "#f7f7f7", fontSize: "1.5rem" }}>
               Crypto Hunter
             </Box>
           </Link>
@@ -31,7 +31,7 @@ const LoginPage = () => {
         <Box
           component="main"
           sx={{
-            bgcolor: "#f1f1f1",
+            bgcolor: "#f7f7f7",
             display: "flex",
             flexDirection: "column",
             gap: "1rem",
@@ -90,7 +90,7 @@ const LoginPage = () => {
                 sx={{
                   fontSize: "0.8rem",
                   textDecoration: "underline",
-                  color: "red",
+                  color: "#f05454",
                   cursor: "pointer",
                 }}
               >
