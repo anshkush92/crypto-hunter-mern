@@ -90,10 +90,12 @@ const CoinsTable = () => {
   const tableRowsComponent = tableRows.map((cell, index) => (
     <TableCell
       key={cell}
-      align={index === 1 ? "center" : "left"}
+      align="left"
       sx={{
-        backgroundColor: "yellow",
+        backgroundColor: "#393E46",
         fontWeight: "700",
+        border: "0px",
+        color: "#F7F7F7",
       }}
     >
       {cell}
@@ -126,24 +128,28 @@ const CoinsTable = () => {
             }}
           >
             <Table stickyHeader>
-              <TableHead style={{ backgroundColor: "yellow" }}>
+              <TableHead style={{ backgroundColor: "#F7F7F7" }}>
                 <TableRow>{tableRowsComponent}</TableRow>
               </TableHead>
-              <TableBody sx={{ backgroundColor: "#020a0a", color: "white" }}>
+              <TableBody sx={{ backgroundColor: "#020a0a", color: "#F7F7F7" }}>
                 {coinsList.map((row) => (
                   <TableRow
                     key={row.id}
                     onClick={() => navigate(`/coins/${row.id}`)}
-                    sx={{ "&:hover": { backgroundColor: "#1b1b1b" } }}
+                    sx={{
+                      "&:hover": {
+                        backgroundColor: "#1b1b1b",
+                      },
+                    }}
                   >
-                    <TableCell sx={{ color: "white" }}>
+                    <TableCell sx={{ color: "#F7F7F7" }}>
                       {row.market_cap_rank}
                     </TableCell>
 
                     <TableCell
                       align="left"
                       sx={{
-                        color: "white",
+                        color: "#F7F7F7",
                       }}
                     >
                       <Box display="flex" alignItems="center" gap="15px">
@@ -170,7 +176,7 @@ const CoinsTable = () => {
                         </Box>
                       </Box>
                     </TableCell>
-                    <TableCell align="left" sx={{ color: "white" }}>
+                    <TableCell align="left" sx={{ color: "#F7F7F7" }}>
                       {symbol} {row.current_price}
                     </TableCell>
                     <TableCell
@@ -178,21 +184,21 @@ const CoinsTable = () => {
                       sx={{
                         color:
                           row.price_change_percentage_24h >= 0
-                            ? "green"
-                            : "red",
+                            ? "#50D890"
+                            : "#f05454",
                       }}
                     >
                       {row.price_change_percentage_24h} %
                     </TableCell>
-                    <TableCell align="left" sx={{ color: "white" }}>
+                    <TableCell align="left" sx={{ color: "#F7F7F7" }}>
                       {symbol} {row.market_cap}
                     </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
 
-              <TableFooter>
-                <TableRow>
+              <TableFooter sx={{ backgroundColor: "#f7f7f7" }}>
+                <TableRow sx={{ border: "0px" }}>
                   <TablePagination
                     rowsPerPageOptions={[
                       5,

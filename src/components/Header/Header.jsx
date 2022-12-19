@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <>
       {/* The Navigation Bar */}
-      <AppBar sx={{ backgroundColor: "#151515" }} position="static">
+      <AppBar sx={{ backgroundColor: "#393E46" }} position="static">
         <Toolbar
           sx={{
             display: "flex",
@@ -36,7 +36,7 @@ const Header = () => {
             >
               <Typography
                 variant="h5"
-                sx={{ fontSize: { xs: "18px", sm: "24px" } }}
+                sx={{ fontSize: { xs: "18px", sm: "24px" }, color: "#F7F7F7" }}
               >
                 Crypto Hunter
               </Typography>

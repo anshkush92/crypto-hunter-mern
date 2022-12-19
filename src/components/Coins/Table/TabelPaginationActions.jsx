@@ -1,5 +1,5 @@
 // Test -------------------------- Importing the Packages ---------------------------------
-import {Box, IconButton} from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 import FirstPageIcon from "@mui/icons-material/FirstPage";

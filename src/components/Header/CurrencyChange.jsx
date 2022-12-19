@@ -35,11 +35,16 @@ const CurrencyChange = () => {
       value={currency}
       id="country-data"
       options={countryData}
-      sx={{ m: 1, minWidth: { xs: 120, sm: 170 } }}
+      sx={{
+        m: 1,
+        minWidth: { xs: 120, sm: 170 },
+      }}
       renderOption={(props, option) => (
         <Box
           component="li"
-          sx={{ "& > img": { mr: 2, flexShrink: 0 } }}
+          sx={{
+            "& > img": { mr: 2, flexShrink: 0 },
+          }}
           {...props}
           key={option.name}
         >
