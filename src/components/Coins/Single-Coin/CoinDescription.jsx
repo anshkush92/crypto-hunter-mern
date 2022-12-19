@@ -25,7 +25,7 @@ import Loader from "../../Loader/Loader";
 
 // Test -------------------------- The current component ----------------------------------
 const CoinDescription = (props) => {
-  const { coinData } = props;
+  const { coinData, addToFavorite } = props;
   const { symbol, label } = useSelector((state) => state.currencyChanger);
 
   // Setting the state to the loading, then we will change it when it is not undefined
@@ -192,6 +192,7 @@ const CoinDescription = (props) => {
 
           {/* Coin Chart Section */}
           <CoinChart
+            addToFavorite={addToFavorite}
             id={coinData.id}
             currency={label.toLowerCase()}
             coin={coin}

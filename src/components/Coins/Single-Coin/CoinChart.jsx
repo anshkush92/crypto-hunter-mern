@@ -22,7 +22,8 @@ import {
 
 // Test -------------------------- Importing the styles / other components ----------------
 import useCoinGeckoChartData from "../../../hooks/coinGecko/useCoinGeckoChartData";
-import { useSelector } from "react-redux";
+import { setFavoriteCoinsList } from "../../../features/coinsList/coinsList";
+import { useSelector, useDispatch } from "react-redux";
 
 ChartJS.register(
   CategoryScale,
@@ -36,13 +37,21 @@ ChartJS.register(
 // Test -------------------------- The current component ----------------------------------
 const CoinChart = (props) => {
   const { isLogin } = useSelector((state) => state.userHandler);
+  const dispatch = useDispatch();
 
   // Getting the props, which are being passed into the hook for getting the chart Data
-  const { currency, id, coin, symbol } = props;
+  const { currency, id, coin, symbol, addToFavorite } = props;
   // Creating a loading state for the Chart
   const [isLoading, setIsLoading] = useState(true);
   // Creating the state for days
   const [inputValue, setInputValue] = useState(5);
+
+  const favorite = useSelector(
+    (state) => state.coinsListHandler.favoriteCoinsList
+  );
+
+  const inFavoriteCoinsList = favorite?.includes(id);
+  console.log(inFavoriteCoinsList);
 
   const inputValueHandler = (event) => {
     console.log(event.target.value);
@@ -113,6 +122,12 @@ const CoinChart = (props) => {
     ],
   };
 
+  const handleFavoriteCoinsList = () => {
+    console.log("Add TO Favorite Clicked");
+    addToFavorite(id);
+    dispatch(setFavoriteCoinsList(id));
+  };
+
   useEffect(() => {
     setIsLoading(chartDataLength === 0);
     console.log(isLoading);
@@ -179,18 +194,21 @@ const CoinChart = (props) => {
         {isLogin && (
           <Button
             size="large"
+            onClick={handleFavoriteCoinsList}
             sx={{
               flexGrow: "1",
               color: "black",
-              backgroundColor: "#50d890",
+              backgroundColor: `${inFavoriteCoinsList ? "#f05454" : "#59dc97"}`,
               height: "3.4375rem",
               width: "100%",
               "&:hover": {
-                backgroundColor: "#59dc97",
+                backgroundColor: `${
+                  inFavoriteCoinsList ? "#fc5d5d" : "#5feaa0"
+                }`,
               },
             }}
           >
-            Add to Favorites
+            {inFavoriteCoinsList ? "Remove From Favorites" : "Add to Favorites"}
           </Button>
         )}
       </Box>

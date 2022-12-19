@@ -69,6 +69,7 @@ export const userHandlerSlice = createSlice({
     },
 
     setError: (state, action) => {
+      console.log(action.payload);
       state.error = action.payload;
     },
 
