@@ -21,7 +21,7 @@ const CoinStats = (props) => {
 
   return (
     <>
-      <ListItem sx={{ "&:hover": { backgroundColor: "#202018e6" } }}>
+      <ListItem sx={{ "&:hover": { backgroundColor: "#1a1a1a" } }}>
         <Box display="flex" alignItems="center">
           <ListItemIcon sx={{ minWidth: "30px" }}>{icon}</ListItemIcon>
           <ListItemText
@@ -29,8 +29,17 @@ const CoinStats = (props) => {
           ></ListItemText>
         </Box>
         <ListItemText
-          primary={`${currencySymbol !== undefined ? symbol : ""} ${value} ${text.color !== undefined ? "%" : ""}`}
-          sx={{ textAlign: "right", color: `${text.color !== undefined ? text.color : "gold"}` }}
+          primary={`${currencySymbol !== undefined ? symbol : ""} ${value} ${
+            text.color !== undefined ? "%" : ""
+          }`}
+          sx={{
+            textAlign: "right",
+            color: `${
+              text.color !== undefined
+                ? `${text.color > 0 ? "#f05454" : "#50d890"}`
+                : "gold"
+            }`,
+          }}
         ></ListItemText>
       </ListItem>
       <Divider sx={{ backgroundColor: "white" }}></Divider>

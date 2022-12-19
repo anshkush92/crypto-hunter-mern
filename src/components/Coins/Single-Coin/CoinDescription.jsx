@@ -186,7 +186,7 @@ const CoinDescription = (props) => {
                 variant="h5"
                 component="span"
                 fontWeight="900"
-                sx={{ color: "gold" }}
+                sx={{ color: "#FFD523" }}
               >
                 {label}
               </Typography>
@@ -223,7 +223,7 @@ const CoinDescription = (props) => {
                 <Typography
                   component="span"
                   fontWeight="900"
-                  sx={{ color: "gold" }}
+                  sx={{ color: "#FFD523" }}
                 >
                   {coin.name}
                 </Typography>
@@ -249,7 +249,7 @@ const CoinDescription = (props) => {
                 <Typography
                   component="span"
                   fontWeight="900"
-                  sx={{ color: "gold" }}
+                  sx={{ color: "#FFD523" }}
                 >
                   {coin.name}
                 </Typography>
@@ -285,7 +285,7 @@ const CoinDescription = (props) => {
                   variant="body1"
                   sx={{
                     a: {
-                      color: "gold",
+                      color: "#FFD523",
                       "&:hover": { textDecoration: "underline" },
                     },
                   }}

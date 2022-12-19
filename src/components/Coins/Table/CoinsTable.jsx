@@ -138,7 +138,7 @@ const CoinsTable = () => {
                     onClick={() => navigate(`/coins/${row.id}`)}
                     sx={{
                       "&:hover": {
-                        backgroundColor: "#1b1b1b",
+                        backgroundColor: "#1a1a1a",
                       },
                     }}
                   >

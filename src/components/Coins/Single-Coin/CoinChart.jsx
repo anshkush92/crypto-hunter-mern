@@ -105,7 +105,7 @@ const CoinChart = (props) => {
         label: `Price in ${currency.toUpperCase()}`,
         data: prices?.map((coin) => coin[1]),
         // backgroundColor: "white",
-        borderColor: "#EEBC1D",
+        borderColor: "#ffd523",
       },
     ],
   };
@@ -124,12 +124,12 @@ const CoinChart = (props) => {
   ) : (
     <Box>
       <Box display="flex" flexDirection="column">
-        <Typography variant="h5" sx={{ color: "gold" }}>
+        <Typography variant="h5" sx={{ color: "#ffd523" }}>
           {coin.name} Price Chart
         </Typography>
         <Typography variant="body1">
           Current Price:{" "}
-          <Typography component="span" sx={{ color: "gold" }}>
+          <Typography component="span" sx={{ color: "#ffd523" }}>
             {symbol} {coin.price}
           </Typography>
         </Typography>
@@ -137,7 +137,7 @@ const CoinChart = (props) => {
           24hr Change:{"  "}
           <Typography
             component="span"
-            sx={{ color: coin.change24hr >= 0 ? "green" : "red" }}
+            sx={{ color: coin.change24hr >= 0 ? "#50d890" : "#f05454" }}
           >
             {coin.change24hr} %
           </Typography>
@@ -156,16 +156,22 @@ const CoinChart = (props) => {
         <TextField
           variant="outlined"
           label="Number of days"
-          sx={{ input: { color: "white" }, flexGrow: "1", width: "100%" }}
+          type="number"
+          sx={{
+            input: { color: "#f7f7f7" },
+            flexGrow: "1",
+            borderRadius: 1,
+            width: "100%",
+            backgroundColor: "#393e46",
+          }}
           InputLabelProps={{
             style: {
-              color: "white",
-              borderColor: "red",
+              color: "#f7f7f7",
             },
           }}
           onChange={inputValueHandler}
           value={inputValue || ""}
-          focused
+          // focused
         ></TextField>
         <Button
           size="large"

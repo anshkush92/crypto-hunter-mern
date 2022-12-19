@@ -12,13 +12,14 @@ const AuthButton = (props) => {
   return (
     <Link to={link} style={{ textDecoration: "none" }}>
       <Button
-      variant={buttonVariant || "outlined"}
+        variant={buttonVariant || "outlined"}
         sx={{
-          color: "yellow",
-          borderColor: "yellow",
+          color: "white",
+          borderColor: "#f7f7f7",
           "&:hover": {
-            borderColor: "yellow",
-            backgroundColor: "#4e4e2e",
+            borderColor: "black",
+            backgroundColor: "#f7f7f7",
+            color: "black",
           },
         }}
       >
