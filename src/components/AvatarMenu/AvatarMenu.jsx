@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { signOut } from "firebase/auth";
+
 import { logoutUser } from "../../features/userHandler/userHandler";
 import { useDispatch } from "react-redux";
 
@@ -15,6 +17,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useNavigate } from "react-router-dom";
 
 import { useSelector } from "react-redux";
+import { auth } from "../../firebase";
 
 export default function AccountMenu() {
   const navigate = useNavigate();
@@ -35,6 +38,7 @@ export default function AccountMenu() {
   };
 
   const handleLogout = () => {
+    signOut(auth);
     dispatch(logoutUser());
     navigate("/login");
   };

@@ -22,6 +22,7 @@ import {
 
 // Test -------------------------- Importing the styles / other components ----------------
 import useCoinGeckoChartData from "../../../hooks/coinGecko/useCoinGeckoChartData";
+import { useSelector } from "react-redux";
 
 ChartJS.register(
   CategoryScale,
@@ -34,6 +35,8 @@ ChartJS.register(
 );
 // Test -------------------------- The current component ----------------------------------
 const CoinChart = (props) => {
+  const { isLogin } = useSelector((state) => state.userHandler);
+
   // Getting the props, which are being passed into the hook for getting the chart Data
   const { currency, id, coin, symbol } = props;
   // Creating a loading state for the Chart
@@ -173,21 +176,23 @@ const CoinChart = (props) => {
           value={inputValue || ""}
           // focused
         ></TextField>
-        <Button
-          size="large"
-          sx={{
-            flexGrow: "1",
-            color: "black",
-            backgroundColor: "white",
-            height: "3.4375rem",
-            width: "100%",
-            "&:hover": {
-              backgroundColor: "#f0f0f0",
-            },
-          }}
-        >
-          Add to Favorites
-        </Button>
+        {isLogin && (
+          <Button
+            size="large"
+            sx={{
+              flexGrow: "1",
+              color: "black",
+              backgroundColor: "white",
+              height: "3.4375rem",
+              width: "100%",
+              "&:hover": {
+                backgroundColor: "#f0f0f0",
+              },
+            }}
+          >
+            Add to Favorites
+          </Button>
+        )}
       </Box>
       <Box sx={{ height: "500px", width: "100%", position: "relative" }}>
         <Line options={options} data={data}></Line>
