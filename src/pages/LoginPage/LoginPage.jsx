@@ -2,7 +2,7 @@
 import { Box, Divider } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import SocialButton from "../../components/Buttons/SocialButton";
@@ -18,6 +18,7 @@ import FormActionButton from "../../components/Buttons/FormActionButton";
 import InputTf from "../../components/Form/InputTf";
 import AlertToast from "../../components/Alert/Alert";
 import { auth } from "../../firebase";
+import { GoogleAuthProvider } from "firebase/auth";
 
 // Test -------------------------- The current component ----------------------------------
 const LoginPage = () => {
@@ -28,11 +29,12 @@ const LoginPage = () => {
 
   console.log(`State of the user`, state);
 
-  const handleLogin = async () => {
-    let open, type, message;
-    open = true;
-    type = "error";
+  let open, type, message;
+  open = true;
+  type = "error";
+  message = "";
 
+  const handleLogin = async () => {
     if (email.trim().length === 0 || password.trim().length === 0) {
       message = "Please Fill all the fields";
       dispatch(setError({ open, type, message }));
@@ -58,6 +60,36 @@ const LoginPage = () => {
       navigate("/");
       dispatch(removeError());
       return;
+    } catch (err) {
+      message = err.message;
+      dispatch(setError({ open, type, message }));
+      console.log(err);
+      return;
+    }
+  };
+
+  const googleProvider = new GoogleAuthProvider();
+
+  const handleGoogleLogin = async () => {
+    console.log(`Google Login`);
+    try {
+      const response = await signInWithPopup(auth, googleProvider);
+      console.log(response);
+      dispatch(changePage());
+
+      console.log(`Login done`);
+      type = "success";
+      message = "Login Successful";
+      dispatch(
+        loginUser({
+          photoURL: response.user.photoURL,
+          email: response.user.email,
+          displayName: response.user.displayName,
+        })
+      );
+      dispatch(setError({ open, type, message }));
+      navigate("/");
+      dispatch(removeError());
     } catch (err) {
       message = err.message;
       dispatch(setError({ open, type, message }));
@@ -106,7 +138,10 @@ const LoginPage = () => {
           </Box>
 
           <Box>
-            <SocialButton src="https://res.cloudinary.com/dicbnntfh/image/upload/v1671358098/Crypto-Hunter-Mern/Google__G__Logo.svg_xunok2.webp">
+            <SocialButton
+              onClick={handleGoogleLogin}
+              src="https://res.cloudinary.com/dicbnntfh/image/upload/v1671358098/Crypto-Hunter-Mern/Google__G__Logo.svg_xunok2.webp"
+            >
               Login With Google
             </SocialButton>
           </Box>

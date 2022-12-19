@@ -1,6 +1,6 @@
 import { Button, Box } from "@mui/material";
 
-const SocialButton = ({ children, src }) => {
+const SocialButton = ({ children, src, onClick }) => {
   return (
     <Button
       sx={{
@@ -18,6 +18,7 @@ const SocialButton = ({ children, src }) => {
           bgcolor: "#dedede",
         },
       }}
+      onClick={onClick}
     >
       <Box
         component="img"

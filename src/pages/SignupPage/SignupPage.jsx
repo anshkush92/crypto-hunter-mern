@@ -3,9 +3,13 @@ import React from "react";
 
 import { Box, Divider } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import SocialButton from "../../components/Buttons/SocialButton";
@@ -15,6 +19,8 @@ import {
   enteredConfirmPassword,
   changePage,
   setError,
+  loginUser,
+  removeError,
 } from "../../features/userHandler/userHandler";
 import FormActionButton from "../../components/Buttons/FormActionButton";
 import InputTf from "../../components/Form/InputTf";
@@ -23,6 +29,7 @@ import { auth } from "../../firebase";
 
 // Test -------------------------- The current component ----------------------------------
 const SignUpPage = () => {
+  const navigate = useNavigate();
   const state = useSelector((state) => state.userHandler);
   const dispatch = useDispatch();
 
@@ -30,12 +37,12 @@ const SignUpPage = () => {
 
   console.log(`State of the user`, state);
 
-  const handleSignUp = async () => {
-    let open, type, message;
-    open = true;
-    type = "error";
-    message = "";
+  let open, type, message;
+  open = true;
+  type = "error";
+  message = "";
 
+  const handleSignUp = async () => {
     if (
       email.trim().length === 0 ||
       password.trim().length === 0 ||
@@ -67,6 +74,36 @@ const SignUpPage = () => {
     } catch (err) {
       message = err.message;
       dispatch(setError({ open, type: "error", message }));
+      console.log(err);
+      return;
+    }
+  };
+
+  const googleProvider = new GoogleAuthProvider();
+
+  const handleGoogleLogin = async () => {
+    console.log(`Google Login`);
+    try {
+      const response = await signInWithPopup(auth, googleProvider);
+      console.log(response);
+      dispatch(changePage());
+
+      console.log(`Login done`);
+      type = "success";
+      message = "Login Successful";
+      dispatch(
+        loginUser({
+          photoURL: response.user.photoURL,
+          email: response.user.email,
+          displayName: response.user.displayName,
+        })
+      );
+      dispatch(setError({ open, type, message }));
+      navigate("/");
+      dispatch(removeError());
+    } catch (err) {
+      message = err.message;
+      dispatch(setError({ open, type, message }));
       console.log(err);
       return;
     }
@@ -112,8 +149,11 @@ const SignUpPage = () => {
           </Box>
 
           <Box>
-            <SocialButton src="https://res.cloudinary.com/dicbnntfh/image/upload/v1671358098/Crypto-Hunter-Mern/Google__G__Logo.svg_xunok2.webp">
-              Signup With Google
+            <SocialButton
+              onClick={handleGoogleLogin}
+              src="https://res.cloudinary.com/dicbnntfh/image/upload/v1671358098/Crypto-Hunter-Mern/Google__G__Logo.svg_xunok2.webp"
+            >
+              Login With Google
             </SocialButton>
           </Box>
 
