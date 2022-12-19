@@ -59,7 +59,10 @@ export const userHandlerSlice = createSlice({
 
     changePage: (state) => {
       console.log(state);
-      state = { ...initialState, isLogin: state.isLogin };
+      state.email = "";
+      state.password = "";
+      state.confirmPassword = "";
+      state.error = { ...state.error, open: false };
     },
 
     setError: (state, action) => {
