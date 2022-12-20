@@ -69,6 +69,7 @@ const SignUpPage = () => {
       message = `Account created successfully. Please login to continue`;
       dispatch(changePage());
       dispatch(setError({ open: true, type, message }));
+      navigate("/login");
       console.log(`Response`, response);
       return;
     } catch (err) {
