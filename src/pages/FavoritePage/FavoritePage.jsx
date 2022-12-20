@@ -5,12 +5,10 @@ import { useEffect, useState } from "react";
 
 import { useSelector } from "react-redux";
 
-import useCoinGeckoCoinsList from "../../hooks/coinGecko/useCoinGeckoList";
 import CoinsTableFav from "../../components/Coins/Table/CoinsTableFav";
 import Header from "../../components/Header/Header";
 
 const FavoritePage = () => {
-  const newCoinsList = useCoinGeckoCoinsList("usd", 25, 22);
   const [favoriteCoinsData, setFavoriteCoinsData] = useState([]);
 
   console.log(favoriteCoinsData);
