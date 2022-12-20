@@ -20,17 +20,17 @@ import { doc, onSnapshot } from "firebase/firestore";
 const App = () => {
   const dispatch = useDispatch();
 
-  const favorite = useSelector(
-    (state) => state.coinsListHandler.favoriteCoinsList
-  );
+  // const favorite = useSelector(
+  //   (state) => state.coinsListHandler.favoriteCoinsList
+  // );
 
   // For checking whether the data that we are getting is correct or not
-  console.log(favorite);
+  // console.log(favorite);
 
   // Getting the user from the local storage
   useEffect(() => {
     const input = JSON.parse(localStorage.getItem("user"));
-    console.log(`Input`, input);
+    // console.log(`Input`, input);
     if (input) {
       dispatch(loginUser(input));
     }
@@ -43,7 +43,7 @@ const App = () => {
       const coinRef = doc(db, "favorite", user.uid);
       const unsubscribe = onSnapshot(coinRef, (doc) => {
         if (doc.exists()) {
-          console.log("Document data:", doc.data());
+          // console.log("Document data:", doc.data());
           dispatch(setFavoriteCoinsList(doc.data().coins));
         } else {
           // doc.data() will be undefined in this case
