@@ -17,7 +17,10 @@ import {
   Grid,
 } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { setCoinsList } from "../../../features/coinsList/coinsList";
+import {
+  setCoinsList,
+  setSearchValue,
+} from "../../../features/coinsList/coinsList";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import useCoinGeckoCoinsList from "../../../hooks/coinGecko/useCoinGeckoList";
@@ -115,6 +118,7 @@ const CoinsTable = () => {
   const goToFirstPage = () => {
     setRowsPerPage(25);
     setPage(0);
+    dispatch(setSearchValue({ searchValue: "" }));
   };
 
   return (
