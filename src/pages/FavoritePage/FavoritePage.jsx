@@ -11,18 +11,18 @@ import Header from "../../components/Header/Header";
 const FavoritePage = () => {
   const [favoriteCoinsData, setFavoriteCoinsData] = useState([]);
 
-  console.log(favoriteCoinsData);
+  // console.log(favoriteCoinsData);
   const favorite = useSelector(
     (state) => state.coinsListHandler.favoriteCoinsList
   );
-  console.log(favorite);
+  // console.log(favorite);
 
   useEffect(() => {
     const getCoinData = async (coin) => {
       const requestUrl = `https://api.coingecko.com/api/v3/coins/${coin}`;
       const response = await fetch(requestUrl);
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setFavoriteCoinsData((prev) => [...prev, data]);
       return data;
     };
@@ -31,7 +31,7 @@ const FavoritePage = () => {
     console.log(data);
   }, [favorite]);
 
-  console.log(favoriteCoinsData);
+  // console.log(favoriteCoinsData);
 
   // useEffect(() => {
   //   console.log("Running");
