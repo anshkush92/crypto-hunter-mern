@@ -20,7 +20,7 @@ import { setCoinsList } from "../../../features/coinsList/coinsList";
 
 // Test -------------------------- Importing the styles / other components ----------------
 import TablePaginationActions from "./TabelPaginationActions";
-import { compareRank } from "../../../utilities/Sorting/sort";
+// import { compareRank } from "../../../utilities/Sorting/sort";
 import Loader from "../../../components/Loader/Loader";
 
 // Test -------------------------- The current component ----------------------------------
