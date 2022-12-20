@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
+  Button,
   TableContainer,
   TableRow,
   Table,
@@ -111,25 +112,56 @@ const CoinsTable = () => {
     setPage(0);
   };
 
+  const goToFirstPage = () => {
+    setRowsPerPage(25);
+    setPage(0);
+  };
+
   return (
     <Box width="100%" px="5%" backgroundColor="black">
       {isLoading && (
-        <Box width="100%" my="10px">
+        <Box width="100%" pt="10px" pb="500px">
           <Loader></Loader>
         </Box>
       )}
       {coinsList.length === 0 && !isLoading && (
         <Box
           sx={{
-            my: "20px",
+            pt: "20px",
+            pb: "80px",
             display: "flex",
-            width: "100%",
-            color: "#f05454",
-            fontSize: "2rem",
+            flexDirection: "column",
+            alignItems: "center",
             justifyContent: "center",
+            gap: "1.25rem",
           }}
         >
-          No Cryptocurrency Found
+          <Box
+            sx={{
+              display: "flex",
+              width: "100%",
+              color: "#f05454",
+              justifyContent: "center",
+              fontSize: "2rem",
+            }}
+          >
+            No Cryptocurrency Found
+          </Box>
+          <Button
+            sx={{
+              color: "black",
+              fontWeight: "700",
+              height: "3rem",
+              backgroundColor: "#59dc97",
+              width: "100%",
+              "&:hover": {
+                backgroundColor: "#5feaa0",
+              },
+            }}
+            onClick={goToFirstPage}
+          >
+            Go to 1st Page
+          </Button>
         </Box>
       )}
       {coinsList.length > 0 && (
