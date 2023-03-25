@@ -7,9 +7,10 @@ services:
       - 3000:3000 # Port mapping for the client container - Host port : Container port
     volumes:
       - /app/node_modules # Anonymous volume - Stores installed dependencies
-      - ./src:/app/src # Named volume - Name : Container directory - Allows host file changes to be reflected in the container
+      - src:/app/src # Named volume - Name : Container directory - Allows host file changes to be reflected in the container
     env_file:
       - ./src/.env.local # Environment variables for the client container
+    restart: always # Restarts the container if it crashes
 
-# volumes:
-#   src: # Name of the volume
+volumes:
+  src: # Name of the volume
