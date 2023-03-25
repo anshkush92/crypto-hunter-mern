@@ -1,0 +1,9 @@
+# Files that don't need to copied into Docker image during the build process (e.g. node_modules, .git, etc.)
+node_modules
+.gitignore
+.dockerignore
+.git
+README.md
+Resources.md
+Dockerfile
+.vscode
