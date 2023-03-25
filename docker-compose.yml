@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  client: # Name of the service
+    build: ./ # Path to the Dockerfile to the build the image for the client container
+    ports:
+      - 3000:3000 # Port mapping for the client container - Host port : Container port
+    volumes:
+      - /app/node_modules # Anonymous volume - Stores installed dependencies
+      - src:/app/src # Named volume - Name : Container directory - Allows host file changes to be reflected in the container
+    stdin_open: true
+    tty: true
+
+volumes:
+  src: # Name of the volume
