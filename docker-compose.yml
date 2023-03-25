@@ -10,6 +10,8 @@ services:
       - src:/app/src # Named volume - Name : Container directory - Allows host file changes to be reflected in the container
     stdin_open: true
     tty: true
+    env_file:
+      - ./src/.env.local # Environment variables for the client container
 
 volumes:
   src: # Name of the volume
