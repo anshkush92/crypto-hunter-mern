@@ -1,5 +1,7 @@
 ![Logo](https://res.cloudinary.com/dicbnntfh/image/upload/v1671525723/spotify-clone/logo_tdxo2z.png)
 
+[Checkout the SonarQube Report for this Project](https://sonarqube.betterpw.live/dashboard?id=crypto-hunter-ansh-test)
+
 # Crypto Hunter
 
 Welcome to the Crypto Hunter! This website allows you to easily track the real-time prices, market capitalizations, and rankings of various cryptocurrencies.
